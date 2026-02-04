@@ -192,3 +192,102 @@ body {
     width: 25px;
     height: 12px;
 }
+
+/* ========================
+   Menu Items
+   ======================== */
+
+/* Spacing above and below the Menu heading */
+.menu {
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+/* Menu item list */
+.menu-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    /* Stack menu cards vertically */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 300px;
+
+}
+
+/* ========================
+   Individual Menu Card
+   ======================== */
+
+.menu-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+
+    /* Inner spacing and layout */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Food image */
+.image {
+    width: 140px;
+    height: 100px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    /* Prevent image from shrinking */
+    flex-shrink: 0;
+}
+
+.menu-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-title {
+    /* Position relative for signature label */
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.signature {
+    /* Position near the menu title */
+    position: absolute;
+    top: 10px;
+    left: -150px;
+    background-color: #F59E0B;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 4px 6px;
+    border-radius: 8px;
+}
+
+.menu-text h3 {
+    margin: 0;
+}
+
+.menu-text p {
+    margin: 5px 0;
+    color: #6B7280;
+}
+
+#price {
+    font-weight: bold;
+    color: #000000;
+}
+
+.add-button {
+    /* Make button to the right */
+    margin-left: auto;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #10B981;
+    color: white;
+}
