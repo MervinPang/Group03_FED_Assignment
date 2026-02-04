@@ -166,3 +166,29 @@ body {
     border-radius: 14px;
     overflow: hidden;
 }
+
+/* Tab button */
+.tab {
+    flex: 1;
+    padding: 14px;
+    border-style: none;
+    background-color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Active tab */
+.tab.active {
+    background: #D1FAE5;
+}
+
+/* Restaurant Icon */
+#restaurant-icon {
+    width: 25px;
+    height: 12px;
+}
+
+/* Chatbox Icon */
+#chatbox-icon {
+    width: 25px;
+    height: 12px;
+}
