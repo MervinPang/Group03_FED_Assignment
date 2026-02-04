@@ -213,8 +213,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding-bottom: 300px;
-
+    padding-bottom: 250px;
 }
 
 /* ========================
@@ -288,6 +287,39 @@ body {
     padding: 10px 14px;
     border: none;
     border-radius: 10px;
-    background-color: #10B981;
-    color: white;
+    background-color: #059669;
+    color: #FFFFFF;
+}
+
+/* ========================
+   Cart Bar
+   ======================== */
+
+.cart-bar {
+    display: flex;
+
+    /* Fix the cart bar to the bottom of the screen */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0FDF9;
+    border-top: 1px solid #E5E7EB;
+    padding: 12px 20px;
+}
+
+/* Cart item count text */
+.cart-items {
+    margin: 0;
+    color: #000000;
+}
+
+.cart-button {
+    text-decoration: none;
+    background-color: #059669;
+    color: #FFFFFF;
+    padding: 10px 14px;
+    border-radius: 10px;
 }
