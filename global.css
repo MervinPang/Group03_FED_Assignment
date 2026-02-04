@@ -1,0 +1,65 @@
+/* ====================
+   Global Page Styles
+   ==================== */
+
+body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+/* ================
+   Navigation Bar
+   ================ */
+
+/* Navigation Bar (Header) */
+.navigation-bar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: #F0FDF9;
+    padding: 0 20px;
+}
+
+.nav {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.link {
+    margin-left: auto;
+    display: flex;
+    gap: 18px;
+}
+
+/* HawkerHubSG Logo */
+.logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+/* HawkerHubSG Name */
+.name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Buttons */
+.button {
+    text-decoration: none;
+    color: #000000;
+    padding: 10px 16px;
+    border-radius: 20px;
+}
+
+/* Active button */
+.button.active {
+    background-color: #D1FAE5;
+    color: #059669;
+    font-weight: bold;
+}
