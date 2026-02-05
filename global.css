@@ -29,7 +29,7 @@ body {
     padding: 0 20px;
 }
 
-.nav-logo {
+.nav {
     width: 100%;
     padding: 20px;
     display: flex;
@@ -44,7 +44,7 @@ body {
 }
 
 /* HawkerHubSG Logo */
-.logo {
+.nav-logo {
     width: 42px;
     height: 42px;
     object-fit: contain;
