@@ -44,7 +44,7 @@ body {
 }
 
 /* HawkerHubSG Logo */
-.logo {
+.nav-logo {
     width: 42px;
     height: 42px;
     object-fit: contain;
@@ -322,4 +322,154 @@ body {
     color: #FFFFFF;
     padding: 10px 14px;
     border-radius: 10px;
+}
+
+/* ========================
+   Top Social Media Bar
+   ======================== */
+
+.socials {
+    background-color: #10B981;
+    color: #FFFFFF;
+    padding: 14px 0;
+}
+
+/* Layout for text and icons in the top bar */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Text on the top bar */
+.footer-top-text {
+    margin: 8px;
+    font-size: 14px;
+}
+
+/* Container for icons */
+.footer-icon {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.linkedin-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.instagram-icon {
+    width: 25px;
+    height: 25px;
+    padding-top: 4px;
+}
+
+.twitter-icon {
+    width: 28px;
+    height: 28px;
+    padding-top: 5px;
+}
+
+/* ========================
+   Main Footer Area
+   ======================== */
+
+.footer {
+    background-color: #36465D;
+    color: #FFFFFF;
+    padding: 50px;
+}
+
+/* Layout for columns */
+.layout {
+    display: flex;
+    gap: 120px;
+    margin-bottom: 20px;
+}
+
+/* ========================
+   Footer Section Titles
+   ======================== */
+
+.title {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-top: 21px;
+}
+
+/* Green underline under heading*/
+.line {
+    width: 50px;
+    height: 3px;
+    background: #10B981;
+    margin: 18px 0;
+}
+
+/* Footer HawkerHubSG Logo */
+.footer-logo {
+    width: 140px;
+}
+
+/* Footer links */
+.link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.link:hover {
+    color: #059669;
+}
+
+/* ========================
+   Contact Information Rows
+   ======================== */
+
+.contact {
+    /* Align icon and text on the same row */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 25px 0;
+    font-size: 16px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #FFFFFF
+}
+
+.contact a:hover {
+    color: #10B981;
+}
+
+.location-icon {
+    width: 25px;
+    height: 20px;
+}
+
+.mail-icon {
+    width: 25px;
+    height: 20px;
+}
+
+.phone-icon {
+    width: 25px;
+    height: 20px;
+}
+
+/* ========================
+   Bottom Footer Strip
+   ======================== */
+
+.footer-bottom {
+    background-color: #1F2A3A;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 60px;
 }
