@@ -1,0 +1,111 @@
+.box {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 18px;
+    max-width: 520px;
+    margin: 60px auto;
+    padding: 22px;
+}
+
+.head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.back {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.back:hover {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+.cancel-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.shop {
+    margin: 14px;
+    font-size: 16px;
+}
+
+.cart-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #D1D5DB;
+    border-radius: 14px;
+    gap: 12px;
+    padding: 10px 10px;
+}
+
+.item img {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.text {
+    flex: 1;
+    font-size: 15px;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #D1D5DB;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.qty span {
+    width: 20px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.remove {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.remove img {
+    width: 16px;
+    height: 16px;
+}
