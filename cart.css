@@ -2,6 +2,7 @@
    Main Order Card Container
    ========================= */
 
+/* Main Container Card */
 .box {
     background-color: #FFFFFF;
     border: 1px solid #E5E7EB;
@@ -186,4 +187,51 @@
     height: 32px;
     object-fit: contain;
     display: block;
+}
+
+/* =========================
+   Subtotal and Total
+   ========================= */
+
+/* Container for subtotal and total rows */
+.summary {
+    margin-top: 0;
+}
+
+/* Each row (Subtotal and Total) */
+.summary-row {
+    display: flex;
+    /* Push label left and amount right */
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    font-size: 16px;
+}
+
+/* Highlight the total amount */
+.summary-row.total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =========================
+   Checkout Button
+   ========================= */
+
+.checkout-button {
+    width: 100%;
+    /* Space above button */
+    margin-top: 22px;
+    padding: 16px;
+    border-style: none;
+    border-radius: 14px;
+    background-color: #10B981;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background-color: #059669;
 }
