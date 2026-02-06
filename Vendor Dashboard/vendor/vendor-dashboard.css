@@ -244,3 +244,61 @@ body {
 .vendor-card-icon {
   font-size: 1.2rem;
 }
+/*Order Items*/
+.vendor-order-item,
+.vendor-menu-item {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s;
+}
+
+.vendor-order-item:hover,
+.vendor-menu-item:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.vendor-order-info h4,
+.vendor-menu-info h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.vendor-order-info p,
+.vendor-menu-info p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.vendor-order-status {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.vendor-status-ready {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.vendor-status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.vendor-status-cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
