@@ -133,3 +133,72 @@ body {
 .nea-btn-text {
   font-weight: 600;
 }
+/* Stats Row */
+.nea-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  list-style: none;
+}
+
+.nea-stat-card {
+  background: var(--white);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border: 1px solid var(--border-light);
+  transition: all 0.3s;
+}
+
+.nea-stat-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.nea-stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--white);
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.nea-stat-icon.blue {
+  background: var(--accent-blue);
+}
+
+.nea-stat-icon.green {
+  background: var(--green-a);
+}
+
+.nea-stat-icon.yellow {
+  background: var(--orange-c);
+}
+
+.nea-stat-content {
+  flex: 1;
+}
+
+.nea-stat-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.nea-stat-card h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
