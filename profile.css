@@ -1,0 +1,199 @@
+/* wraps the whole page */
+.pf-page {
+  max-width: 520px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* each card */
+.pf-block {
+  background: #F9FAFB;
+  border: 1px solid #E5E7EB;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+/* row that holds the user details and icon */
+.pf-userRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* circle icon */
+.pf-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* username */
+.pf-username {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* email */
+.pf-email {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* stats section */
+.pf-stats {
+  margin-top: 14px;
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid #E5E7EB;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+/* stats number */
+.pf-num {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* stats label */
+.pf-lbl {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+/* settings title */
+.pf-title {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.pf-field {
+  margin-top: 12px;
+  width: 95%;
+}
+
+.pf-label {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.pf-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #E5E7EB;
+  background: #F3F4F6;
+}
+
+.pf-divider {
+  height: 1px;
+  background: #E5E7EB;
+  margin: 14px 0;
+}
+
+/* notifications */
+.pf-notiTitle {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.pf-toggleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.pf-tMain {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.pf-tSub {
+  font-size: 11px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* switch */
+.pf-switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+
+.pf-switch input {
+  display: none;
+}
+
+.pf-slider {
+  position: absolute;
+  inset: 0;
+  background: #D1FAE5;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.pf-slider::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 3px;
+  left: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.pf-switch input:checked + .pf-slider {
+  background: #059669;
+}
+
+.pf-switch input:checked + .pf-slider::before {
+  transform: translateX(18px);
+}
+
+/* save button */
+.pf-saveBtn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 14px;
+  background: #059669;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* bottom bars */
+.pf-barBtn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #E5E7EB;
+  background: #F9FAFB;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+.pf-barBtn.pf-signout {
+  background: #D1FAE5;
+  border-color: #059669;
+  color: #059669;
+}
