@@ -1,0 +1,52 @@
+.checkout-layout {
+    padding: 30px 0 80px;
+}
+
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.summary-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Food image */
+.image {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.quantity {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 4px 0 0;
+}
+
+.price {
+    font-weight: bold;
+}
