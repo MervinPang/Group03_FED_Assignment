@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page - Louis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <!-- nav bar -->
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+            <div class="link">
+                <a class="button active" href="index.html">Home</a>
+                <a class="button" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- banner -->
+    <div class="container">
+        <div class="banner">
+            <img class="banner-img"
+                src="https://entiretravel.imgix.net/getmedia/0edc219a-9a9f-4771-9f40-3d56e513b5b6/Hotel-Jen-SG-Hero-8.jpg?auto=format"
+                alt="Home Banner">
+
+            <div class="banner-info">
+                <h1>Explore Your Taste Buds</h1>
+                <!-- search -->
+                <input id="searchInput" class="search" placeholder="Search stalls...">
+
+                <!-- cuisine buttons -->
+                <div class="pill-row">
+                    <button class="pill active" data-cuisine="all">All</button>
+                    <button class="pill" data-cuisine="chinese">Chinese</button>
+                    <button class="pill" data-cuisine="western">Western</button>
+                    <button class="pill" data-cuisine="malay">Malay</button>
+                    <button class="pill" data-cuisine="indian">Indian</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- trending -->
+    <div class="container">
+        <h2>Trending</h2>
+        <div id="trendingRow" class="grid"></div>
+
+        <h2>All Stalls</h2>
+        <div id="allRow" class="grid"></div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container layout">
+
+            <section>
+                <h4 class="title">HawkerHubSG</h4>
+                <div class="line"></div>
+                <a href="index.html">
+                    <img class="footer-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo">
+                </a>
+            </section>
+
+            <section>
+                <h4 class="title">SERVICES</h4>
+                <div class="line"></div>
+                <p><a class="link" href="sign-up.html">Apply for Member</a></p>
+                <a class="link" href="sign-up.html">Apply for Vendor</a>
+            </section>
+
+            <section>
+                <h4 class="title">USEFUL LINKS</h4>
+                <div class="line"></div>
+                <p><a class="link" href="profile.html">Your Account</a></p>
+                <p><a class="link" href="https://www.nea.gov.sg/our-services/hawker-management/overview">Locations of
+                        Hawkers</a></p>
+                <p><a class="link" href="https://share.google/u4YIGr2h8caA7P29c">Google food review</a></p>
+                <p><a class="link"
+                        href="https://www.nea.gov.sg/our-services/hawker-management/becoming-a-hawker">FAQ</a></p>
+            </section>
+
+            <section>
+                <h4 class="title">CONTACT</h4>
+                <div class="line"></div>
+                <p class="contact">
+                    <img class="location-icon" src="images/Location Icon.svg" alt="Location Icon">
+                    <a href="https://maps.app.goo.gl/MbtotRVSiHASeotJ7">Singapore</a>
+                </p>
+                <p class="contact">
+                    <img class="mail-icon" src="images/Mail Icon.svg" alt="Mail Icon">
+                    <a href="mailto:HawkerHubSG@gmail.com">HawkerHubSG@gmail.com</a>
+                </p>
+                <p class="contact">
+                    <img class="phone-icon" src="images/Phone Icon.svg" alt="Phone Icon">+65 9120 0844
+                </p>
+            </section>
+
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Copyright: HawkerHubSG</p>
+    </div>
+    </footer>
+
+    <script type="module" src="index.js"></script>
+</body>
+
+</html>
