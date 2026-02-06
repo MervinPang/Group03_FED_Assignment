@@ -37,7 +37,7 @@ body {
     gap: 18px;
 }
 
-.link {
+.navigation-link {
     margin-left: auto;
     display: flex;
     gap: 18px;
