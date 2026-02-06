@@ -284,3 +284,64 @@ body {
   margin: 0;
   font-weight: 500;
 }
+/* Tabs */
+.nea-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid var(--border-light);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.nea-tab-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.nea-tab-btn:hover {
+  color: var(--green-a);
+}
+
+.nea-tab-btn.active {
+  color: var(--green-a);
+  border-bottom-color: var(--green-a);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.nea-tab-icon {
+  font-size: 1.1rem;
+}
+
+/* Tab Content */
+.nea-tabs-content {
+  margin-top: 1.5rem;
+}
+
+.nea-tab-pane {
+  display: none;
+}
+
+.nea-tab-pane.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
