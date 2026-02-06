@@ -179,3 +179,27 @@ function loadFallbackData() {
   initializeVendorTabs();
   initializeEventListeners();
 }
+
+function renderVendorDashboard() {
+  console.log("Rendering vendor dashboard...");
+  var data = vendorDashboardData;
+  //update header
+  var stallNameEl = document.getElementById("vendor-stall-name");
+  var stallIdEl = document.getElementById("vendor-stall-id");
+  if (stallNameEl) stallNameEl.textContent = data.stall.name;
+  if (stallIdEl) stallIdEl.textContent = data.stall.stallId;
+
+  //update stats
+  var ordersEl = document.getElementById("vendor-orders-today");
+  var revenueEl = document.getElementById("vendor-revenue-today");
+  var activeEl = document.getElementById("vendor-active-orders");
+  var ratingEl = document.getElementById("vendor-avg-rating");
+
+  if (ordersEl) ordersEl.textContent = data.stats.todaysOrders;
+  if (revenueEl)
+    revenueEl.textContent = "$" + data.stats.todaysRevenue.toFixed(2);
+  if (activeEl) activeEl.textContent = data.stats.activeOrders;
+  if (ratingEl) ratingEl.textContent = data.stats.avgRating;
+
+  console.log("Dashboard rendered successfully");
+}
