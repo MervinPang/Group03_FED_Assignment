@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page - Louis</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link href="global.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="profile.css" />
+</head>
+
+<body>
+
+  <!-- nav bar -->
+  <header class="navigation-bar">
+    <nav class="nav">
+      <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo">
+      <p class="name">HawkerHubSG</p>
+
+      <div class="link">
+        <a class="button" href="index.html">Home</a>
+        <a class="button" href="order.html">Orders</a>
+        <a class="button active" href="profile.html">Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- page -->
+  <div class="container">
+    <div class="pf-page">
+
+      <!-- profile block -->
+      <div class="pf-block">
+        <div class="pf-userRow">
+          <!-- profile icon -->
+          <img class="pf-icon" src="https://cdn-icons-png.flaticon.com/128/1077/1077114.png" alt="profile icon">
+          <div>
+            <div class="pf-username" id="pUsername">Loading</div>
+            <div class="pf-email" id="pEmail">Loading</div>
+          </div>
+        </div>
+
+        <!-- stat counters -->
+        <div class="pf-stats">
+          <div class="pf-stat">
+            <div class="pf-num" id="statOrders">0</div>
+            <div class="pf-lbl">Orders</div>
+          </div>
+          <div class="pf-stat">
+            <div class="pf-num" id="statLikes">0</div>
+            <div class="pf-lbl">Likes</div>
+          </div>
+          <div class="pf-stat">
+            <div class="pf-num" id="statReviews">0</div>
+            <div class="pf-lbl">Reviews</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- settings block -->
+      <div class="pf-block">
+        <div class="pf-title">Settings</div>
+
+        <div class="pf-field">
+          <div class="pf-label">User type</div>
+          <input class="pf-input" id="pRole" readonly />
+        </div>
+
+        <!-- select language -->
+        <div class="pf-field">
+          <div class="pf-label">Language</div>
+          <select class="pf-input" id="langSelect">
+            <option>English</option>
+            <option>中文</option>
+            <option>Bahasa Melayu</option>
+            <option>Tamil</option>
+          </select>
+        </div>
+
+        <div class="pf-divider"></div>
+
+        <div class="pf-notiTitle">Notifications</div>
+
+        <!-- toggle button feedback -->
+        <div class="pf-toggleRow">
+          <div>
+            <div class="pf-tMain">Feedback responses</div>
+            <div class="pf-tSub">Vendor replies to your reviews</div>
+          </div>
+          <label class="pf-switch">
+            <input type="checkbox" id="togFeedback">
+            <span class="pf-slider"></span>
+          </label>
+        </div>
+
+        <!-- toggle button order updates -->
+        <div class="pf-toggleRow">
+          <div>
+            <div class="pf-tMain">Order updates</div>
+            <div class="pf-tSub">Status changes for your orders</div>
+          </div>
+          <label class="pf-switch">
+            <input type="checkbox" id="togOrder">
+            <span class="pf-slider"></span>
+          </label>
+        </div>
+
+        <!-- save button -->
+        <button class="pf-saveBtn" id="saveBtn" type="button">Save Changes</button>
+      </div>
+
+      <!-- order history button -->
+      <button class="pf-barBtn" type="button" onclick="window.location.href='order.html'">Order History</button>
+
+      <!-- sign out button -->
+      <button class="pf-barBtn pf-signout" id="logoutBtn" type="button">Sign Out</button>
+
+    </div>
+  </div>
+
+  <script type="module" src="profile.js"></script>
+</body>
+
+</html>
