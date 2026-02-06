@@ -1,4 +1,5 @@
-/*Vendor Dashboard CSS*/
+/* Vendor Dashboard Styles */
+
 :root {
   --primary-color: #10b981;
   --primary-dark: #059669;
@@ -12,7 +13,7 @@
   --border-color: #e5e7eb;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-} /*targets the highest-level parent element in the document*/
+} /*It is like creating a color palette for the website to ensure consistent look and feel*/
 
 * {
   margin: 0;
@@ -28,7 +29,8 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
 }
-/*Dashboard contatiner*/
+
+/* Dashboard Container */
 .vendor-dashboard-container {
   background: var(--white);
   border-radius: 12px;
@@ -37,7 +39,7 @@ body {
   margin: 2rem auto;
 }
 
-/*Dashboard Header*/
+/* Dashboard Header */
 .vendor-dashboard-header {
   display: flex;
   justify-content: space-between;
@@ -52,20 +54,24 @@ body {
   color: var(--white);
   border-radius: 12px;
 }
+
 .vendor-stall-info h2 {
   font-size: 1.8rem;
   margin-bottom: 0.25rem;
   font-weight: 700;
 }
+
 .vendor-stall-info p {
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.95rem;
 }
+
 .vendor-dashboard-top-right {
   display: flex;
   gap: 1rem;
   align-items: center;
 }
+
 /* Home Button */
 .vendor-btn-home {
   background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
@@ -74,27 +80,38 @@ body {
   border-radius: 8px;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
 }
+
 .vendor-btn-home:hover {
-  background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
 }
+
 .vendor-btn-home:active {
   transform: translateY(0);
   box-shadow: 0 2px 8px rgba(30, 64, 175, 0.3);
 }
+
 .vendor-btn-icon {
   font-size: 1.25rem;
   display: flex;
   align-items: center;
 }
+
 .vendor-btn-text {
   font-weight: 600;
   font-size: 0.95rem;
 }
-/* Buttons Container */
+
+/* Buttons */
 .btn {
   padding: 0.75rem 1.5rem;
   border: none;
@@ -104,30 +121,32 @@ body {
   transition: all 0.3s;
   font-weight: 500;
 }
+
 .btn-primary {
   background: var(--primary-color);
   color: var(--white);
 }
+
 .btn-primary:hover {
   background: var(--primary-dark);
   box-shadow: var(--shadow-lg);
 }
+
 .btn-secondary {
   background: var(--text-light);
   color: var(--white);
 }
-.btn-secondary:hover {
-  background: #4b5563;
-}
+
 /* Stats Container */
 .vendor-stats-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
   list-style: none;
 }
-.vendor-stats-card {
+
+.vendor-stat-card {
   background: var(--white);
   border-radius: 12px;
   padding: 1.5rem;
@@ -140,10 +159,12 @@ body {
     box-shadow 0.3s;
   border: 1px solid var(--border-color);
 }
+
 .vendor-stat-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
 }
+
 .vendor-stat-icon {
   width: 60px;
   height: 60px;
@@ -151,26 +172,30 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--white);
   flex-shrink: 0;
   margin: 0;
 }
+
 .vendor-stat-content {
   flex: 1;
 }
+
 .vendor-stat-label {
   color: var(--text-light);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
+
 .vendor-stat-value {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--text-dark);
 }
-/*Tab Navigation*/
+
+/* Tab Navigation */
 .vendor-tab-navigation {
   display: flex;
   gap: 1rem;
@@ -179,6 +204,7 @@ body {
   overflow-x: auto;
   padding-bottom: 0;
 }
+
 .vendor-tab-btn {
   background: transparent;
   border: none;
@@ -191,6 +217,7 @@ body {
   white-space: nowrap;
   font-size: 0.95rem;
 }
+
 .vendor-tab-btn.active {
   color: var(--primary-color);
   border-bottom-color: var(--primary-color);
@@ -218,12 +245,14 @@ body {
     opacity: 1;
   }
 }
-/*Overview Grid*/
+
+/* Overview Grid */
 .vendor-overview-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
 }
+
 .vendor-overview-card {
   background: var(--white);
   border-radius: 12px;
@@ -231,6 +260,7 @@ body {
   box-shadow: var(--shadow);
   border: 1px solid var(--border-color);
 }
+
 .vendor-overview-card h3 {
   margin-bottom: 1rem;
   color: var(--text-dark);
@@ -244,7 +274,8 @@ body {
 .vendor-card-icon {
   font-size: 1.2rem;
 }
-/*Order Items*/
+
+/* Order Items */
 .vendor-order-item,
 .vendor-menu-item {
   background: var(--white);
@@ -302,18 +333,28 @@ body {
   background: #fee2e2;
   color: #991b1b;
 }
-/*Menu Items*/
+
+/* Menu Items */
 .vendor-menu-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
 }
+
 .vendor-menu-header h3 {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-dark);
 }
+
+.vendor-menu-item-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
 .vendor-menu-item-image {
   width: 80px;
   height: 80px;
@@ -325,22 +366,27 @@ body {
   font-size: 2rem;
   flex-shrink: 0;
 }
+
 .vendor-menu-item-info {
   flex: 1;
 }
+
 .vendor-menu-item-info h4 {
   margin-bottom: 0.25rem;
 }
+
 .vendor-menu-item-info .vendor-cuisine {
   color: var(--accent-blue);
   font-weight: 500;
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
 }
+
 .vendor-menu-item-actions {
   display: flex;
   gap: 0.5rem;
 }
+
 .vendor-menu-item-actions button {
   padding: 0.5rem 1rem;
   font-size: 0.85rem;
@@ -351,17 +397,20 @@ body {
   color: var(--text-dark);
   transition: all 0.3s;
 }
+
 .vendor-menu-item-actions button:hover {
-  background: var(--primary-color);
+  background: var(--text-light);
   color: var(--white);
 }
-.vendor-availabiility-toggle {
+
+.vendor-availability-toggle {
   margin-left: auto;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;
 }
+
 .vendor-toggle-switch {
   width: 40px;
   height: 24px;
@@ -371,6 +420,11 @@ body {
   position: relative;
   transition: background 0.3s;
 }
+
+.vendor-toggle-switch.active {
+  background: var(--primary-color);
+}
+
 .vendor-toggle-switch::after {
   content: "";
   position: absolute;
@@ -382,10 +436,12 @@ body {
   left: 2px;
   transition: left 0.3s;
 }
+
 .vendor-toggle-switch.active::after {
   left: 18px;
 }
-/*Reviews Section*/
+
+/* Reviews */
 .vendor-review-item {
   background: var(--white);
   border-radius: 12px;
@@ -394,26 +450,31 @@ body {
   box-shadow: var(--shadow);
   border: 1px solid var(--border-color);
 }
+
 .vendor-review-item h4 {
   margin-bottom: 0.5rem;
   color: var(--text-dark);
   font-weight: 600;
 }
+
 .vendor-review-rating {
   color: #f59e0b;
   margin-bottom: 0.75rem;
   font-size: 0.95rem;
 }
+
 .vendor-review-comment {
   color: var(--text-dark);
   margin-bottom: 0.75rem;
   line-height: 1.6;
 }
+
 .vendor-review-date {
   font-size: 0.85rem;
   color: var(--text-light);
 }
-/*history controls*/
+
+/* History Controls */
 .vendor-history-controls {
   display: flex;
   gap: 1rem;
@@ -422,6 +483,7 @@ body {
   border: none;
   padding: 0;
 }
+
 .vendor-history-controls input,
 .vendor-history-controls select {
   flex: 1;
@@ -433,13 +495,15 @@ body {
   font-family: inherit;
   transition: all 0.3s;
 }
-.vendor-hsitory-controls input:focus,
+
+.vendor-history-controls input:focus,
 .vendor-history-controls select:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
 }
-/*Rental Agreements*/
+
+/* Rental Agreements */
 .vendor-rental-item {
   background: var(--white);
   border-radius: 12px;
@@ -448,25 +512,37 @@ body {
   box-shadow: var(--shadow);
   border: 1px solid var(--border-color);
 }
+
 .vendor-rental-item h4 {
   margin-bottom: 1rem;
   color: var(--text-dark);
   font-weight: 600;
 }
+
 .vendor-rental-details {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
+
 .vendor-rental-detail {
   padding: 1rem;
   background: var(--light-bg);
   border-radius: 8px;
 }
+
+.vendor-rental-detail p:first-child {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
 .vendor-rental-detail p:last-child {
   color: var(--text-light);
 }
-/*Empty state*/
+
+/* Empty State */
 .vendor-empty-state {
   text-align: center;
   padding: 3rem;
@@ -475,22 +551,26 @@ body {
   border-radius: 12px;
   border: 2px dashed var(--border-color);
 }
+
 .vendor-empty-state-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
-  opacity: 0.6;
+  opacity: 0.5;
 }
+
 .vendor-empty-state-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 0.5rem;
 }
+
 .vendor-empty-state-text {
   font-size: 0.95rem;
-  color: var(--text-dark);
+  color: var(--text-light);
 }
-/*Responsive design using media queries*/
+
+/* Responsive */
 @media (max-width: 1024px) {
   .vendor-overview-grid {
     grid-template-columns: 1fr;
@@ -511,127 +591,129 @@ body {
     justify-content: center;
   }
 }
+
 @media (max-width: 768px) {
   .vendor-dashboard-container {
     padding: 1.5rem;
     margin: 1rem;
-
-    .vendor-dashboard-header {
-      padding: 1rem;
-    }
-
-    .vendor-stats-container {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .vendor-stat-card {
-      padding: 1rem;
-    }
-
-    .vendor-tab-navigation {
-      gap: 0.5rem;
-    }
-
-    .vendor-tab-btn {
-      padding: 0.75rem 1rem;
-      font-size: 0.85rem;
-    }
-
-    .vendor-order-item,
-    .vendor-menu-item {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 1rem;
-    }
-
-    .vendor-order-status {
-      margin-top: 0.75rem;
-    }
-
-    .vendor-menu-item-actions {
-      width: 100%;
-      margin-top: 1rem;
-    }
-
-    .vendor-history-controls {
-      flex-direction: column;
-    }
-
-    .vendor-history-controls input,
-    .vendor-history-controls select {
-      width: 100%;
-      min-width: auto;
-    }
-
-    .vendor-rental-details {
-      grid-template-columns: 1fr;
-    }
-
-    .vendor-availability-toggle {
-      margin-left: 0;
-      margin-top: 1rem;
-    }
-
-    .vendor-btn-home {
-      padding: 0.65rem 1.25rem;
-      font-size: 0.9rem;
-    }
-
-    .vendor-btn-icon {
-      font-size: 1.1rem;
-    }
-
-    .vendor-btn-text {
-      font-size: 0.85rem;
-    }
   }
-  @media (max-width: 480px) {
-    .vendor-dashboard-container {
-      padding: 1rem;
-      margin: 0.5rem;
-    }
 
-    .vendor-stall-info h2 {
-      font-size: 1.3rem;
-    }
+  .vendor-dashboard-header {
+    padding: 1rem;
+  }
 
-    .vendor-stat-value {
-      font-size: 1.5rem;
-    }
+  .vendor-stats-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
-    .vendor-stat-icon {
-      width: 50px;
-      height: 50px;
-      font-size: 1.5rem;
-    }
+  .vendor-stat-card {
+    padding: 1rem;
+  }
 
-    .vendor-overview-grid {
-      margin-bottom: 2rem;
-    }
+  .vendor-tab-navigation {
+    gap: 0.5rem;
+  }
 
-    .vendor-menu-item-image {
-      width: 60px;
-      height: 60px;
-    }
+  .vendor-tab-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
 
-    .vendor-tab-navigation {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
+  .vendor-order-item,
+  .vendor-menu-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
 
-    .vendor-btn-home {
-      padding: 0.6rem 1rem;
-      font-size: 0.8rem;
-      gap: 0.5rem;
-    }
+  .vendor-order-status {
+    margin-top: 0.75rem;
+  }
 
-    .vendor-btn-icon {
-      font-size: 1rem;
-    }
+  .vendor-menu-item-actions {
+    width: 100%;
+    margin-top: 1rem;
+  }
 
-    .vendor-btn-text {
-      font-size: 0.75rem;
-    }
+  .vendor-history-controls {
+    flex-direction: column;
+  }
+
+  .vendor-history-controls input,
+  .vendor-history-controls select {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .vendor-rental-details {
+    grid-template-columns: 1fr;
+  }
+
+  .vendor-availability-toggle {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .vendor-btn-home {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .vendor-btn-icon {
+    font-size: 1.1rem;
+  }
+
+  .vendor-btn-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vendor-dashboard-container {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .vendor-stall-info h2 {
+    font-size: 1.3rem;
+  }
+
+  .vendor-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .vendor-stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .vendor-overview-grid {
+    margin-bottom: 2rem;
+  }
+
+  .vendor-menu-item-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .vendor-tab-navigation {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vendor-btn-home {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    gap: 0.5rem;
+  }
+
+  .vendor-btn-icon {
+    font-size: 1rem;
+  }
+
+  .vendor-btn-text {
+    font-size: 0.75rem;
   }
 }
