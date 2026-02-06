@@ -37,3 +37,33 @@ body {
   max-width: 1400px;
   margin: 2rem auto;
 }
+
+/*Dashboard Header*/
+.vendor-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--primary-dark) 100%
+  );
+  color: var(--white);
+  border-radius: 12px;
+}
+.vendor-stall-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+.vendor-stall-info p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+.vendor-dashboard-top-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
