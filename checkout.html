@@ -28,7 +28,7 @@
         </nav>
     </header>
     <div class="container checkout-layout">
-        <section class="card">
+        <section class="summary">
             <h2>Order Summary</h2>
             <div class="item">
                 <div class="summary-left">
@@ -54,12 +54,12 @@
                 <p class="price">$4.50</p>
             </div>
             <div class="summary-row">
-                <p class="summary-label">Subtotal</p>
+                <p class="summary-name">Subtotal</p>
                 <p class="summary-value">$9.00</p>
             </div>
             <hr>
             <div class="summary-row total">
-                <p class="summary-label">Total</p>
+                <p class="summary-name">Total</p>
                 <p class="summary-value">$9.00</p>
             </div>
         </section>
@@ -75,11 +75,26 @@
             <label>Special Instructions (Optional)</label>
             <textarea placeholder="Any special requests?"></textarea>
 
-            <label class="checkbox-row">
+            <label class="checkbox">
                 <input type="checkbox" id="alternateReceiver">
                 <span>Alternate Receiver</span>
             </label>
         </section>
+        <section class="payment-container">
+            <h2>Payment Method</h2>
+            <div class="payment">
+                <button class="payment-button active" type="button">
+                    <img class="payment-icon" src="images/QR Code Icon.svg" alt="PayNow QR Icon">
+                    <span>PayNow</span>
+                </button>
+
+                <button class="payment-button" type="button">
+                    <img class="payment-icon" src="images/Credit Card Icon.svg" alt="Credit Card Icon">
+                    <span>Credit Card</span>
+                </button>
+            </div>
+        </section>
+        <button class="pay-button">Pay $9.00</button>
     </div>
 </body>
 
