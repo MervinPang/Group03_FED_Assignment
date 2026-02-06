@@ -56,6 +56,10 @@ body {
     font-weight: bold;
 }
 
+.link {
+    font-weight: bold;
+}
+
 /* Buttons */
 .button {
     text-decoration: none;
