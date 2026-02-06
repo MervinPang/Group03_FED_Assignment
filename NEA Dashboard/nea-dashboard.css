@@ -1,0 +1,24 @@
+/* Root Variables */
+:root {
+  --primary-blue: #1e40af;
+  --accent-blue: #2563eb;
+  --light-blue: #dbeafe;
+  --green-a: #10b981;
+  --green-b: #84cc16;
+  --orange-c: #f59e0b;
+  --red-d: #ef4444;
+  --light-bg: #f7f9fb;
+  --white: #ffffff;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --border-light: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 12px rgba(30, 64, 175, 0.12);
+} /*targets the highest-level parent element in the document*/
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
