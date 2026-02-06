@@ -170,3 +170,51 @@ body {
   font-weight: 700;
   color: var(--text-dark);
 }
+/*Tab Navigation*/
+.vendor-tab-navigation {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+  padding-bottom: 0;
+}
+.vendor-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-light);
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  white-space: nowrap;
+  font-size: 0.95rem;
+}
+.vendor-tab-btn.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.vendor-tab-btn:hover {
+  color: var(--primary-color);
+}
+
+/* Tab Content */
+.vendor-tab-pane {
+  display: none;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.vendor-tab-pane.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
