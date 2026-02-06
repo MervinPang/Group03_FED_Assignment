@@ -50,3 +50,31 @@
 .price {
     font-weight: bold;
 }
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.summary-label {
+    color: #000000;
+}
+
+.summary-value {
+    margin: 0;
+    font-weight: bold;
+}
+
+.summary-row.total .summary-label {
+    font-size: 18px;
+    font-weight: 900;
+    color: #000000;
+}
+
+.summary-row.total .summary-value {
+    font-size: 18px;
+    font-weight: 900;
+    color: #000000;
+}
