@@ -1,0 +1,21 @@
+/*Vendor Dashboard CSS*/
+:root {
+  --primary-color: #10b981;
+  --primary-dark: #059669;
+  --accent-blue: #3b82f6;
+  --accent-orange: #f59e0b;
+  --accent-purple: #a78bfa;
+  --light-bg: #f3f4f6;
+  --white: #ffffff;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+} /*targets the highest-level parent element in the document*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
