@@ -39,3 +39,57 @@ body {
   line-height: 1.6;
   font-size: 16px;
 }
+/* Dashboard Container */
+.nea-dashboard-container {
+  margin: 2.5rem auto;
+  background: var(--white);
+  border-radius: 18px;
+  box-shadow:
+    0 2px 16px rgba(30, 64, 175, 0.08),
+    0 0.5px 1.5px rgba(0, 0, 0, 0.04);
+  padding: 2rem 2.5rem;
+}
+
+/* Dashboard Header */
+.nea-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, var(--green-a) 0%, #059669 100%);
+  padding: 1.5rem 2rem;
+  color: var(--white);
+  border-radius: 14px;
+  margin-bottom: 2.5rem;
+  gap: 1.5rem;
+}
+
+.nea-header-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1;
+}
+
+.nea-header-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin: 0;
+}
+
+.nea-header-text h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.nea-header-text p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 0.95rem;
+}
