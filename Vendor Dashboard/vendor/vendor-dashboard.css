@@ -515,122 +515,123 @@ body {
   .vendor-dashboard-container {
     padding: 1.5rem;
     margin: 1rem;
-  }
-  .vendor-dashboard-header {
-    padding: 1rem;
-  }
 
-  .vendor-stats-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
+    .vendor-dashboard-header {
+      padding: 1rem;
+    }
 
-  .vendor-stat-card {
-    padding: 1rem;
-  }
+    .vendor-stats-container {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
 
-  .vendor-tab-navigation {
-    gap: 0.5rem;
-  }
+    .vendor-stat-card {
+      padding: 1rem;
+    }
 
-  .vendor-tab-btn {
-    padding: 0.75rem 1rem;
-    font-size: 0.85rem;
-  }
+    .vendor-tab-navigation {
+      gap: 0.5rem;
+    }
 
-  .vendor-order-item,
-  .vendor-menu-item {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
-  }
+    .vendor-tab-btn {
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+    }
 
-  .vendor-order-status {
-    margin-top: 0.75rem;
-  }
+    .vendor-order-item,
+    .vendor-menu-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem;
+    }
 
-  .vendor-menu-item-actions {
-    width: 100%;
-    margin-top: 1rem;
-  }
+    .vendor-order-status {
+      margin-top: 0.75rem;
+    }
 
-  .vendor-history-controls {
-    flex-direction: column;
-  }
+    .vendor-menu-item-actions {
+      width: 100%;
+      margin-top: 1rem;
+    }
 
-  .vendor-history-controls input,
-  .vendor-history-controls select {
-    width: 100%;
-    min-width: auto;
-  }
+    .vendor-history-controls {
+      flex-direction: column;
+    }
 
-  .vendor-rental-details {
-    grid-template-columns: 1fr;
-  }
+    .vendor-history-controls input,
+    .vendor-history-controls select {
+      width: 100%;
+      min-width: auto;
+    }
 
-  .vendor-availability-toggle {
-    margin-left: 0;
-    margin-top: 1rem;
-  }
+    .vendor-rental-details {
+      grid-template-columns: 1fr;
+    }
 
-  .vendor-btn-home {
-    padding: 0.65rem 1.25rem;
-    font-size: 0.9rem;
-  }
+    .vendor-availability-toggle {
+      margin-left: 0;
+      margin-top: 1rem;
+    }
 
-  .vendor-btn-icon {
-    font-size: 1.1rem;
-  }
+    .vendor-btn-home {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.9rem;
+    }
 
-  .vendor-btn-text {
-    font-size: 0.85rem;
-  }
-}
-@media (max-width: 480px) {
-  .vendor-dashboard-container {
-    padding: 1rem;
-    margin: 0.5rem;
-  }
+    .vendor-btn-icon {
+      font-size: 1.1rem;
+    }
 
-  .vendor-stall-info h2 {
-    font-size: 1.3rem;
+    .vendor-btn-text {
+      font-size: 0.85rem;
+    }
   }
+  @media (max-width: 480px) {
+    .vendor-dashboard-container {
+      padding: 1rem;
+      margin: 0.5rem;
+    }
 
-  .vendor-stat-value {
-    font-size: 1.5rem;
-  }
+    .vendor-stall-info h2 {
+      font-size: 1.3rem;
+    }
 
-  .vendor-stat-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-  }
+    .vendor-stat-value {
+      font-size: 1.5rem;
+    }
 
-  .vendor-overview-grid {
-    margin-bottom: 2rem;
-  }
+    .vendor-stat-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+    }
 
-  .vendor-menu-item-image {
-    width: 60px;
-    height: 60px;
-  }
+    .vendor-overview-grid {
+      margin-bottom: 2rem;
+    }
 
-  .vendor-tab-navigation {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+    .vendor-menu-item-image {
+      width: 60px;
+      height: 60px;
+    }
 
-  .vendor-btn-home {
-    padding: 0.6rem 1rem;
-    font-size: 0.8rem;
-    gap: 0.5rem;
-  }
+    .vendor-tab-navigation {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
 
-  .vendor-btn-icon {
-    font-size: 1rem;
-  }
+    .vendor-btn-home {
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+      gap: 0.5rem;
+    }
 
-  .vendor-btn-text {
-    font-size: 0.75rem;
+    .vendor-btn-icon {
+      font-size: 1rem;
+    }
+
+    .vendor-btn-text {
+      font-size: 0.75rem;
+    }
   }
 }
