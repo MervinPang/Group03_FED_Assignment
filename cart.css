@@ -1,0 +1,237 @@
+/* =========================
+   Main Order Card Container
+   ========================= */
+
+/* Main Container Card */
+.box {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 18px;
+    max-width: 520px;
+    /* Center card with spacing on top */
+    margin: 60px auto;
+    padding: 22px;
+}
+
+/* =========================
+   Title and Close Icon
+   ========================= */
+
+.head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Allows absolute positioning for close button */
+    position: relative;
+}
+
+/* Close X button */
+.back {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.back:hover {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+/* Close icon size */
+.cancel-icon {
+    width: 25px;
+    height: 25px;
+}
+
+/* =========================
+   Cart Item List
+   ========================= */
+
+.shop {
+    margin: 14px;
+    font-size: 16px;
+}
+
+.cart-list {
+    display: flex;
+    /* stack items vertically */
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+/* Individual cart item */
+.item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #D1D5DB;
+    border-radius: 14px;
+    gap: 12px;
+    padding: 10px 10px;
+}
+
+/* Food image */
+.item img {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.text {
+    flex: 1;
+    font-size: 15px;
+}
+
+/* =========================
+   Quantity Controls
+   ========================= */
+
+.qty {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Plus and minus buttons */
+.qty button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #D1D5DB;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Quantity number */
+.qty span {
+    width: 20px;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Bin icon */
+.remove {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.remove img {
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================
+   Order Type Section
+   ========================= */
+
+.order-box {
+    border: 1px solid #D1D5DB;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+/* Order type title */
+.order-title {
+    margin-top: 0px;
+    margin-bottom: 16px;
+    font-size: 25px;
+}
+
+/* Row for dine in and takeaway button */
+.order-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Order type button */
+.order-button {
+    flex: 1;
+    padding: 28px 20px;
+    border-radius: 18px;
+    border: 2px solid #E5E7EB;
+    background-color: #FFFFFF;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.order-button.active {
+    background-color: #059669;
+    color: #FFFFFF;
+}
+
+.order-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+}
+
+/* =========================
+   Subtotal and Total
+   ========================= */
+
+/* Container for subtotal and total rows */
+.summary {
+    margin-top: 0;
+}
+
+/* Each row (Subtotal and Total) */
+.summary-row {
+    display: flex;
+    /* Push label left and amount right */
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    font-size: 16px;
+}
+
+/* Highlight the total amount */
+.summary-row.total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =========================
+   Checkout Button
+   ========================= */
+
+.checkout-button {
+    width: 100%;
+    /* Space above button */
+    margin-top: 22px;
+    padding: 16px;
+    border-style: none;
+    border-radius: 14px;
+    background-color: #10B981;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background-color: #059669;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Mervin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link href="cart.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+
+            <div class="link">
+                <a class="button" href="index.html">Home</a>
+                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+    <div class="box">
+        <div class="head">
+            <h1>Your Order</h1>
+            <a class="back" href="order.html">
+                <img class="cancel-icon" src="images/Cancel Icon.svg" alt="Cancel Icon">
+            </a>
+        </div>
+        <h3 class="shop">Tian Tian Hainanese Chicken Rice</h3>
+        <ul class="cart-list">
+            <li class="item">
+                <img src="images/Roasted Chicken Rice.jpg" alt="Chicken rice (roasted)">
+                <p class="text">
+                    <strong>Chicken Rice (Roasted)</strong><br>
+                    $4.50
+                </p>
+                <div class="qty">
+                    <button type="button">-</button>
+                    <span>1</span>
+                    <button type="button">+</button>
+                    <button class="remove" type="button">
+                        <img src="images/Bin Icon.svg" alt="Bin Icon">
+                    </button>
+                </div>
+            </li>
+            <li class="item">
+                <img src="images/Steamed Chicken Rice.jpg" alt="Chicken rice (steamed)">
+                <p class="text">
+                    <strong>Chicken Rice (Steamed)</strong><br>
+                    $4.50
+                </p>
+                <div class="qty">
+                    <button type="button">-</button>
+                    <span>1</span>
+                    <button type="button">+</button>
+                    <button class="remove" type="button">
+                        <img src="images/Bin Icon.svg" alt="Bin Icon">
+                    </button>
+                </div>
+            </li>
+            <hr style="margin: 18px 0;">
+            <div class="order-box">
+                <h2 class="order-title">Order Type</h2>
+
+                <div class="order-row">
+                    <button class="order-button active" type="button">
+                        <img class="order-icon" src="images/Restaurant2 Logo.svg" alt="Dine In Icon">
+                        <span class="order-type">Dine-In</span>
+                    </button>
+
+                    <button class="order-button" type="button">
+                        <img class="order-icon" src="images/Takeaway Icon.svg" alt="Takeaway Icon">
+                        <span class="order-type">Takeaway</span>
+                    </button>
+                </div>
+            </div>
+            <div class="summary">
+                <hr>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$0.00</span>
+                </div>
+                <hr>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span>$0.00</span>
+                </div>
+            </div>
+            <button class="checkout-button" type="button">Proceed to Checkout</button>
+        </ul>
+    </div>
+</body>
+
+</html>
