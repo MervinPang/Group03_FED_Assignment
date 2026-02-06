@@ -542,3 +542,50 @@ body {
   padding-top: 1rem;
   border-top: 1px solid var(--border-light);
 }
+/* Complaints Tab */
+.nea-complaints-list {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nea-complaint-empty {
+  font-size: 3rem;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.nea-complaint-empty-text {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* Hygiene Grade Badge Component */
+.hygiene-grade-badge {
+  position: relative;
+}
+
+.hygiene-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: #1f2937;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
