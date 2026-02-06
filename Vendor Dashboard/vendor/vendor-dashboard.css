@@ -413,3 +413,29 @@ body {
   font-size: 0.85rem;
   color: var(--text-light);
 }
+/*history controls*/
+.vendor-history-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  border: none;
+  padding: 0;
+}
+.vendor-history-controls input,
+.vendor-history-controls select {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+.vendor-hsitory-controls input:focus,
+.vendor-history-controls select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
