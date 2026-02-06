@@ -302,3 +302,52 @@ body {
   background: #fee2e2;
   color: #991b1b;
 }
+/*Menu Items*/
+.vendor-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.vendor-menu-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.vendor-menu-item-image {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.vendor-menu-item-info {
+  flex: 1;
+}
+.vendor-menu-item-info h4 {
+  margin-bottom: 0.25rem;
+}
+.vendor-menu-item-info .vendor-cuisine {
+  color: var(--accent-blue);
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.vendor-menu-item-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.vendor-menu-item-actions button {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background: var(--light-bg);
+  color: var(--text-dark);
+  transition: all 0.3s;
+}
