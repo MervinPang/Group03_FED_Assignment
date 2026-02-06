@@ -351,3 +351,37 @@ body {
   color: var(--text-dark);
   transition: all 0.3s;
 }
+.vendor-menu-item-actions button:hover {
+  background: var(--primary-color);
+  color: var(--white);
+}
+.vendor-availabiility-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.vendor-toggle-switch {
+  width: 40px;
+  height: 24px;
+  background: var(--text-light);
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+}
+.vendor-toggle-switch::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--white);
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s;
+}
+.vendor-toggle-switch.active::after {
+  left: 18px;
+}
