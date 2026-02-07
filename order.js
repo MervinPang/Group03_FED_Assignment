@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Redirect after a short delay
             setTimeout(function () {
-                window.location.href = "guest-orders.html";
+                window.location.href = "order-history.html";
             }, 1500);
         });
     }
