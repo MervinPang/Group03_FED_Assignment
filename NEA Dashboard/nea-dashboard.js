@@ -361,15 +361,12 @@ function renderGradeDistribution(distribution) {
   if (gradeDEl) gradeDEl.textContent = distribution.D;
 }
 //Tab Navigation
-function intializeNEATabs() {
+function initializeNEATabs() {
   console.log("Initializing NEA Dashboard tabs...");
   const tabBtns = document.querySelectorAll(".nea-tab-btn");
   const tabPanes = document.querySelectorAll(".nea-tab-pane");
   if (tabBtns.length === 0 || tabPanes.length === 0) {
-    stallsList.innerHTML = createEmptyState(
-      "No Stalls Found",
-      "Try adjusting your search",
-    );
+    console.error("Tab elements not found!");
     return;
   }
   tabBtns.forEach((btn) => {
