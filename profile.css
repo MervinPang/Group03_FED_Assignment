@@ -159,11 +159,11 @@
   transition: 0.2s;
 }
 
-.pf-switch input:checked + .pf-slider {
+.pf-switch input:checked+.pf-slider {
   background: #059669;
 }
 
-.pf-switch input:checked + .pf-slider::before {
+.pf-switch input:checked+.pf-slider::before {
   transform: translateX(18px);
 }
 

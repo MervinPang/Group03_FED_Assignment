@@ -1,0 +1,43 @@
+/* success container */
+.success-box {
+    max-width: 360px;
+    margin: 60px auto;
+    padding: 22px;
+    text-align: center;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+}
+
+/* tick icon */
+.tick {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* success title */
+.success-box h2 {
+    margin: 6px 0;
+}
+
+/* success description */
+.success-box p {
+    margin: 8px 0 16px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* continue button */
+.continueBtn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 999px;
+    background: #059669;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}

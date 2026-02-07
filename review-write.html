@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Review Page - Louis</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="review-write.css">
+</head>
+
+<body>
+
+    <!-- nav bar -->
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+
+            <div class="navigation-link">
+                <a class="button" href="index.html">Home</a>
+                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- write a review -->
+    <div class="container">
+        <div class="review-box">
+
+            <h2>Write a Review</h2>
+
+            <label>Rating</label>
+            <div class="stars" id="starBox">
+                <img src="https://cdn-icons-png.flaticon.com/128/1828/1828970.png" data-value="1">
+                <img src="https://cdn-icons-png.flaticon.com/128/1828/1828970.png" data-value="2">
+                <img src="https://cdn-icons-png.flaticon.com/128/1828/1828970.png" data-value="3">
+                <img src="https://cdn-icons-png.flaticon.com/128/1828/1828970.png" data-value="4">
+                <img src="https://cdn-icons-png.flaticon.com/128/1828/1828970.png" data-value="5">
+            </div>
+
+            <label>Comment</label>
+            <textarea id="reviewText" rows="4" placeholder="Write your review..."></textarea>
+
+            <p id="msg"></p>
+
+            <div class="btn-row">
+                <button id="cancelBtn">Cancel</button>
+                <button id="submitBtn">Submit</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="review-write.js"></script>
+</body>
+
+</html>

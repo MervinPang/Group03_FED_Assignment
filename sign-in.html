@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign In Page - Louis</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="sign-up-in.css" />
+</head>
+
+<body>
+
+    <!-- nav bar -->
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+
+            <div class="navigation-link">
+                <a class="button" href="index.html">Home</a>
+                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- sign in page -->
+    <div class="container">
+        <div class="sui-page">
+            <section class="sui-card">
+                <h2>Welcome to HawkerHubSG</h2>
+                <p class="sui-sub">Sign in to continue</p>
+                <!-- email and password input -->
+                <input id="inEmail" type="email" placeholder="Email" />
+                <input id="inPw" type="password" placeholder="Password" />
+                <!-- sign in and guest button -->
+                <button class="sui-btn" id="signInBtn" type="button">Sign In</button>
+                <button class="sui-btn ghost" id="guestBtn" type="button">Continue as guest</button>
+                <!-- message and link to sign up -->
+                <p class="sui-link-line">
+                    Don’t have an account?
+                    <a class="sui-link" href="sign-up.html">Sign up</a>
+                </p>
+                <p class="sui-msg" id="signInMsg"></p>
+            </section>
+        </div>
+    </div>
+
+
+    <script type="module" src="sign-up-in.js"></script>
+</body>
+
+</html>

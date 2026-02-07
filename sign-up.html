@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up Page - Louis</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="sign-up-in.css" />
+</head>
+
+<body>
+
+    <!-- nav bar -->
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+
+            <div class="navigation-link">
+                <a class="button" href="index.html">Home</a>
+                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- page -->
+    <div class="container">
+        <div class="sui-page">
+            <section class="sui-card">
+                <h2>Create an account</h2>
+
+                <!-- input username -->
+                <div class="field">
+                    <div class="label">Username</div>
+                    <input id="upUser" placeholder="Username" />
+                </div>
+
+                <!-- input email -->
+                <div class="field">
+                    <div class="label">Email</div>
+                    <input id="upEmail" type="email" placeholder="Email" />
+                </div>
+
+                <!-- input password -->
+                <div class="field">
+                    <div class="label">Password</div>
+                    <input id="upPw" type="password" placeholder="Password" />
+                </div>
+
+                <!-- drop down selection for user type -->
+                <div class="field">
+                    <div class="label">User type</div>
+                    <select id="upRole">
+                        <option value="customer">Customer</option>
+                        <option value="vendor">Vendor</option>
+                        <option value="nea">NEA</option>
+                    </select>
+                </div>
+
+                <!-- sign up button -->
+                <button class="sui-btn" id="signUpBtn" type="button">Create Account</button>
+
+                <!-- message and link to sign-in.html -->
+                <p class="sui-link-line">
+                    Already have an account?
+                    <a class="sui-link" href="sign-in.html">Login</a>
+                </p>
+
+                <p class="sui-msg" id="signUpMsg"></p>
+            </section>
+
+        </div>
+    </div>
+
+
+    <script type="module" src="sign-up-in.js"></script>
+</body>
+
+</html>
