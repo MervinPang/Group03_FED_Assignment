@@ -9,3 +9,187 @@ const firebaseConfig = {
   appId: "1:1054998085997:web:9ede1811e32116ee375a64",
   measurementId: "G-WQPPKPZRYJ",
 };
+// initialising firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+// global variables to hold NEA data
+let neaDashboardData = null;
+// initialisation on DOM load
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("NEA Dashboard initializing...");
+  loadNEADataFromFirebase();
+});
+// loading of firebase data
+async function loadNEADataFromFirebase() {
+  console.log("Fetching NEA data from Firebase...");
+  showLoadingState();
+
+  try {
+    const neaRef = db.collection("neaDashboard");
+
+    const [
+      officerDoc,
+      statsDoc,
+      gradeDistDoc,
+      stallsSnapshot,
+      inspectionsSnapshot,
+      complaintsSnapshot,
+    ] = await Promise.all([
+      neaRef.doc("officer").get(),
+      neaRef.doc("stats").get(),
+      neaRef.doc("gradeDistribution").get(),
+      neaRef.collection("stalls").get(),
+      neaRef.collection("inspections").get(),
+      neaRef.collection("complaints").get(),
+    ]);
+
+    // Process stalls
+    const stalls = [];
+    stallsSnapshot.forEach((doc) => stalls.push({ id: doc.id, ...doc.data() }));
+
+    // Process inspections
+    const inspections = [];
+    inspectionsSnapshot.forEach((doc) =>
+      inspections.push({ id: doc.id, ...doc.data() }),
+    );
+
+    // Process complaints
+    const complaints = [];
+    complaintsSnapshot.forEach((doc) =>
+      complaints.push({ id: doc.id, ...doc.data() }),
+    );
+
+    // Build data object
+    neaDashboardData = {
+      officer: officerDoc.exists ? officerDoc.data() : { name: "NEA Officer" },
+      stats: statsDoc.exists
+        ? statsDoc.data()
+        : {
+            totalStalls: 0,
+            thisMonth: 0,
+            pendingComplaints: 0,
+            gradeAStalls: 0,
+          },
+      gradeDistribution: gradeDistDoc.exists
+        ? gradeDistDoc.data()
+        : { A: 0, B: 0, C: 0, D: 0 },
+      stalls: stalls,
+      inspections: inspections,
+      complaints: complaints,
+    };
+
+    console.log("✅ NEA Data loaded:", neaDashboardData);
+
+    hideLoadingState();
+    renderNEADashboard();
+    initializeNEATabs();
+    initializeEventListeners();
+    setupRealtimeListeners();
+  } catch (error) {
+    console.error("❌ Error loading NEA data:", error);
+    hideLoadingState();
+    loadFallbackData();
+  }
+}
+// loading state functions
+function showLoadingState() {
+  const loadingDiv = document.createElement("div");
+  loadingDiv.id = "nea-loading-overlay";
+  loadingDiv.innerHTML = `
+    <div class="loading-content">
+      <div class="nea-loading-spinner"></div>
+      <p>Loading NEA Dashboard...</p>
+    </div>
+  `;
+  document.body.appendChild(loadingDiv);
+}
+
+function hideLoadingState() {
+  const overlay = document.getElementById("nea-loading-overlay");
+  if (overlay) overlay.remove();
+}
+// fallback data in case of Firebase failure
+function loadFallbackData() {
+  console.log("Loading fallback data...");
+
+  neaDashboardData = {
+    officer: {
+      name: "Rayne Tok",
+    },
+    stats: {
+      totalStalls: 8,
+      thisMonth: 4,
+      pendingComplaints: 0,
+      gradeAStalls: 1,
+    },
+    gradeDistribution: {
+      A: 1,
+      B: 2,
+      C: 1,
+      D: 4,
+    },
+    stalls: [
+      {
+        id: "S1",
+        name: "Tian Tian Hainanese Chicken Rice",
+        stallId: "#01-45",
+        grade: "D",
+      },
+      { id: "S2", name: "Zhen Zhen Porridge", stallId: "#01-52", grade: "B" },
+      {
+        id: "S3",
+        name: "Ah Heng Curry Chicken Bee Hoon",
+        stallId: "#02-18",
+        grade: "A",
+      },
+      { id: "S4", name: "Happy Duck Rice", stallId: "#01-11", grade: "C" },
+      {
+        id: "S5",
+        name: "Chong Pang Nasi Lemak",
+        stallId: "#02-34",
+        grade: "B",
+      },
+      { id: "S6", name: "Lau Pa Sat Satay", stallId: "#01-29", grade: "D" },
+      { id: "S7", name: "Fishball Story Soup", stallId: "#02-07", grade: "D" },
+      { id: "S8", name: "Nameless Rice Stall", stallId: "#01-19", grade: "D" },
+    ],
+    inspections: [
+      {
+        id: "I1",
+        stall: "Tian Tian Hainanese Chicken Rice",
+        date: "Jan 13, 2026",
+        officer: "Rayne Tok",
+        cleanliness: 92,
+        foodHandling: 87,
+        equipment: 95,
+        overall: 91,
+      },
+      {
+        id: "I2",
+        stall: "Zhen Zhen Porridge",
+        date: "Jan 12, 2026",
+        officer: "Rayne Tok",
+        cleanliness: 80,
+        foodHandling: 82,
+        equipment: 79,
+        overall: 80,
+      },
+      {
+        id: "I3",
+        stall: "Ah Heng Curry Chicken Bee Hoon",
+        date: "Jan 11, 2026",
+        officer: "Rayne Tok",
+        cleanliness: 98,
+        foodHandling: 96,
+        equipment: 97,
+        overall: 97,
+      },
+    ],
+    complaints: [],
+  };
+
+  showToast("⚠️ Using offline data", "error");
+  renderNEADashboard();
+  initializeNEATabs();
+  initializeEventListeners();
+}
