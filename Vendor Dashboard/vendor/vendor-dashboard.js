@@ -251,3 +251,23 @@ function initializeVendorTabs() {
   console.log("Rendering initial overview tab...");
   renderVendorTabContent("overview");
 }
+//Render tab content
+function renderVendorTabContent(tabName) {
+  console.log("Rendering content for tab: " + tabName);
+  var data = vendorDashboardData;
+  if (tabName === "overview") {
+    renderVendorOverviewTab(data);
+  } else if (tabName === "orders") {
+    renderVendorOrdersTab(data);
+  } else if (tabName === "menu") {
+    renderVendorMenuTab(data);
+  } else if (tabName === "reviews") {
+    renderVendorReviewsTab(data);
+  } else if (tabName === "history") {
+    renderVendorHistoryTab(data);
+  } else if (tabName === "rental") {
+    renderVendorRentalTab(data);
+  } else {
+    console.warn("Unknown tab: " + tabName);
+  }
+}
