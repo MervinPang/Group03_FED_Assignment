@@ -209,6 +209,52 @@
       </footer>
     </article>
   </dialog>
+  <!-- Edit Menu Item Modal-->
+  <dialog id="edit-item-modal" class="vendor-modal">
+    <article class ="vendor-modal-content">
+      <header class="vendor-modal-header">
+        <h2>Edit Menu Item</h2>
+        <button class="vendor-modal-close" onclick="closeEditItemModal()">&times;</button>
+      </header>
+      <main class="vendor-modal-body">
+        <form id="edit-item-form">
+          <fieldset>
+            <input type="hidden" id="edit-item-index" name="itemIndex">
+            <input type="hidden" id="edit-item-id" name="itemId">
+            <div class="vendor-form-group">
+              <label for="edit-item-name">Name</label>
+              <input type="text" id="edit-item-name" name="itemName" required>
+            </div>
+            <div class="vendor-form-group">
+              <label for="edit-item-price">Price ($)</label>
+              <input type="number" id="edit-item-price" name="itemPrice" step="0.10" min="0" required>
+            </div>
+            <div class="vendor-form-group">
+              <label for="edit-item-category">Category</label>
+              <select id="edit-item-category" name="itemCategory" required>
+                <option value="">Select a category</option>
+                <option value="Signature">Signature</option>
+                <option value="Main">Main</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Snack">Snack</option>
+                <option value="Drinks">Drinks</option>
+                <option value="Dessert">Dessert</option>
+              </select>
+            </div>
+            <div class="vendor-form-group">
+              <label for="edit-item-description">Description</label>
+              <textarea id="edit-item-description" name="itemDescription" rows="4"></textarea>
+            </div>
+          </fieldset>
+        </form>
+      </main>
+      <footer class="vendor-modal-footer">
+        <button class="btn btn-cancel" onclick="closeEditItemModal()">Cancel</button>
+        <button class="btn btn-save" onclick="submitEditItem()">Save</button>
+      </footer>
+    </article>
+    </dialog>
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
   
