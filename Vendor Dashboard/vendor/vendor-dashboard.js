@@ -870,3 +870,52 @@ async function toggleAvailability(index) {
   }
   renderVendorMenuTab(vendorDashboardData);
 }
+//Utility Functions or Functions that can be used anywhere
+function createEmptyState(icon, title, text) {
+  return `
+    <div class="vendor-empty-state">
+      <div class="vendor-empty-state-icon">${icon}</div>
+      <p class="vendor-empty-state-title">${title}</p>
+      <p class="vendor-empty-state-text">${text}</p>
+    </div>`;
+}
+
+function capitalizeFirst(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+//Toast Notifications
+function showToast(message, type = "success") {
+  const existing = document.querySelector(".vendor-toast");
+  if (existing) existing.remove();
+
+  const toast = document.createElement("div");
+  toast.className = `vendor-toast vendor-toast-${type}`;
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("fade-out");
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+//Event Listeners
+function initializeEventListeners() {
+  const addItemBtn = document.getElementById("vendor-add-item-btn");
+  if (addItemBtn) addItemBtn.addEventListener("click", openAddItemModal);
+
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "add-item-modal") closeAddItemModal();
+    if (e.target.id === "edit-item-modal") closeEditItemModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeAddItemModal();
+      closeEditItemModal();
+    }
+  });
+}
+
+function navigateHome() {
+  window.location.href = "index.html";
+}
