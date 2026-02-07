@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - Mervin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link href="order-details.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+
+            <div class="navigation-link">
+                <a class="button" href="index.html">Home</a>
+                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container order-details-layout">
+
+        <a class="back" href="order-history.html">Back to Order History</a>
+
+        <section class="details-card">
+            <div class="details-head">
+                <h2 class="order">Order #<span id="orderNumber">67</span></h2>
+                <p class="prep-time"><span id="prepTime">1 hour 15 minutes</span></p>
+            </div>
+
+            <hr class="divider">
+
+            <div class="timeline">
+                <div class="step done">
+                    <div class="dot"></div>
+                    <p class="step-text">Pending</p>
+                </div>
+
+                <div class="line done"></div>
+
+                <div class="step done">
+                    <div class="dot"></div>
+                    <p class="step-text">Confirmed</p>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step current">
+                    <div class="dot"></div>
+                    <p class="step-text">Preparing</p>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step">
+                    <div class="dot"></div>
+                    <p class="step-text">Ready</p>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="step">
+                    <div class="dot"></div>
+                    <p class="step-text">Completed</p>
+                </div>
+            </div>
+
+            <div class="status-box">
+                <p id="statusMessage" class="status-message">
+                    Order confirmed! Waiting to be prepared.
+                </p>
+            </div>
+
+            <h3 class="section-title">Order Items</h3>
+
+            <div id="itemsList" class="items-list"></div>
+            <hr class="divider thin">
+            <div class="totals">
+                <div class="total-row">
+                    <p class="label">Subtotal</p>
+                    <p id="subtotal" class="value">$6.00</p>
+                </div>
+
+                <div class="total-row total">
+                    <p class="label">Total</p>
+                    <p id="total" class="value">$6.00</p>
+                </div>
+            </div>
+        </section>
+        <a class="purchase-button" href="index.html">Make Another Purchase</a>
+    </div>
+    <script src="order-details.js"></script>
+</body>
+
+</html>
