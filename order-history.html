@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order History - Mervin</title>
+    <title>Order (Guest Access) - Mervin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -22,7 +22,7 @@
 
             <div class="navigation-link">
                 <a class="button" href="index.html">Home</a>
-                <a class="button active" href="order.html">Orders</a>
+                <a class="button active" href="order-history.html">Orders</a>
                 <a class="button" href="profile.html">Profile</a>
             </div>
         </nav>
@@ -41,13 +41,16 @@
 
             <div class="actions">
                 <a class="sign-button" href="signin.html">Sign In</a>
-                <a class="sign-button" href="signup.html">Sign Up</a>
+                <a class="sign-button" href="signin.html">Sign Up</a>
                 <button id="enableCookiesBtn" class="sign-button secondary" type="button">Enable Cookies</button>
             </div>
 
-            <p id="viewError" class="view-error" hidden>Please enable cookies to continue</p>
+            <p id="successMessage" class="success-message" hidden>
+                Cookies enabled successfully. Redirecting to your orders…
+            </p>
         </section>
     </div>
+    <script src="order-history.js"></script>
 </body>
 
 </html>

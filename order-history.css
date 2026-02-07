@@ -81,10 +81,10 @@
     border-color: #059669;
 }
 
-/* Error message shown when cookies are not enabled */
-.view-error {
-    margin-top: 14px;
-    color: #DC2626;
+/* Success message after enabling cookies */
+.success-message {
+    margin-top: 25px;
+    color: #059669;
     font-size: 12px;
     font-weight: 700;
 }
