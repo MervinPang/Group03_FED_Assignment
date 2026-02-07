@@ -19,7 +19,7 @@
         <nav class="nav">
             <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
             <p class="name">HawkerHubSG</p>
-            <div class="link">
+            <div class="navigation-link">
                 <a class="button" href="index.html">Home</a>
                 <a class="button active" href="order.html">Orders</a>
                 <a class="button" href="profile.html">Profile</a>
@@ -54,9 +54,10 @@
         </section>
         <section class="tabs">
             <button class="tab active" type="button">
-                <img id="restaurant-icon" src="images/Restaurant Logo.svg" alt="Restaurant Icon">Menu</button>
-            <button class="tab" type="button">
+                <img id="restaurant-icon" src="images/Restaurant Black Icon.svg" alt="Restaurant Icon">Menu</button>
+            <button class="tab" type="button" onclick="window.location.href='review.html'">
                 <img id="chatbox-icon" src="images/Chatbox Icon.svg" alt="Chatbox Icon">Reviews</button>
+            </button>
         </section>
         <section>
             <h2 class="menu">Menu</h2>
@@ -74,9 +75,13 @@
                             </h3>
                             <p>Crispy roasted chicken with fragrant rice and special dark soy sauce</p>
                             <p>234 Likes</p>
-                            <p id="price">$4.50</p>
+                            <p class="price">$4.50</p>
                         </div>
-                        <button class="add-button" type="button">Add</button>
+                        <button class="add-button" type="button" data-shop-id="stall01"
+                            data-shop-name="Tian Tian Hainanese Chicken Rice" data-item-id="tt01"
+                            data-item-name="Chicken Rice (Roasted)" data-price="4.50">
+                            Add
+                        </button>
                     </article>
                 </li>
                 <li>
@@ -90,15 +95,19 @@
                             <h3 class="menu-title">Chicken Rice (Steamed)</h3>
                             <p>Tender poached chicken with fragrant rice, served with chili and ginger sauce</p>
                             <p>156 Likes</p>
-                            <p id="price">$4.50</p>
+                            <p class="price">$4.50</p>
                         </div>
-                        <button class="add-button" type="button">Add</button>
+                        <button class="add-button" type="button" data-shop-id="stall01"
+                            data-shop-name="Tian Tian Hainanese Chicken Rice" data-item-id="tt02"
+                            data-item-name="Chicken Rice (Steamed)" data-price="4.50">
+                            Add
+                        </button>
                     </article>
                 </li>
             </ul>
         </section>
     </div>
-    <section class="cart-bar">
+    <section class="cart-bar" hidden>
         <p class="cart-items">0 items</p>
         <a class="cart-button" href="cart.html">View Cart</a>
     </section>
@@ -134,8 +143,8 @@
             <section>
                 <h4 class="title">SERVICES</h4>
                 <div class="line"></div>
-                <p><a class="link" href="">Apply for Member</a></p>
-                <a class="link" href="">Apply for Vendor</a>
+                <p><a class="link" href="sign-up.html">Apply for Member</a></p>
+                <a class="link" href="sign-up.html">Apply for Vendor</a>
             </section>
 
             <section>
@@ -170,7 +179,7 @@
     <div class="footer-bottom">
         <p>&copy; 2026 Copyright: HawkerHubSG</p>
     </div>
-    </footer>
+    <script src="order.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,191 @@
+/* Layout spacing for the checkout page */
+.checkout-layout {
+    padding: 30px 0 80px;
+}
+
+/* Order summary card */
+.summary {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Individual order item */
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* Image and text */
+.summary-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* Food image */
+.image {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Text container for food name and quantity */
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.quantity {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 4px 0 0;
+}
+
+/* Price text */
+.price {
+    font-weight: bold;
+}
+
+/* Subtotal and total */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Name for subtotal/total */
+.summary-name {
+    color: #000000;
+}
+
+.summary-value {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Styling for row */
+.summary-row.total .summary-name {
+    font-size: 18px;
+    font-weight: 900;
+    color: #000000;
+}
+
+/* Styling for row */
+.summary-row.total .summary-value {
+    font-size: 18px;
+    font-weight: 900;
+    color: #000000;
+}
+
+.details {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Remove default margin for section heading */
+.details h2 {
+    margin-top: 0;
+}
+
+/* Input and textarea styling */
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+
+/* Textarea specific styling */
+textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* Checkbox input styling */
+.checkbox input {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    transform: scale(1.4);
+}
+
+/* Checkbox name spacing */
+.checkbox span {
+    margin-left: 6px;
+}
+
+/* Outer container for payment methods */
+.payment-container {
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 18px;
+    background-color: #FFFFFF;
+}
+
+/* Row holding payment buttons */
+.payment {
+    display: flex;
+    gap: 12px;
+}
+
+/* Payment method buttons */
+.payment-button {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    background-color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Active payment method */
+.payment-button.active {
+    background-color: #D1FAE5;
+    color: #059669;
+    border-color: #059669;
+}
+
+/* Payment method icon size */
+.payment-button .payment-icon {
+    width: 40px;
+    height: 40px;
+}
+
+/* Pay button styling */
+.pay-button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    background-color: #10B981;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: bold;
+}

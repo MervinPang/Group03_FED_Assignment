@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Mervin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link href="checkout.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+
+            <div class="link">
+                <a class="button" href="index.html">Home</a>
+                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container checkout-layout">
+        <section class="summary">
+            <h2>Order Summary</h2>
+            <div class="item">
+                <div class="summary-left">
+                    <img class="image" src="images/Roasted Chicken Rice.jpg" alt="Chicken rice (roasted)">
+
+                    <div class="text">
+                        <p class="name">Chicken Rice (Roasted)</p>
+                        <p class="quantity">Quantity: 1</p>
+                    </div>
+                </div>
+                <p class="price">$4.50</p>
+            </div>
+            <hr>
+            <div class="item">
+                <div class="summary-left">
+                    <img class="image" src="images/Steamed Chicken Rice.jpg" alt="Chicken rice (steamed)">
+
+                    <div class="text">
+                        <p class="name">Chicken Rice (Steamed)</p>
+                        <p class="quantity">Quantity: 1</p>
+                    </div>
+                </div>
+                <p class="price">$4.50</p>
+            </div>
+            <div class="summary-row">
+                <p class="summary-name">Subtotal</p>
+                <p class="summary-value">$9.00</p>
+            </div>
+            <hr>
+            <div class="summary-row total">
+                <p class="summary-name">Total</p>
+                <p class="summary-value">$9.00</p>
+            </div>
+        </section>
+        <section class="details">
+            <h2>Your Details</h2>
+
+            <label>Name</label>
+            <input type="text" placeholder="Enter your name">
+
+            <label>Phone Number</label>
+            <input type="text" placeholder="Enter your phone number">
+
+            <label>Special Instructions (Optional)</label>
+            <textarea placeholder="Any special requests?"></textarea>
+
+            <label class="checkbox">
+                <input type="checkbox" id="alternateReceiver">
+                <span>Alternate Receiver</span>
+            </label>
+        </section>
+        <section class="payment-container">
+            <h2>Payment Method</h2>
+            <div class="payment">
+                <button class="payment-button active" type="button">
+                    <img class="payment-icon" src="images/QR Code Icon.svg" alt="PayNow QR Icon">
+                    <span>PayNow</span>
+                </button>
+
+                <button class="payment-button" type="button">
+                    <img class="payment-icon" src="images/Credit Card Icon.svg" alt="Credit Card Icon">
+                    <span>Credit Card</span>
+                </button>
+            </div>
+        </section>
+        <button class="pay-button">Pay $9.00</button>
+    </div>
+</body>
+
+</html>
