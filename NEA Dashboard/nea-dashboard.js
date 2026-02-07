@@ -687,3 +687,18 @@ function getGradeFromScore(score) {
   if (score >= 60) return "C";
   return "D";
 }
+//Toast notfication
+function showToast(message, type = "success") {
+  const existing = document.querySelector(".nea-toast");
+  if (existing) existing.remove();
+
+  const toast = document.createElement("div");
+  toast.className = `nea-toast nea-toast-${type}`;
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("fade-out");
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
