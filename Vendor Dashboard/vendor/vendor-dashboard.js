@@ -384,3 +384,31 @@ function renderVendorOrdersTab(data) {
 
   console.log("Orders tab rendered successfully");
 }
+//Edit Orders to ready
+async function markOrderReady(orderId) {
+  console.log("Marking order as ready: " + orderId);
+  try {
+    await updateOrderStatusInFirebase(orderId, "ready");
+
+    var orderIndex = vendorDashboardData.activeOrders.findIndex(function (o) {
+      return o.id === orderId;
+    });
+
+    if (orderIndex !== -1) {
+      var order = vendorDashboardData.activeOrders[orderIndex];
+      order.status = "ready";
+      vendorDashboardData.orderHistory.unshift(order);
+      vendorDashboardData.activeOrders.splice(orderIndex, 1);
+      vendorDashboardData.stats.activeOrders =
+        vendorDashboardData.activeOrders.length;
+
+      renderVendorOrdersTab(vendorDashboardData);
+      renderVendorDashboard();
+
+      showSuccessMessage("✅ Order #" + orderId + " marked as ready!");
+    }
+  } catch (error) {
+    console.error("Error marking order as ready:", error);
+    showErrorMessage("❌ Failed to update order status");
+  }
+}
