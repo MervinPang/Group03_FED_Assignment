@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order History - Mervin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link href="order-history.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+
+            <div class="navigation-link">
+                <a class="button" href="index.html">Home</a>
+                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container orders-layout">
+        <section class="card">
+            <div class="shop-icon">
+                <img src="images/Shop Icon.svg" alt="Shop Icon">
+            </div>
+
+            <h2 class="title">Hi Guest!</h2>
+
+            <p class="text">
+                To view your orders, please enable cookies, sign in or sign up as a member
+            </p>
+
+            <div class="actions">
+                <a class="sign-button" href="signin.html">Sign In</a>
+                <a class="sign-button" href="signup.html">Sign Up</a>
+                <button id="enableCookiesBtn" class="sign-button secondary" type="button">Enable Cookies</button>
+            </div>
+
+            <p id="viewError" class="view-error" hidden>Please enable cookies to continue</p>
+        </section>
+    </div>
+</body>
+
+</html>
