@@ -366,7 +366,10 @@ function intializeNEATabs() {
   const tabBtns = document.querySelectorAll(".nea-tab-btn");
   const tabPanes = document.querySelectorAll(".nea-tab-pane");
   if (tabBtns.length === 0 || tabPanes.length === 0) {
-    console.error("No tab buttons or panes found!");
+    stallsList.innerHTML = createEmptyState(
+      "No Stalls Found",
+      "Try adjusting your search",
+    );
     return;
   }
   tabBtns.forEach((btn) => {
@@ -447,4 +450,54 @@ function createGradeBadge(grade) {
     <div class="hygiene-grade-badge">
       <div class="nea-grade-circle ${gradeClass}">${grade}</div>
     </div>`;
+}
+//Inspections Tab
+function renderNEAInspectionsTab(data) {
+  console.log("Rendering NEA Inspections tab...");
+  const inspectionsList = document.getElementById("nea-inspections-list");
+  if (!inspectionsList) {
+    console.error("Inspections list element not found!");
+    return;
+  }
+  if (data.inspections.length === 0) {
+    inspectionsList.innerHTML = createEmptyState(
+      "No Inspections",
+      "Inspections will appear here",
+    );
+  }
+  //sort by date
+  const sortedInspections = [...data.inspections].sort((a, b) => {
+    return new Date(b.date) - new Date(a.date);
+  });
+  let html = "";
+  sortedInspections.forEach((insp) => {
+    const grade = inspection.grade || getGradeFromScore(inspection.overall);
+    html += ` <article class="nea-inspection-card">
+        <header class="nea-inspection-header">
+          <div class="nea-inspection-left">
+            <h4>${inspection.stall}</h4>
+            <p>${inspection.stallId} • ${inspection.date}</p>
+          </div>
+          <div class="nea-inspection-score">${inspection.overall}%</div>
+        </header>
+        <div class="nea-inspection-breakdown">
+          <div class="nea-breakdown-item">
+            <label>Cleanliness</label>
+            <span>${inspection.cleanliness}%</span>
+          </div>
+          <div class="nea-breakdown-item">
+            <label>Food Handling</label>
+            <span>${inspection.foodHandling}%</span>
+          </div>
+          <div class="nea-breakdown-item">
+            <label>Equipment</label>
+            <span>${inspection.equipment}%</span>
+          </div>
+        </div>
+        <div class="nea-inspection-badge-container">
+          ${createGradeBadge(grade)}
+        </div>
+      </article>`;
+  });
+  inspectionsList.innerHTML = html;
 }
