@@ -338,3 +338,49 @@ function renderVendorOverviewTab(data) {
 
   console.log("Overview tab rendered successfully");
 }
+//Order Tab
+function renderVendorOrdersTab(data) {
+  console.log("Rendering Orders tab...");
+
+  var activeOrdersList = document.getElementById("vendor-active-orders-list");
+
+  if (!activeOrdersList) {
+    console.error("Active orders list element not found");
+    return;
+  }
+
+  if (data.activeOrders.length === 0) {
+    activeOrdersList.innerHTML = `
+      <div class="vendor-empty-state">
+        <div class="vendor-empty-state-icon">⏱️</div>
+        <p class="vendor-empty-state-title">No Active Orders</p>
+        <p class="vendor-empty-state-text">New orders will appear here automatically</p>
+      </div>`;
+  } else {
+    var ordersHTML = "";
+    for (var i = 0; i < data.activeOrders.length; i++) {
+      var order = data.activeOrders[i];
+      ordersHTML += `
+        <div class="vendor-order-item" data-order-id="${order.id}">
+          <div class="vendor-order-info">
+            <h4>Order #${order.id}</h4>
+            <p>${order.customer}</p>
+            <p>${order.items || "Items"}</p>
+            <p style="font-size: 0.85rem; color: #999;">${order.timestamp || ""}</p>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
+            <span class="vendor-order-status vendor-status-${order.status}">
+              ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+            </span>
+            <div class="vendor-order-actions">
+              <button class="btn btn-small btn-primary" onclick="markOrderReady('${order.id}')">✓ Ready</button>
+              <button class="btn btn-small btn-secondary" onclick="cancelOrder('${order.id}')">✗ Cancel</button>
+            </div>
+          </div>
+        </div>`;
+    }
+    activeOrdersList.innerHTML = ordersHTML;
+  }
+
+  console.log("Orders tab rendered successfully");
+}
