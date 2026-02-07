@@ -78,7 +78,7 @@ async function loadNEADataFromFirebase() {
       complaints: complaints,
     };
 
-    console.log("✅ NEA Data loaded:", neaDashboardData);
+    console.log("NEA Data loaded:", neaDashboardData);
 
     hideLoadingState();
     renderNEADashboard();
@@ -86,7 +86,7 @@ async function loadNEADataFromFirebase() {
     initializeEventListeners();
     setupRealtimeListeners();
   } catch (error) {
-    console.error("❌ Error loading NEA data:", error);
+    console.error("Error loading NEA data:", error);
     hideLoadingState();
     loadFallbackData();
   }
@@ -198,10 +198,10 @@ async function saveInspectionToFirebase(inspection) {
   try {
     const neaRef = db.collection("neaDashboard");
     const docRef = await neaRef.collection("inspections").add(inspection);
-    console.log("✅ Inspection saved:", docRef.id);
+    console.log("Inspection saved:", docRef.id);
     return docRef.id;
   } catch (error) {
-    console.error("❌ Error saving inspection:", error);
+    console.error("Error saving inspection:", error);
     return null;
   }
 }
@@ -209,10 +209,10 @@ async function updateStallGradeInFirebase(stallId, grade) {
   try {
     const neaRef = db.collection("neaDashboard");
     await neaRef.collection("stalls").doc(stallId).update({ grade: grade });
-    console.log("✅ Stall grade updated");
+    console.log("Stall grade updated");
     return true;
   } catch (error) {
-    console.error("❌ Error updating stall grade:", error);
+    console.error("Error updating stall grade:", error);
     return false;
   }
 }
@@ -236,10 +236,10 @@ async function updateComplaintStatusInFirebase(complaintId, status) {
       .collection("complaints")
       .doc(complaintId)
       .update({ status: status });
-    console.log("✅ Complaint status updated");
+    console.log("Complaint status updated");
     return true;
   } catch (error) {
-    console.error("❌ Error updating complaint:", error);
+    console.error("Error updating complaint:", error);
     return false;
   }
 }
@@ -248,10 +248,10 @@ async function updateStatsInFirebase(stats) {
   try {
     const neaRef = db.collection("neaDashboard");
     await neaRef.doc("stats").update(stats);
-    console.log("✅ Stats updated");
+    console.log("Stats updated");
     return true;
   } catch (error) {
-    console.error("❌ Error updating stats:", error);
+    console.error("Error updating stats:", error);
     return false;
   }
 }
@@ -260,10 +260,71 @@ async function updateGradeDistributionInFirebase(distribution) {
   try {
     const neaRef = db.collection("neaDashboard");
     await neaRef.doc("gradeDistribution").update(distribution);
-    console.log("✅ Grade distribution updated");
+    console.log("Grade distribution updated");
     return true;
   } catch (error) {
-    console.error("❌ Error updating grade distribution:", error);
+    console.error("Error updating grade distribution:", error);
     return false;
   }
+}
+//Real time listeners
+function setupRealtimeListeners() {
+  console.log("Setting up real-time listeners...");
+  const neaRef = db.collection("neaDashboard");
+  //Listener for stalls collection
+  neaRef.collection("stalls").onSnapshot((snapshot) => {
+    console.log("Stalls updated!");
+    const stalls = [];
+    snapshot.forEach((doc) => stalls.push({ id: doc.id, ...doc.data() }));
+    neaDashboardData.stalls = stalls;
+    updateGradeDistributionFromStalls();
+
+    const stallsTab = document.getElementById("nea-stalls-tab");
+    if (stallsTab && stallsTab.classList.contains("active")) {
+      renderNEAStallsTab(neaDashboardData);
+    }
+  });
+  //Listener for inspections collection
+  neaRef.collection("inspections").onSnapshot((snapshot) => {
+    console.log("Inspections updated!");
+    const inspections = [];
+    snapshot.forEach((doc) => inspections.push({ id: doc.id, ...doc.data() }));
+    neaDashboardData.inspections = inspections;
+    renderNEAInspectionsTab(neaDashboardData);
+
+    const statsEl = document.getElementById("nea-inspections-count");
+    if (statsEl) statsEl.textContent = inspections.length;
+    const inspectionsTab = document.getElementById("nea-inspections-tab");
+    if (inspectionsTab && inspectionsTab.classList.contains("active")) {
+      renderNEAInspectionsTab(neaDashboardData);
+    }
+  });
+  //Listener for complaints collection
+  neaRef.collection("complaints").onSnapshot((snapshot) => {
+    console.log("🔄 Complaints updated!");
+    const complaints = [];
+    snapshot.forEach((doc) => complaints.push({ id: doc.id, ...doc.data() }));
+    neaDashboardData.complaints = complaints;
+    renderNEAComplaintsTab(neaDashboardData);
+    const pendingCount = complaints.filter(
+      (c) => c.status === "Pending",
+    ).length;
+    const pendingEl = document.getElementById("nea-pending-count");
+    if (pendingEl) pendingEl.textContent = pendingCount;
+    const complaintsTab = document.getElementById("nea-complaints-tab");
+    if (complaintsTab && complaintsTab.classList.contains("active")) {
+      renderNEAComplaintsTab(neaDashboardData);
+    }
+  });
+  console.log("Real-time listeners set up.");
+}
+function updateGradeDistributionFromStalls() {
+  const distribution = { A: 0, B: 0, C: 0, D: 0 };
+  neaDashboardData.stalls.forEach((stall) => {
+    if (distribution.hasOwnProperty(stall.grade)) {
+      distribution[stall.grade]++;
+    }
+  });
+  neaDashboardData.gradeDistribution = distribution;
+  renderGradeDistribution(distribution);
 }
