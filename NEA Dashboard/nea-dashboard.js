@@ -561,3 +561,32 @@ async function resolveComplaint(complaintId) {
     showToast("❌ Failed to mark complaint as resolved", "error");
   }
 }
+//Inspection modal
+function openInspectionModal(stallId, stallName, stallNumber) {
+  const modal = document.getElementById("nea-inspection-modal");
+  if (modal) {
+    document.getElementById("inspection-stall-id").value = stallId;
+    document.getElementById("inspection-stall-name").value = stallName;
+    document.getElementById("inspection-stall-unit-id").value = stallUnitId;
+    document.getElementById("inspection-stall-display").textContent = stallName;
+    document.getElementById("inspection-stall-unit-display").textContent =
+      stallUnitId;
+    // Reset form fields
+    document.getElementById("inspection-cleanliness").value = "";
+    document.getElementById("inspection-food-handling").value = "";
+    document.getElementById("inspection-equipment").value = "";
+    document.getElementById("inspection-notes").value = "";
+    modal.classList.add("active");
+  }
+}
+function closeInspectionModal() {
+  const modal = document.getElementById("nea-inspection-modal");
+  if (modal) {
+    modal.classList.remove("active");
+  }
+}
+async function submitInspectionForm() {
+  const stallId = document.getElementById("inspection-stall-id").value;
+  const stallName = document.getElementById("inspection-stall-name").value;
+  const stallUnitId = document.getElementById("inspection-stall-unit-id").value;
+}
