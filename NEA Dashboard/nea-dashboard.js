@@ -541,3 +541,23 @@ function renderNEAComplaintsTab(data) {
   });
   complaintsList.innerHTML = html;
 }
+async function resolveComplaint(complaintId) {
+  if (!confirm("Mark this complaint as resolved?")) {
+    return;
+  }
+  try {
+    await updateComplaintStatusInFirebase(complaintId, "Resolved");
+    const index = neaDashboardData.complaints.findIndex(
+      (c) => c.id === complaintId,
+    );
+    if (index !== -1) {
+      neaDashboardData.complaints[index].status = "Resolved";
+      renderNEAComplaintsTab(neaDashboardData);
+      renderNEADashboard();
+      showToast("✅ Complaint marked as resolved", "success");
+    }
+  } catch (error) {
+    console.error("Error resolving complaint:", error);
+    showToast("❌ Failed to mark complaint as resolved", "error");
+  }
+}
