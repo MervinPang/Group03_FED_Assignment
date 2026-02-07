@@ -328,3 +328,35 @@ function updateGradeDistributionFromStalls() {
   neaDashboardData.gradeDistribution = distribution;
   renderGradeDistribution(distribution);
 }
+//Render Dashboard
+function renderNEADashboard() {
+  console.log("Rendering NEA Dashboard...");
+  const data = neaDashboardData;
+  //Update the header
+  const officerNameEl = document.getElementById("nea-officer-name");
+  if (officerNameEl) officerNameEl.textContent = data.officer.name;
+  //Update stats
+  const totalStallsEl = document.getElementById("nea-total-stalls");
+  const inspectionsCountEl = document.getElementById("nea-inspections-count");
+  const pendingEl = document.getElementById("nea-pending-count");
+  if (totalStallsEl) totalStallsEl.textContent = data.stats.totalStalls;
+  if (inspectionsCountEl)
+    inspectionsCountEl.textContent = data.inspections.length;
+  if (pendingEl)
+    pendingEl.textContent = data.complaints.filter(
+      (c) => c.status === "pending",
+    ).length;
+  //Render grade distribution chart
+  renderGradeDistribution(data.gradeDistribution);
+  console.log("NEA Dashboard rendered.");
+}
+function renderGradeDistribution(distribution) {
+  const gradeAEl = document.getElementById("nea-grade-a-count");
+  const gradeBEl = document.getElementById("nea-grade-b-count");
+  const gradeCEl = document.getElementById("nea-grade-c-count");
+  const gradeDEl = document.getElementById("nea-grade-d-count");
+  if (gradeAEl) gradeAEl.textContent = distribution.A;
+  if (gradeBEl) gradeBEl.textContent = distribution.B;
+  if (gradeCEl) gradeCEl.textContent = distribution.C;
+  if (gradeDEl) gradeDEl.textContent = distribution.D;
+}
