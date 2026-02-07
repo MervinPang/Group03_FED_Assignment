@@ -660,6 +660,66 @@ body {
   background: var(--white);
   border-radius: 0 0 8px 8px;
 }
+/*Form Styles */
+.vendor-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.vendor-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.vendor-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.vendor-form-group input[type="text"],
+.vendor-form-group input[type="number"],
+.vendor-form-group input[type="search"],
+.vendor-form-group select,
+.vendor-form-group textarea {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.2s;
+  background: var(--white);
+  color: var(--text-dark);
+}
+
+.vendor-form-group input:focus,
+.vendor-form-group select:focus,
+.vendor-form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.vendor-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.vendor-form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.875rem center;
+  padding-right: 2.5rem;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
 /* Responsive */
 @media (max-width: 1024px) {
   .vendor-overview-grid {
