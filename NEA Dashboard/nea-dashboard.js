@@ -442,7 +442,6 @@ function renderNEAStallsTab(data) {
   stallsList.innerHTML = html;
 }
 function createGradeBadge(grade) {
-  const gradeClass = `nea-grade-badge-${grade.toLowerCase()}`;
   return `
     <div class="hygiene-grade-badge">
       <div class="nea-grade-circle ${gradeClass}">${grade}</div>
@@ -559,7 +558,7 @@ async function resolveComplaint(complaintId) {
   }
 }
 //Inspection modal
-function openInspectionModal(stallId, stallName, stallNumber) {
+function openInspectionModal(stallId, stallName, stallUnitId) {
   const modal = document.getElementById("nea-inspection-modal");
   if (modal) {
     document.getElementById("inspection-stall-id").value = stallId;
