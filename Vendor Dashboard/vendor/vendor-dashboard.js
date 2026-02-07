@@ -686,3 +686,42 @@ function renderVendorRentalTab(data) {
 
   console.log("Rental tab rendered successfully");
 }
+//Modal Functions
+function openAddItemModal() {
+  const modal = document.getElementById("add-item-modal");
+  if (modal) {
+    document.getElementById("add-item-form").reset();
+    modal.classList.add("active");
+    document.getElementById("item-name").focus();
+  }
+}
+
+function closeAddItemModal() {
+  const modal = document.getElementById("add-item-modal");
+  if (modal) modal.classList.remove("active");
+}
+
+function openEditItemModal(index) {
+  const item = vendorDashboardData.menuItems[index];
+  if (!item) return;
+
+  const modal = document.getElementById("edit-item-modal");
+  if (modal) {
+    document.getElementById("edit-item-index").value = index;
+    document.getElementById("edit-item-id").value = item.id || "";
+    document.getElementById("edit-item-name").value = item.name;
+    document.getElementById("edit-item-price").value = item.price;
+    document.getElementById("edit-item-category").value =
+      item.category || item.cuisine || "";
+    document.getElementById("edit-item-description").value =
+      item.description || "";
+
+    modal.classList.add("active");
+    document.getElementById("edit-item-name").focus();
+  }
+}
+
+function closeEditItemModal() {
+  const modal = document.getElementById("edit-item-modal");
+  if (modal) modal.classList.remove("active");
+}
