@@ -203,3 +203,48 @@ function renderVendorDashboard() {
 
   console.log("Dashboard rendered successfully");
 }
+//Tab navigation
+function initializeVendorTabs() {
+  console.log("Initializing tabs...");
+  var tabBtns = document.querySelectorAll(".vendor-tab-btn");
+  var tabPanes = document.querySelectorAll(".vendor-tab-pane");
+  console.log(
+    "Found " +
+      tabBtns.length +
+      " tab buttons and " +
+      tabPanes.length +
+      " tab panes",
+  );
+  if (tabBtns.length === 0 || tabPanes.length === 0) {
+    console.error("Tab elements not found!");
+    return;
+  }
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      var tabName = btn.getAttribute("data-vendor-tab");
+      console.log("Switching to tab: " + tabName);
+      // Remove active class from all buttons and panes
+      tabBtns.forEach(function (b) {
+        b.classList.remove("active");
+      });
+      tabPanes.forEach(function (p) {
+        p.classList.remove("active");
+      });
+      // Add active class to clicked button and corresponding pane
+      btn.classList.add("active");
+      var tabPaneId = "vendor-" + tabName + "-tab";
+      var tabPane = document.getElementById(tabPaneId);
+
+      if (tabPane) {
+        tabPane.classList.add("active");
+        console.log("Activated tab pane: " + tabPaneId);
+
+        // Render content for this tab
+        renderVendorTabContent(tabName);
+      } else {
+        console.error("Tab pane not found: " + tabPaneId);
+      }
+    });
+  });
+}
