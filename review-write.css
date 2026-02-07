@@ -1,0 +1,72 @@
+/* review container */
+.review-box {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+    background: #F9FAFB;
+}
+
+/* heading title */
+.review-box h2 {
+    margin-bottom: 14px;
+}
+
+.review-box label {
+    display: block;
+    margin-top: 14px;
+    font-weight: bold;
+}
+
+/* write a review */
+.review-box textarea {
+    width: 96%;
+    margin-top: 6px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #E5E7EB;
+}
+
+/* stars */
+.stars {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+/* star image */
+.stars img {
+    width: 28px;
+    cursor: pointer;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+/* star button */
+button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 999px;
+    background: #059669;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* cancel button */
+#cancelBtn {
+    background: #D1FAE5;
+    color: black;
+}
+
+/* message text */
+#msg {
+    margin-top: 10px;
+    font-size: 12px;
+}
