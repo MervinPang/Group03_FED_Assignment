@@ -193,3 +193,77 @@ function loadFallbackData() {
   initializeNEATabs();
   initializeEventListeners();
 }
+//Firebase saving functions
+async function saveInspectionToFirebase(inspection) {
+  try {
+    const neaRef = db.collection("neaDashboard");
+    const docRef = await neaRef.collection("inspections").add(inspection);
+    console.log("✅ Inspection saved:", docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error("❌ Error saving inspection:", error);
+    return null;
+  }
+}
+async function updateStallGradeInFirebase(stallId, grade) {
+  try {
+    const neaRef = db.collection("neaDashboard");
+    await neaRef.collection("stalls").doc(stallId).update({ grade: grade });
+    console.log("✅ Stall grade updated");
+    return true;
+  } catch (error) {
+    console.error("❌ Error updating stall grade:", error);
+    return false;
+  }
+}
+
+async function saveComplaintToFirebase(complaint) {
+  try {
+    const neaRef = db.collection("neaDashboard");
+    const docRef = await neaRef.collection("complaints").add(complaint);
+    console.log("✅ Complaint saved:", docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error("❌ Error saving complaint:", error);
+    return null;
+  }
+}
+
+async function updateComplaintStatusInFirebase(complaintId, status) {
+  try {
+    const neaRef = db.collection("neaDashboard");
+    await neaRef
+      .collection("complaints")
+      .doc(complaintId)
+      .update({ status: status });
+    console.log("✅ Complaint status updated");
+    return true;
+  } catch (error) {
+    console.error("❌ Error updating complaint:", error);
+    return false;
+  }
+}
+
+async function updateStatsInFirebase(stats) {
+  try {
+    const neaRef = db.collection("neaDashboard");
+    await neaRef.doc("stats").update(stats);
+    console.log("✅ Stats updated");
+    return true;
+  } catch (error) {
+    console.error("❌ Error updating stats:", error);
+    return false;
+  }
+}
+
+async function updateGradeDistributionInFirebase(distribution) {
+  try {
+    const neaRef = db.collection("neaDashboard");
+    await neaRef.doc("gradeDistribution").update(distribution);
+    console.log("✅ Grade distribution updated");
+    return true;
+  } catch (error) {
+    console.error("❌ Error updating grade distribution:", error);
+    return false;
+  }
+}
