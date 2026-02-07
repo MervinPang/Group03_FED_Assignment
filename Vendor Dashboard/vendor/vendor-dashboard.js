@@ -247,4 +247,7 @@ function initializeVendorTabs() {
       }
     });
   });
+  // Render initial tab
+  console.log("Rendering initial overview tab...");
+  renderVendorTabContent("overview");
 }
