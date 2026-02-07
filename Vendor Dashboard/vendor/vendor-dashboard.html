@@ -165,6 +165,54 @@
         </section>
       </main>
     </section>
-    <script src="vendor-dashboard.js"></script>
+  <!-- Add Menu Item Modal -->
+  <dialog id="add-item-modal" class="vendor-modal">
+    <article class="vendor-modal-content">
+      <header class="vendor-modal-header">
+        <h2>Add Menu Item</h2>
+        <button class="vendor-modal-close" onclick="closeAddItemModal()">&times;</button>
+      </header>
+      <main class="vendor-modal-body">
+        <form id="add-item-form">
+          <fieldset>
+            <div class="vendor-form-group">
+              <label for="item-name">Name</label>
+              <input type="text" id="item-name" name="itemName" required>
+            </div>
+            <div class="vendor-form-group">
+              <label for="item-price">Price ($)</label>
+              <input type="number" id="item-price" name="itemPrice" step="0.10" min="0" required>
+            </div>
+            <div class="vendor-form-group">
+              <label for="item-category">Category</label>
+              <select id="item-category" name="itemCategory" required>
+                <option value="">Select a category</option>
+                <option value="Signature">Signature</option>
+                <option value="Main">Main</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Snack">Snack</option>
+                <option value="Drinks">Drinks</option>
+                <option value="Dessert">Dessert</option>
+              </select>
+            </div>
+            <div class="vendor-form-group">
+              <label for="item-description">Description</label>
+              <textarea id="item-description" name="itemDescription" rows="4"></textarea>
+              <small class="form-hint">Optional: Describe your dish</small>
+            </div>
+          </fieldset>
+        </form>
+      </main>
+      <footer class="vendor-modal-footer">
+        <button class="btn btn-cancel" onclick="closeAddItemModal()">Cancel</button>
+        <button class="btn btn-save" onclick="submitNewItem()">Save</button>
+      </footer>
+    </article>
+  </dialog>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+  
+  <!-- Dashboard JavaScript -->
+  <script src="vendor-dashboard.js"></script>
   </body>
 </html>
