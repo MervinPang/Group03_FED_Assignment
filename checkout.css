@@ -6,7 +6,7 @@
 /* Order summary card */
 .summary {
     background-color: #FFFFFF;
-    border: 1px solid #E5E7EB;
+    border-style: 1px solid #E5E7EB;
     border-radius: 14px;
     padding: 20px;
     margin-bottom: 20px;
@@ -91,7 +91,7 @@
 
 .details {
     background-color: #FFFFFF;
-    border: 1px solid #E5E7EB;
+    border-style: 1px solid #E5E7EB;
     border-radius: 14px;
     padding: 20px;
     margin-bottom: 20px;
@@ -107,8 +107,8 @@
 .details textarea {
     width: 100%;
     padding: 12px;
+    border-style: 1px solid #E5E7EB;
     border-radius: 10px;
-    border: 1px solid #E5E7EB;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     margin-bottom: 15px;
     box-sizing: border-box;
@@ -137,7 +137,7 @@ textarea {
 
 /* Outer container for payment methods */
 .payment-container {
-    border: 1px solid #E5E7EB;
+    border-style: 1px solid #E5E7EB;
     border-radius: 14px;
     padding: 18px;
     background-color: #FFFFFF;
@@ -158,8 +158,8 @@ textarea {
     justify-content: center;
     gap: 6px;
     padding: 16px;
+    border-style: 1px solid #E5E7EB;
     border-radius: 12px;
-    border: 1px solid #E5E7EB;
     background-color: #FFFFFF;
     font-weight: bold;
 }
@@ -184,7 +184,7 @@ textarea {
     margin-top: 25px;
     background-color: #10B981;
     color: #FFFFFF;
-    border: none;
+    border-style: none;
     border-radius: 14px;
     font-size: 16px;
     font-weight: bold;
