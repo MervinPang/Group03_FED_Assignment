@@ -708,10 +708,6 @@ function initializeEventListeners() {
       renderNEAStallsTab(neaDashboardData),
     );
   }
-  //Inspection modal close on click
-  document.addEventListener("click", (e) => {
-    if (e.target.id === "nea-inspection-modal") closeInspectionModal();
-  });
   //Inspection modal submit on click
   const inspectionSubmitBtn = document.querySelector(
     "#nea-inspection-modal .nea-btn-save",
