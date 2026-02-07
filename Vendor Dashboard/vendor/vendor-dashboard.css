@@ -1,5 +1,57 @@
 /* Vendor Dashboard Styles */
+/*Accessibility Styles */
+/* Visually hidden but accessible to screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  z-index: 9999;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Form hint text */
+.form-hint {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+/*It is like creating a color palette for the website to ensure consistent look and feel*/
 :root {
   --primary-color: #10b981;
   --primary-dark: #059669;
@@ -13,7 +65,7 @@
   --border-color: #e5e7eb;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-} /*It is like creating a color palette for the website to ensure consistent look and feel*/
+}
 
 * {
   margin: 0;
