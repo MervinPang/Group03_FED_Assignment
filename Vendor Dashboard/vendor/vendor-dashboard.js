@@ -271,3 +271,38 @@ function renderVendorTabContent(tabName) {
     console.warn("Unknown tab: " + tabName);
   }
 }
+//Overview Tab
+function renderVendorOverviewTab(data) {
+  console.log("Rendering Overview tab...");
+  var recentActivityDiv = document.getElementById("vendor-recent-activity");
+  var topItemsDiv = document.getElementById("vendor-top-items");
+  if (!recentActivityDiv || !topItemsDiv) {
+    console.error("Overview tab elements not found!");
+    return;
+  }
+  // Render Recent Activity
+  var recentHTML = "";
+  if (data.recentActivity.length === 0) {
+    recentHTML = `<div class="vendor-empty-state">
+        <div class="vendor-empty-state-icon">📋</div>
+        <p class="vendor-empty-state-title">No Recent Activity</p>
+        <p class="vendor-empty-state-text">Recent orders will appear here</p>
+      </div>`;
+  } else {
+    for (var i = 0; i < data.recentActivity.length; i++) {
+      var order = data.recentActivity[i];
+      recentHTML += `
+        <div class="vendor-order-item">
+          <div class="vendor-order-info">
+            <h4>Order #${order.id}</h4>
+            <p>${order.customer}</p>
+            <p style="font-size: 0.85rem; color: #999;">${order.timestamp}</p>
+          </div>
+          <span class="vendor-order-status vendor-status-${order.status}">
+            ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}
+          </span>
+        </div>`;
+    }
+  }
+}
+recentActivityDiv.innerHTML = recentHTML;
