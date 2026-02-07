@@ -167,7 +167,7 @@ body {
 .btn {
   padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 25px;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s;
@@ -467,7 +467,7 @@ body {
   width: 40px;
   height: 24px;
   background: var(--text-light);
-  border-radius: 12px;
+  border-radius: 50px;
   cursor: pointer;
   position: relative;
   transition: background 0.3s;
