@@ -399,3 +399,52 @@ function renderNEATabContent(tabName) {
     renderNEAComplaintsTab(data);
   }
 }
+//Stalls Tab
+function renderNEAStallsTab(data) {
+  console.log("Rendering NEA Stalls tab...");
+  const stallsList = document.getElementById("nea-stalls-list");
+  if (!stallsList) {
+    console.error("Stalls list element not found!");
+    return;
+  }
+  //Get search value
+  const searchInput = document.getElementById("nea-stalls-search");
+  let filteredStalls = [...data.stalls];
+  if (searchInput && searchInput.value) {
+    const quey = searchInput.value.toLowerCase();
+    filteredStalls = filteredStalls.filter(
+      (s) =>
+        s.name.toLowerCase().includes(quey) ||
+        s.stallId.toLowerCase().includes(quey),
+    );
+  }
+  if (filteredStalls.length === 0) {
+    stallsList.innerHTML = `<p class="nea-no-results">No stalls found.</p>`;
+    return;
+  }
+  let html = "";
+  filteredStalls.forEach((stall) => {
+    html += ` <article class="nea-stall-row">
+        <div class="nea-stall-badge-container">
+          ${createGradeBadge(stall.grade)}
+        </div>
+        <div class="nea-stall-info">
+          <p class="nea-stall-name">${stall.name}</p>
+          <p class="nea-stall-id">${stall.stallId}</p>
+        </div>
+        <div class="nea-stall-actions">
+          <button class="nea-inspect-btn" onclick="openInspectionModal('${stall.id}', '${stall.name}', '${stall.stallId}')">
+            Inspect
+          </button>
+        </div>
+      </article>`;
+  });
+  stallsList.innerHTML = html;
+}
+function createGradeBadge(grade) {
+  const gradeClass = `nea-grade-badge-${grade.toLowerCase()}`;
+  return `
+    <div class="hygiene-grade-badge">
+      <div class="nea-grade-circle ${gradeClass}">${grade}</div>
+    </div>`;
+}
