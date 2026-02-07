@@ -274,16 +274,20 @@ function renderVendorTabContent(tabName) {
 //Overview Tab
 function renderVendorOverviewTab(data) {
   console.log("Rendering Overview tab...");
+
   var recentActivityDiv = document.getElementById("vendor-recent-activity");
   var topItemsDiv = document.getElementById("vendor-top-items");
+
   if (!recentActivityDiv || !topItemsDiv) {
-    console.error("Overview tab elements not found!");
+    console.error("Required elements not found for overview tab");
     return;
   }
-  // Render Recent Activity
+
+  // Recent Activity
   var recentHTML = "";
   if (data.recentActivity.length === 0) {
-    recentHTML = `<div class="vendor-empty-state">
+    recentHTML = `
+      <div class="vendor-empty-state">
         <div class="vendor-empty-state-icon">📋</div>
         <p class="vendor-empty-state-title">No Recent Activity</p>
         <p class="vendor-empty-state-text">Recent orders will appear here</p>
@@ -304,5 +308,33 @@ function renderVendorOverviewTab(data) {
         </div>`;
     }
   }
+  recentActivityDiv.innerHTML = recentHTML;
+
+  // Top Items
+  var topHTML = "";
+  if (data.topItems.length === 0) {
+    topHTML = `
+      <div class="vendor-empty-state">
+        <div class="vendor-empty-state-icon">🍜</div>
+        <p class="vendor-empty-state-title">No Top Items</p>
+        <p class="vendor-empty-state-text">Popular items will appear here</p>
+      </div>`;
+  } else {
+    for (var j = 0; j < data.topItems.length; j++) {
+      var item = data.topItems[j];
+      topHTML += `
+        <div class="vendor-menu-item">
+          <div class="vendor-menu-info">
+            <h4>#${item.rank}. ${item.name}</h4>
+            <p>${item.likes} 👍 likes</p>
+          </div>
+          <div style="text-align: right;">
+            <p style="font-weight: 700; color: #10B981;">$${item.price.toFixed(2)}</p>
+          </div>
+        </div>`;
+    }
+  }
+  topItemsDiv.innerHTML = topHTML;
+
+  console.log("Overview tab rendered successfully");
 }
-recentActivityDiv.innerHTML = recentHTML;
