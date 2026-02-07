@@ -499,3 +499,39 @@ function displayMenuItems(items) {
   }
   menuList.innerHTML = menuHTML;
 }
+// Reviews Tab
+function renderVendorReviewsTab(data) {
+  console.log("Rendering Reviews tab...");
+  var reviewsList = document.getElementById("vendor-reviews-list");
+  if (!reviewsList) {
+    console.error("Reviews list element not found");
+    return;
+  }
+  if (data.reviews.length === 0) {
+    reviewsList.innerHTML = `
+      <div class="vendor-empty-state">
+        <div class="vendor-empty-state-icon">⭐</div>
+        <p class="vendor-empty-state-title">No Reviews Yet</p>
+        <p class="vendor-empty-state-text">Customer reviews will appear here</p>
+      </div>`;
+  } else {
+    var reviewsHTML = "";
+    for (var i = 0; i < data.reviews.length; i++) {
+      var review = data.reviews[i];
+      var stars = "";
+      for (var s = 0; s < review.rating; s++) {
+        stars += "⭐";
+      }
+      reviewsHTML += `
+        <div class="vendor-review-item">
+          <h4>${review.customer}</h4>
+          <div class="vendor-review-rating">${stars}</div>
+          <p class="vendor-review-comment">"${review.comment}"</p>
+          <p class="vendor-review-date">${review.date}</p>
+        </div>`;
+    }
+    reviewsList.innerHTML = reviewsHTML;
+  }
+
+  console.log("Reviews tab rendered successfully");
+}
