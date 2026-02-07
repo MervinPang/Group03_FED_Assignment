@@ -68,7 +68,7 @@ function updateCartBar() {
 }
 
 // Add a selected menu item into the cart
-function addItemToCart(shopId, shopName, itemId, itemName, price) {
+function addItemToCart(shopId, shopName, itemId, itemName, price, img) {
     var cart = getCart();
 
     // Check if shop already exists in cart
@@ -106,7 +106,8 @@ function addItemToCart(shopId, shopName, itemId, itemName, price) {
             id: itemId,
             name: itemName,
             price: price,
-            qty: 1
+            qty: 1,
+            img: img
         });
     } else {
         // If item exists, increase quantity
@@ -129,6 +130,7 @@ function setupAddButtons() {
             var itemId = this.dataset.itemId;
             var itemName = this.dataset.itemName;
             var price = parseFloat(this.dataset.price);
+            var img = this.dataset.img;
 
             // Feedback for user
             var button = this;
@@ -143,7 +145,7 @@ function setupAddButtons() {
             }, 500);
 
             // Add selected item to cart
-            addItemToCart(shopId, shopName, itemId, itemName, price);
+            addItemToCart(shopId, shopName, itemId, itemName, price, img);
         });
     }
 }
