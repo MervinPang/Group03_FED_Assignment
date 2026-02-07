@@ -412,3 +412,34 @@ async function markOrderReady(orderId) {
     showErrorMessage("❌ Failed to update order status");
   }
 }
+//Cancel order
+async function cancelOrder(orderId) {
+  console.log("Cancelling order: " + orderId);
+  if (!confirm("Are you sure you want to cancel order #" + orderId + "?")) {
+    return;
+  }
+  try {
+    await updateOrderStatusInFirebase(orderId, "cancelled");
+
+    var orderIndex = vendorDashboardData.activeOrders.findIndex(function (o) {
+      return o.id === orderId;
+    });
+
+    if (orderIndex !== -1) {
+      var order = vendorDashboardData.activeOrders[orderIndex];
+      order.status = "cancelled";
+      vendorDashboardData.orderHistory.unshift(order);
+      vendorDashboardData.activeOrders.splice(orderIndex, 1);
+      vendorDashboardData.stats.activeOrders =
+        vendorDashboardData.activeOrders.length;
+
+      renderVendorOrdersTab(vendorDashboardData);
+      renderVendorDashboard();
+
+      showSuccessMessage("🚫 Order #" + orderId + " has been cancelled");
+    }
+  } catch (error) {
+    console.error("Error cancelling order:", error);
+    showErrorMessage("❌ Failed to cancel order");
+  }
+}
