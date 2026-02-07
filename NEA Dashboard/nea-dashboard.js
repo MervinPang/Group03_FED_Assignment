@@ -388,3 +388,14 @@ function intializeNEATabs() {
   //Render Initial tab
   renderNEATabContent("stalls");
 }
+function renderNEATabContent(tabName) {
+  console.log(`Rendering NEA tab: ${tabName}`);
+  const data = neaDashboardData;
+  if (tabName === "stalls") {
+    renderNEAStallsTab(data);
+  } else if (tabName === "inspections") {
+    renderNEAInspectionsTab(data);
+  } else if (tabName === "complaints") {
+    renderNEAComplaintsTab(data);
+  }
+}
