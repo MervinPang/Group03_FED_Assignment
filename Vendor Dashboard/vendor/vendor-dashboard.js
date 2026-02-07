@@ -635,3 +635,54 @@ function renderVendorHistoryTab(data) {
     return new Date(datePart);
   }
 }
+//Rental Tab
+function renderVendorRentalTab(data) {
+  console.log("Rendering Rental tab...");
+
+  const rentalList = document.getElementById("vendor-rental-info");
+
+  if (!rentalList) {
+    console.error("Rental info element not found");
+    return;
+  }
+
+  if (data.rentalAgreements.length === 0) {
+    rentalList.innerHTML = createEmptyState(
+      "📄",
+      "No Rental Agreements",
+      "Rental agreements will appear here",
+    );
+  } else {
+    let rentalHTML = "";
+    data.rentalAgreements.forEach(function (rental) {
+      const isActive = rental.status === "Active";
+      rentalHTML += `
+        <article class="vendor-rental-item" role="listitem">
+          <header>
+            <h4>Rental Agreement</h4>
+          </header>
+          <dl class="vendor-rental-details">
+            <div class="vendor-rental-detail">
+              <dt>Period</dt>
+              <dd>${rental.period}</dd>
+            </div>
+            <div class="vendor-rental-detail">
+              <dt>Status</dt>
+              <dd class="${isActive ? "status-active" : "status-expired"}">${rental.status}</dd>
+            </div>
+            <div class="vendor-rental-detail">
+              <dt>Monthly Rent</dt>
+              <dd><data value="${rental.monthlyRent}">$${rental.monthlyRent.toFixed(2)}</data></dd>
+            </div>
+            <div class="vendor-rental-detail">
+              <dt>Renewal Due</dt>
+              <dd>${rental.renewalDue}</dd>
+            </div>
+          </dl>
+        </article>`;
+    });
+    rentalList.innerHTML = rentalHTML;
+  }
+
+  console.log("Rental tab rendered successfully");
+}
