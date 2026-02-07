@@ -436,6 +436,7 @@ body {
 
 .vendor-menu-item-actions {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -453,6 +454,7 @@ body {
 .vendor-menu-item-actions button:hover {
   background: var(--text-light);
   color: var(--white);
+  border-radius: 50px;
 }
 
 .vendor-availability-toggle {
@@ -483,7 +485,7 @@ body {
   width: 20px;
   height: 20px;
   background: var(--white);
-  border-radius: 50%;
+  border-radius: 50px;
   top: 2px;
   left: 2px;
   transition: left 0.3s;
@@ -491,6 +493,7 @@ body {
 
 .vendor-toggle-switch.active::after {
   left: 18px;
+  border-radius: 50px;
 }
 
 /* Reviews */
