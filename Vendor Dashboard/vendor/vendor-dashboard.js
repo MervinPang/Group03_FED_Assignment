@@ -1404,7 +1404,7 @@ function showToast(message, type = "success") {
     }, 300);
   }, 3000);
 }
-// EVENT LISTENERS
+// event listeners
 function initializeEventListeners() {
   console.log("Initializing event listeners...");
 
@@ -1413,16 +1413,6 @@ function initializeEventListeners() {
   if (addItemBtn) {
     addItemBtn.addEventListener("click", openAddItemModal);
   }
-
-  // Close modals when clicking outside
-  document.addEventListener("click", function (event) {
-    const addModal = document.getElementById("add-item-modal");
-    const editModal = document.getElementById("edit-item-modal");
-
-    if (event.target === addModal) closeAddItemModal();
-    if (event.target === editModal) closeEditItemModal();
-  });
-
   // Close modals with Escape key
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
