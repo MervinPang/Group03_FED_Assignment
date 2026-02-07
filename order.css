@@ -1,76 +1,3 @@
-/* ====================
-   Global Page Styles
-   ==================== */
-
-body {
-    margin: 0;
-    font-family: "Lato", sans-serif;
-    color: #000000;
-    background-color: #FFFFFF;
-}
-
-/* Container used across pages to centre content and limit its maximum width */
-.container {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-/* ================
-   Navigation Bar
-   ================ */
-
-/* Navigation Bar (Header) */
-.navigation-bar {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    background-color: #F0FDF9;
-    padding: 0 20px;
-}
-
-.nav {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.link {
-    margin-left: auto;
-    display: flex;
-    gap: 18px;
-}
-
-/* HawkerHubSG Logo */
-.nav-logo {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-}
-
-/* HawkerHubSG Name */
-.name {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-/* Buttons */
-.button {
-    text-decoration: none;
-    color: #000000;
-    padding: 10px 16px;
-    border-radius: 20px;
-}
-
-/* Active button */
-.button.active {
-    background-color: #D1FAE5;
-    color: #059669;
-    font-weight: bold;
-}
-
 /* ================
    Stall Banner
    ================ */
@@ -227,7 +154,7 @@ body {
     /* Inner spacing and layout */
     padding: 20px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
 }
 
@@ -267,6 +194,10 @@ body {
     border-radius: 8px;
 }
 
+.menu-text {
+    flex: 1;
+}
+
 .menu-text h3 {
     margin: 0;
 }
@@ -276,7 +207,7 @@ body {
     color: #6B7280;
 }
 
-#price {
+.price {
     font-weight: bold;
     color: #000000;
 }
@@ -284,11 +215,17 @@ body {
 .add-button {
     /* Make button to the right */
     margin-left: auto;
+    margin-top: 35px;
     padding: 10px 14px;
-    border: none;
+    border-style: none;
     border-radius: 10px;
-    background-color: #059669;
+    background-color: #10B981;
     color: #FFFFFF;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #059669;
 }
 
 /* ========================
@@ -310,6 +247,10 @@ body {
     padding: 12px 20px;
 }
 
+.cart-bar[hidden] {
+    display: none;
+}
+
 /* Cart item count text */
 .cart-items {
     margin: 0;
@@ -318,10 +259,15 @@ body {
 
 .cart-button {
     text-decoration: none;
-    background-color: #059669;
+    background-color: #10B981;
     color: #FFFFFF;
     padding: 10px 14px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.cart-button:hover {
+    background-color: #059669;
 }
 
 /* ========================

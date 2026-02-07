@@ -1,0 +1,63 @@
+/* Layout spacing and centering for the payment page */
+.payment-layout {
+    padding: 40px 0 80px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Payment card container */
+.payment-card {
+    width: 100%;
+    max-width: 520px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 18px;
+    padding: 28px;
+    text-align: center;
+}
+
+/* Page title style */
+.title {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+/* QR code container */
+.qr-box {
+    background-color: #F0FDF9;
+    border: 1px solid #E5E7EB;
+    border-radius: 18px;
+    padding: 18px;
+}
+
+/* QR code image */
+.qr-img {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    border-radius: 14px;
+}
+
+/* Note below QR code */
+.payment-note {
+    margin-bottom: 40px;
+    color: #6B7280;
+    font-size: 14px;
+}
+
+/* Confirmation button after payment */
+.paid-button {
+    background-color: #10B981;
+    color: #FFFFFF;
+    padding: 14px 18px;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.paid-button:hover {
+    background-color: #059669;
+}
