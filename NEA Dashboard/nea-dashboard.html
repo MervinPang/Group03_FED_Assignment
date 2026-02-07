@@ -145,6 +145,91 @@
         </section>
       </main>
     </section>
+    <!--Inspection Modal-->
+    <dialog id="nea-inspection-modal" class="nea-modal">
+      <article class="nea-modal-content">
+        <header class="nea-modal-header">
+          <h2>New Inspection</h2>
+          <button class="nea-modal-close" onclick="closeInspectionModal()">
+            &times;
+          </button>
+        </header>
+        <main class="nea-modal-body">
+          <form id="inspection-form">
+            <fieldset>
+              <!-- Hidden fields -->
+              <input type="hidden" id="inspection-stall-id" />
+              <input type="hidden" id="inspection-stall-name" />
+              <input type="hidden" id="inspection-stall-unit-id" />
+              <!-- Stall Display -->
+              <div class="nea-stall-display">
+                <h4 id="inspection-stall-display">Stall Name</h4>
+                <p id="inspection-stall-unit-display">#00-00</p>
+              </div>
+              <!-- Cleanliness Score -->
+              <div class="nea-form-group">
+                <label for="inspection-cleanliness"
+                  >Cleanliness Score (0-100)</label
+                >
+                <input
+                  type="number"
+                  id="inspection-cleanliness"
+                  min="0"
+                  max="100"
+                  placeholder="Enter score..."
+                  required
+                />
+              </div>
+              <!-- Food Handling Score -->
+              <div class="nea-form-group">
+                <label for="inspection-food-handling"
+                  >Food Handling Score (0-100)</label
+                >
+                <input
+                  type="number"
+                  id="inspection-food-handling"
+                  min="0"
+                  max="100"
+                  placeholder="Enter score..."
+                  required
+                />
+              </div>
+              <!-- Equipment Score -->
+              <div class="nea-form-group">
+                <label for="inspection-equipment"
+                  >Equipment Score (0-100)</label
+                >
+                <input
+                  type="number"
+                  id="inspection-equipment"
+                  min="0"
+                  max="100"
+                  placeholder="Enter score..."
+                  required
+                />
+              </div>
+              <!-- Notes -->
+              <div class="nea-form-group">
+                <label for="inspection-notes">Notes (Optional)</label>
+                <textarea
+                  id="inspection-notes"
+                  rows="3"
+                  placeholder="Any additional notes..."
+                ></textarea>
+              </div>
+            </fieldset>
+          </form>
+        </main>
+        <footer class="nea-modal-footer">
+          <button class="nea-btn-cancel" onclick="closeInspectionModal()">
+            Cancel
+          </button>
+          <button class="nea-btn-save" onclick="submitInspectionForm()">
+            Submit
+          </button>
+        </footer>
+      </article>
+    </dialog>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
 
