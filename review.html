@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Page - Louis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="global.css" rel="stylesheet" type="text/css">
+    <link href="review.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- nav bar -->
+    <header class="navigation-bar">
+        <nav class="nav">
+            <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
+            <p class="name">HawkerHubSG</p>
+            <div class="link">
+                <a class="button" href="index.html">Home</a>
+                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="profile.html">Profile</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="banner">
+        <img src="images/Stall 01 Banner.jpg" alt="Tian Tian Store Banner">
+        <div class="info">
+            <h1>Tian Tian Hainanese Chicken Rice</h1>
+            <p>
+                <span id="star-icon">&starf;</span> 4.8 (523 Reviews) Waiting Time ~ 5-10 mins
+            </p>
+        </div>
+    </section>
+    <div class="container">
+        <section class="stall-card">
+            <div class="stall-tags">
+                <span class="tag">Chinese</span>
+                <span class="tag">Hainanese</span>
+                <span class="tag">Halal</span>
+            </div>
+            <p class="stall-description">
+                Famous Hainanese chicken rice since 1987. Our secret lies in the fragrant rice cooked
+                in chicken broth and served with succulent poached chicken.
+            </p>
+            <hr>
+            <div class="stall-hours">
+                <img class="clock-icon" src="images/Clock Icon.svg" alt="Clock Icon">
+                <span>Stall Operating Hours: 10:00 AM - 8:00 PM</span>
+            </div>
+        </section>
+        <section class="tabs">
+            <button class="tab" type="button" onclick="window.location.href='order.html'">
+                <img id="restaurant-icon" src="images/Restaurant Logo.svg" alt="Restaurant Icon">
+                Menu
+            </button>
+            <button class="tab active" type="button">
+                <img id="chatbox-icon" src="images/Chatbox Icon.svg" alt="Chatbox Icon">Reviews</button>
+        </section>
+
+        <!-- review section -->
+        <section id="reviewsSection" class="panel">
+
+            <div class="review-header">
+                <div class="review-title">Reviews</div>
+                <!-- button for write a review -->
+                <button class="write-btn" type="button" onclick="window.location.href='review-write.html'">Write a
+                    review</button>
+            </div>
+
+            <!-- load from js -->
+            <div id="reviewList" class="review-list">
+                <p>Loading reviews...</p>
+            </div>
+
+        </section>
+
+        <script type="module" src="review.js"></script>
+
+        <div class="container footer-top">
+            <p class="footer-top-text">Get connected with us on social networks:</p>
+
+            <div class="footer-icon">
+                <a href="https://www.linkedin.com/">
+                    <img class="linkedin-icon" src="images/LinkedIn Icon.svg" alt="LinkedIn Icon">
+                </a>
+                <a href="https://www.instagram  .com/">
+                    <img class="instagram-icon" src="images/Instagram Icon.svg" alt="Instagram Icon">
+                </a>
+                <a href="https://x.com/X.">
+                    <img class="twitter-icon" src="images/Twitter Icon.svg" alt="Twitter Icon">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container layout">
+
+            <section>
+                <h4 class="title">HawkerHubSG</h4>
+                <div class="line"></div>
+                <a href="index.html">
+                    <img class="footer-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo">
+                </a>
+            </section>
+
+            <section>
+                <h4 class="title">SERVICES</h4>
+                <div class="line"></div>
+                <p><a class="link" href="">Apply for Member</a></p>
+                <a class="link" href="">Apply for Vendor</a>
+            </section>
+
+            <section>
+                <h4 class="title">USEFUL LINKS</h4>
+                <div class="line"></div>
+                <p><a class="link" href="profile.html">Your Account</a></p>
+                <p><a class="link" href="https://www.nea.gov.sg/our-services/hawker-management/overview">Locations of
+                        Hawkers</a></p>
+                <p><a class="link" href="https://share.google/u4YIGr2h8caA7P29c">Google food review</a></p>
+                <p><a class="link"
+                        href="https://www.nea.gov.sg/our-services/hawker-management/becoming-a-hawker">FAQ</a></p>
+            </section>
+
+            <section>
+                <h4 class="title">CONTACT</h4>
+                <div class="line"></div>
+                <p class="contact">
+                    <img class="location-icon" src="images/Location Icon.svg" alt="Location Icon">
+                    <a href="https://maps.app.goo.gl/MbtotRVSiHASeotJ7">Singapore</a>
+                </p>
+                <p class="contact">
+                    <img class="mail-icon" src="images/Mail Icon.svg" alt="Mail Icon">
+                    <a href="mailto:HawkerHubSG@gmail.com">HawkerHubSG@gmail.com</a>
+                </p>
+                <p class="contact">
+                    <img class="phone-icon" src="images/Phone Icon.svg" alt="Phone Icon">+65 9120 0844
+                </p>
+            </section>
+
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Copyright: HawkerHubSG</p>
+    </div>
+    </footer>
+</body>
+
+</html>
