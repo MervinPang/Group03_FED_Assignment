@@ -42,7 +42,7 @@
 .stall-card {
     margin-top: 20px;
     background-color: #FFFFFF;
-    border-style: 1px solid #E5E7EB;
+    border: 1px solid #E5E7EB;
     border-radius: 14px;
     padding: 18px;
 }
@@ -89,7 +89,7 @@
 .tabs {
     display: flex;
     margin-top: 15px;
-    border-style: 1px solid #E5E7EB;
+    border: 1px solid #E5E7EB;
     border-radius: 14px;
     overflow: hidden;
 }
@@ -148,7 +148,7 @@
    ======================== */
 
 .menu-card {
-    border-style: 1px solid #E5E7EB;
+    border: 1px solid #E5E7EB;
     border-radius: 14px;
 
     /* Inner spacing and layout */
