@@ -501,3 +501,43 @@ function renderNEAInspectionsTab(data) {
   });
   inspectionsList.innerHTML = html;
 }
+//Complaints Tab
+function renderNEAComplaintsTab(data) {
+  console.log("Rendering NEA Complaints tab...");
+  const complaintsList = document.getElementById("nea-complaints-list");
+  if (!complaintsList) {
+    console.error("Complaints list element not found!");
+    return;
+  }
+  const pendingComplaints = data.complaints.filter(
+    (c) => c.status === "Pending",
+  );
+  if (pendingComplaints.length === 0) {
+    complaintsList.innerHTML = `<div class="nea-complaints-empty">
+        <p class="nea-complaint-empty">✅</p>
+        <p class="nea-complaint-empty-text">No pending complaints</p>
+      </div>`;
+    return;
+  }
+  let html = "";
+  pendingComplaints.forEach((complaint) => {
+    html += ` <article class="nea-complaint-card">
+        <header class="nea-complaint-header">
+          <div class="nea-complaint-info">
+            <h4>${complaint.stall}</h4>
+            <p>${complaint.date}</p>
+          </div>
+          <span class="nea-complaint-status">${complaint.status}</span>
+        </header>
+        <div class="nea-complaint-body">
+          <p>${complaint.description}</p>
+        </div>
+        <footer class="nea-complaint-actions">
+          <button class="nea-inspect-btn" onclick="resolveComplaint('${complaint.id}')">
+            Resolve
+          </button>
+        </footer>
+      </article>`;
+  });
+  complaintsList.innerHTML = html;
+}
