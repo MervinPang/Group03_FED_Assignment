@@ -384,7 +384,7 @@ function renderVendorOrdersTab(data) {
 
   console.log("Orders tab rendered successfully");
 }
-//Edit Orders to ready
+//Edit Orders - ready
 async function markOrderReady(orderId) {
   console.log("Marking order as ready: " + orderId);
   try {
@@ -412,7 +412,7 @@ async function markOrderReady(orderId) {
     showErrorMessage("❌ Failed to update order status");
   }
 }
-//Cancel order
+//Edit orders - cancel
 async function cancelOrder(orderId) {
   console.log("Cancelling order: " + orderId);
   if (!confirm("Are you sure you want to cancel order #" + orderId + "?")) {
@@ -442,4 +442,60 @@ async function cancelOrder(orderId) {
     console.error("Error cancelling order:", error);
     showErrorMessage("❌ Failed to cancel order");
   }
+}
+//Menu Tab
+function renderVendorMenuTab(data) {
+  console.log("Rendering Menu tab...");
+  var menuList = document.getElementById("vendor-menu-items-list");
+
+  if (!menuList) {
+    console.error("Menu items list element not found");
+    return;
+  }
+
+  displayMenuItems(data.menuItems);
+}
+
+function displayMenuItems(items) {
+  var menuList = document.getElementById("vendor-menu-items-list");
+
+  if (!menuList) return;
+
+  if (items.length === 0) {
+    menuList.innerHTML = `
+      <div class="vendor-empty-state">
+        <div class="vendor-empty-state-icon">🍜</div>
+        <p class="vendor-empty-state-title">No Menu Items</p>
+        <p class="vendor-empty-state-text">Click "+ Add Item" to add your first menu item</p>
+      </div>`;
+    return;
+  }
+
+  var menuHTML = "";
+  for (var idx = 0; idx < items.length; idx++) {
+    var item = items[idx];
+    menuHTML += `
+      <div class="vendor-menu-item" data-item-id="${item.id || idx}">
+        <div class="vendor-menu-item-details">
+          <div class="vendor-menu-item-image">🍜</div>
+          <div class="vendor-menu-item-info">
+            <h4>${item.name}</h4>
+            <p class="vendor-cuisine">${item.cuisine}</p>
+            <p>${item.description}</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem;">
+          <p style="font-weight: 700; font-size: 1.1rem; color: #10B981;">$${item.price.toFixed(2)}</p>
+          <div class="vendor-menu-item-actions">
+            <button onclick="editMenuItem(${idx})">✏️ Edit</button>
+            <button onclick="deleteMenuItem(${idx})">🗑️ Delete</button>
+          </div>
+          <div class="vendor-availability-toggle">
+            <span>${item.available ? "Available" : "Unavailable"}</span>
+            <div class="vendor-toggle-switch ${item.available ? "active" : ""}" onclick="toggleAvailability(${idx})"></div>
+          </div>
+        </div>
+      </div>`;
+  }
+  menuList.innerHTML = menuHTML;
 }
