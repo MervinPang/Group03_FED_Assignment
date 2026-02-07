@@ -20,7 +20,7 @@
             <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
             <p class="name">HawkerHubSG</p>
 
-            <div class="link">
+            <div class="navigation-link">
                 <a class="button" href="index.html">Home</a>
                 <a class="button active" href="order.html">Orders</a>
                 <a class="button" href="profile.html">Profile</a>
@@ -35,7 +35,7 @@
                     <img class="image" src="images/Roasted Chicken Rice.jpg" alt="Chicken rice (roasted)">
 
                     <div class="text">
-                        <p class="name">Chicken Rice (Roasted)</p>
+                        <p class="food-name">Chicken Rice (Roasted)</p>
                         <p class="quantity">Quantity: 1</p>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                     <img class="image" src="images/Steamed Chicken Rice.jpg" alt="Chicken rice (steamed)">
 
                     <div class="text">
-                        <p class="name">Chicken Rice (Steamed)</p>
+                        <p class="food-name">Chicken Rice (Steamed)</p>
                         <p class="quantity">Quantity: 1</p>
                     </div>
                 </div>
@@ -67,13 +67,13 @@
             <h2>Your Details</h2>
 
             <label>Name</label>
-            <input type="text" placeholder="Enter your name">
+            <input id="custName" type="text" placeholder="Enter your name">
 
             <label>Phone Number</label>
-            <input type="text" placeholder="Enter your phone number">
+            <input id="custPhone" type="text" placeholder="Enter your phone number">
 
             <label>Special Instructions (Optional)</label>
-            <textarea placeholder="Any special requests?"></textarea>
+            <textarea id="instructions" placeholder="Any special requests?"></textarea>
 
             <label class="checkbox">
                 <input type="checkbox" id="alternateReceiver">
@@ -82,20 +82,24 @@
         </section>
         <section class="payment-container">
             <h2>Payment Method</h2>
+            <p id="paymentError" class="payment-error" hidden>
+                Please select a payment method to continue.
+            </p>
             <div class="payment">
-                <button class="payment-button active" type="button">
+                <button class="payment-button" type="button" data-method="paynow">
                     <img class="payment-icon" src="images/QR Code Icon.svg" alt="PayNow QR Icon">
                     <span>PayNow</span>
                 </button>
 
-                <button class="payment-button" type="button">
+                <button class="payment-button" type="button" data-method="card">
                     <img class="payment-icon" src="images/Credit Card Icon.svg" alt="Credit Card Icon">
                     <span>Credit Card</span>
                 </button>
             </div>
         </section>
-        <button class="pay-button">Pay $9.00</button>
+        <button id="payBtn" class="pay-button" type="button">Pay $9.00</button>
     </div>
+    <script src="checkout.js"></script>
 </body>
 
 </html>

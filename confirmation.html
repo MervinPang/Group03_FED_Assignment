@@ -19,7 +19,7 @@
         <nav class="nav">
             <img class="nav-logo" src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo Image">
             <p class="name">HawkerHubSG</p>
-            <div class="link">
+            <div class="navigation-link">
                 <a class="button" href="index.html">Home</a>
                 <a class="button active" href="order.html">Orders</a>
                 <a class="button" href="profile.html">Profile</a>
@@ -31,14 +31,15 @@
             <div class="tick-icon">
                 <img src="images/Tick Icon.svg" alt="Tick Icon">
             </div>
-            <h2 class="title">Order Confirmed!</h2>
-            <p class="subtitle">Thank you for your order</p>
+            <h2 id="confirmTitle" class="title">Order Confirmed!</h2>
+            <p id="confirmSubtitle" class="subtitle">Thank you for your order</p>
             <hr class="divider">
             <p class="order">Your Order Number</p>
-            <p class="order-number">67</p>
-            <a class="browse-button" href="index.html">Continue Browsing</a>
+            <p id="orderNumber" class="order-number">67</p>
+            <a id="confirmAction" class="browse-button" href="index.html">Continue Browsing</a>
         </section>
     </div>
+    <script src="confirmation.js"></script>
 </body>
 
 </html>

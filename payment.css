@@ -42,20 +42,20 @@
 
 /* Note below QR code */
 .payment-note {
-    margin: 16px 0 20px;
+    margin-bottom: 40px;
     color: #6B7280;
     font-size: 14px;
-    margin-bottom: 40px;
 }
 
 /* Confirmation button after payment */
 .paid-button {
-    text-decoration: none;
     background-color: #10B981;
     color: #FFFFFF;
     padding: 14px 18px;
-    border-radius: 12px;
     font-weight: bold;
+    border-style: none;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
 .paid-button:hover {
