@@ -830,3 +830,43 @@ async function submitEditItem() {
     submitBtn.textContent = "Save";
   }
 }
+//Menu Item Actions
+function editMenuItem(index) {
+  openEditItemModal(index);
+}
+async function deleteMenuItem(index) {
+  const item = vendorDashboardData.menuItems[index];
+  if (!item) return;
+  if (!confirm("Are you sure you want to delete " + item.name + "?")) {
+    return;
+  }
+  try {
+    if (item.id) {
+      const success = await deleteMenuItemFromFirebase(item.id);
+      if (!success) {
+        showToast("❌ Failed to delete item", "error");
+        return;
+      }
+    }
+    vendorDashboardData.menuItems.splice(index, 1);
+    renderVendorMenuTab(vendorDashboardData);
+    showToast(`✅ ${item.name} deleted!`, "success");
+  } catch (error) {
+    showToast("❌ An error occurred", "error");
+  }
+}
+async function toggleAvailability(index) {
+  const item = vendorDashboardData.menuItems[index];
+  if (!item) return;
+  const newAvailability = !item.available;
+  vendorDashboardData.menuItems[index].available = newAvailability;
+  renderVendorMenuTab(vendorDashboardData);
+  try {
+    if (item.id) {
+      await updateMenuItemAvailabilityInFirebase(item.id, newAvailability);
+    }
+  } catch (error) {
+    showToast("❌ An error occurred", "error");
+  }
+  renderVendorMenuTab(vendorDashboardData);
+}
