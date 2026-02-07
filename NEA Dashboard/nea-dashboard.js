@@ -360,3 +360,31 @@ function renderGradeDistribution(distribution) {
   if (gradeCEl) gradeCEl.textContent = distribution.C;
   if (gradeDEl) gradeDEl.textContent = distribution.D;
 }
+//Tab Navigation
+function intializeNEATabs() {
+  console.log("Initializing NEA Dashboard tabs...");
+  const tabBtns = document.querySelectorAll(".nea-tab-btn");
+  const tabPanes = document.querySelectorAll(".nea-tab-pane");
+  if (tabBtns.length === 0 || tabPanes.length === 0) {
+    console.error("No tab buttons or panes found!");
+    return;
+  }
+  tabBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tabName = btn.getAttribute("data-nea-tab");
+      //update buttons
+      tabBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      //update panes
+      tabPanes.forEach((p) => p.classList.remove("active"));
+      const tabPane = document.getElementById(`nea-${tabName}-tab`);
+      if (tabPane) {
+        tabPane.classList.add("active");
+        renderNEATabContent(tabName);
+      }
+    });
+  });
+  //Render Initial tab
+  renderNEATabContent("stalls");
+}
