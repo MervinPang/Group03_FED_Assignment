@@ -535,3 +535,54 @@ function renderVendorReviewsTab(data) {
 
   console.log("Reviews tab rendered successfully");
 }
+// History Tab
+function renderVendorHistoryTab(data) {
+  console.log("Rendering History tab...");
+  var historyList = document.getElementById("vendor-order-history-list");
+  var searchInput = document.getElementById("vendor-history-search-input");
+  var statusFilter = document.getElementById("vendor-status-filter");
+  var timeFilter = document.getElementById("vendor-time-filter");
+  if (!historyList) {
+    console.error("History list element not found");
+    return;
+  }
+  function applyFilters() {
+    var filteredOrders = data.orderHistory.slice();
+    //Search Filter
+    if (searchInput && searchInput.value) {
+      var query = searchInput.value.toLowerCase();
+      filteredOrders = filteredOrders.filter(function (order) {
+        return (
+          order.id.toLowerCase().indexOf(query) !== -1 ||
+          order.customer.toLowerCase().indexOf(query) !== -1
+        );
+      });
+    }
+    //Status Filter
+    if (statusFilter && statusFilter.value && statusFilter.value !== "all") {
+      filteredOrders = filteredOrders.filter(function (order) {
+        return order.status === statusFilter.value;
+      });
+    }
+    //Time Filter
+    if (timeFilter && timeFilter.value) {
+      var today = new Date();
+      var dateThreshold = new Date();
+
+      if (timeFilter.value === "today") {
+        dateThreshold.setHours(0, 0, 0, 0);
+      } else if (timeFilter.value === "week") {
+        dateThreshold.setDate(today.getDate() - 7);
+      } else if (timeFilter.value === "month") {
+        dateThreshold.setMonth(today.getMonth() - 1);
+      }
+
+      filteredOrders = filteredOrders.filter(function (order) {
+        var orderDate = parseOrderDate(order.date);
+        return orderDate >= dateThreshold;
+      });
+    }
+
+    displayOrderHistory(filteredOrders);
+  }
+}
