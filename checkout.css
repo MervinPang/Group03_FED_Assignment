@@ -41,7 +41,7 @@
     flex-direction: column;
 }
 
-.name {
+.food-name {
     font-weight: bold;
     margin: 0;
 }
@@ -103,8 +103,8 @@
 }
 
 /* Input and textarea styling */
-input,
-textarea {
+.details input,
+.details textarea {
     width: 100%;
     padding: 12px;
     border-radius: 10px;
@@ -188,4 +188,17 @@ textarea {
     border-radius: 14px;
     font-size: 16px;
     font-weight: bold;
+}
+
+/* Error message shown when user tries to pay without selecting a method */
+.payment-error {
+    color: #FF0000;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.pay-button:disabled {
+    background-color: #9CA3AF;
+    cursor: not-allowed;
 }
