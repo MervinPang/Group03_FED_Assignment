@@ -671,3 +671,19 @@ async function submitInspectionForm() {
     }
   }
 }
+//helper function
+function createEmptyState(icon, title, text) {
+  return `
+    <div class="nea-empty-state">
+      <div class="nea-empty-state-icon">${icon}</div>
+      <p class="nea-empty-state-title">${title}</p>
+      <p class="nea-empty-state-text">${text}</p>
+    </div>`;
+}
+
+function getGradeFromScore(score) {
+  if (score >= 90) return "A";
+  if (score >= 75) return "B";
+  if (score >= 60) return "C";
+  return "D";
+}
