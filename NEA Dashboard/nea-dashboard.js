@@ -702,3 +702,36 @@ function showToast(message, type = "success") {
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
+//Event listeners
+function initializeEventListeners() {
+  console.log("Initializing event listeners...");
+  //Stalls search
+  const stallSearch = document.getElementById("nea-stalls-search");
+  if (stallSearch) {
+    stallSearch.addEventListener("input", () =>
+      renderNEAStallsTab(neaDashboardData),
+    );
+  }
+  //Inspection modal close on click
+  document.addEventListener("click", (e) => {
+    if (e.target.id === "nea-inspection-modal") closeInspectionModal();
+  });
+  //Inspection modal submit on click
+  const inspectionSubmitBtn = document.querySelector(
+    "#nea-inspection-modal .nea-btn-save",
+  );
+  if (inspectionSubmitBtn) {
+    inspectionSubmitBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      submitInspectionForm();
+    });
+  }
+  //Inspection modal close on escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeInspectionModal();
+  });
+  console.log("Event listeners initialized");
+}
+function navigateHome() {
+  window.location.href = "index.html";
+}
