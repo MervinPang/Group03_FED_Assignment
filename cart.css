@@ -1,5 +1,5 @@
 /* =========================
-   Main Order Card Container
+   Main Cart Card Container
    ========================= */
 
 /* Main Container Card */
@@ -80,7 +80,7 @@
 }
 
 /* Food image */
-.item img {
+.item-img {
     width: 64px;
     height: 64px;
     border-radius: 12px;
@@ -155,7 +155,7 @@
     font-size: 25px;
 }
 
-/* Row for dine in and takeaway button */
+/* Row for dine-in and takeaway buttons */
 .order-row {
     display: flex;
     gap: 20px;
@@ -186,6 +186,30 @@
     width: 32px;
     height: 32px;
     object-fit: contain;
+    display: block;
+}
+
+/* =========================
+   Order Type Button Icons
+   ========================= */
+
+/* Show black icon by default */
+.order-button .icon-black {
+    display: block;
+}
+
+/* Hide white icon by default */
+.order-button .icon-white {
+    display: none;
+}
+
+/* When button is active, hide black icon */
+.order-button.active .icon-black {
+    display: none;
+}
+
+/* When button is active, show white icon */
+.order-button.active .icon-white {
     display: block;
 }
 
@@ -234,4 +258,29 @@
 
 .checkout-button:hover {
     background-color: #059669;
+}
+
+/* =========================
+   Empty Cart Button Style
+   ========================= */
+
+/* Style for back to menu button */
+.cart-button {
+    padding: 12px 18px;
+    background-color: #10B981;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.cart-button:hover {
+    background-color: #059669;
+}
+
+/* Center empty cart message */
+.empty-state {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
