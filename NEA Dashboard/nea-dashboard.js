@@ -589,4 +589,85 @@ async function submitInspectionForm() {
   const stallId = document.getElementById("inspection-stall-id").value;
   const stallName = document.getElementById("inspection-stall-name").value;
   const stallUnitId = document.getElementById("inspection-stall-unit-id").value;
+  const cleanliness = parseInt(
+    document.getElementById("inspection-cleanliness").value,
+  );
+  const foodHandling = parseInt(
+    document.getElementById("inspection-food-handling").value,
+  );
+  const equipment = parseInt(
+    document.getElementById("inspection-equipment").value,
+  );
+  const notes = document.getElementById("inspection-notes").value;
+  //validation
+  if (isNaN(cleanliness) || cleanliness < 0 || cleanliness > 100) {
+    showToast("Cleanliness score must be 0-100", "error");
+    return;
+  }
+  if (isNaN(foodHandling) || foodHandling < 0 || foodHandling > 100) {
+    showToast("Food handling score must be 0-100", "error");
+    return;
+  }
+  if (isNaN(equipment) || equipment < 0 || equipment > 100) {
+    showToast("Equipment score must be 0-100", "error");
+    return;
+  }
+  //calculate overall score
+  const overall = Math.round((cleanliness + foodHandling + equipment) / 3);
+  const grade = getGradeFromScore(overall);
+  const inspection = {
+    stallId: stallUnitId,
+    stall: stallName,
+    date: new Date().toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }),
+    officer: neaDashboardData.officer.name,
+    cleanliness: cleanliness,
+    foodHandling: foodHandling,
+    equipment: equipment,
+    overall: overall,
+    grade: grade,
+    notes: notes,
+    createdAt: new Date().toISOString(),
+  };
+  const submitBtn = document.querySelector(
+    "#nea-inspection-modal .nea-btn-save",
+  );
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+  }
+  try {
+    const docId = await saveInspectionToFirebase(inspection);
+    if (docId) {
+      inspection.id = docId;
+      neaDashboardData.inspections.unshift(inspection);
+
+      // Update stall grade
+      await updateStallGradeInFirebase(stallId, grade);
+      const stallIndex = neaDashboardData.stalls.findIndex(
+        (s) => s.id === stallId,
+      );
+      if (stallIndex !== -1) {
+        neaDashboardData.stalls[stallIndex].grade = grade;
+      }
+
+      updateGradeDistributionFromStalls();
+      closeInspectionModal();
+      renderNEADashboard();
+      showToast(`✅ Inspection submitted! Grade: ${grade}`, "success");
+    } else {
+      showToast("❌ Failed to save inspection", "error");
+    }
+  } catch (error) {
+    console.error("Error submitting inspection:", error);
+    showToast("❌ An error occurred", "error");
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit";
+    }
+  }
 }
