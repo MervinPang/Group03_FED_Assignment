@@ -725,3 +725,108 @@ function closeEditItemModal() {
   const modal = document.getElementById("edit-item-modal");
   if (modal) modal.classList.remove("active");
 }
+// Form Submissions
+async function submitNewItem() {
+  const name = document.getElementById("item-name").value.trim();
+  const price = parseFloat(document.getElementById("item-price").value);
+  const category = document.getElementById("item-category").value;
+  const description = document.getElementById("item-description").value.trim();
+
+  if (!name) {
+    showToast("⚠️ Please enter item name!", "error");
+    return;
+  }
+
+  if (isNaN(price) || price < 0) {
+    showToast("⚠️ Please enter a valid price!", "error");
+    return;
+  }
+
+  const newItem = {
+    name: name,
+    price: price,
+    category: category || "Main",
+    description: description,
+    available: true,
+    createdAt: new Date().toISOString(),
+  };
+
+  const submitBtn = document.querySelector("#add-item-modal .btn-save");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Saving...";
+
+  try {
+    const docId = await saveMenuItemToFirebase(newItem);
+
+    if (docId) {
+      newItem.id = docId;
+      vendorDashboardData.menuItems.push(newItem);
+      renderVendorMenuTab(vendorDashboardData);
+      closeAddItemModal();
+      showToast(`✅ ${name} added!`, "success");
+    } else {
+      showToast("❌ Failed to save item", "error");
+    }
+  } catch (error) {
+    showToast("❌ An error occurred", "error");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Save";
+  }
+}
+
+async function submitEditItem() {
+  const index = parseInt(document.getElementById("edit-item-index").value);
+  const itemId = document.getElementById("edit-item-id").value;
+  const name = document.getElementById("edit-item-name").value.trim();
+  const price = parseFloat(document.getElementById("edit-item-price").value);
+  const category = document.getElementById("edit-item-category").value;
+  const description = document
+    .getElementById("edit-item-description")
+    .value.trim();
+
+  if (!name) {
+    showToast("⚠️ Please enter item name!", "error");
+    return;
+  }
+
+  if (isNaN(price) || price < 0) {
+    showToast("⚠️ Please enter a valid price!", "error");
+    return;
+  }
+
+  const updatedItem = {
+    name: name,
+    price: price,
+    category: category || "Main",
+    description: description,
+    updatedAt: new Date().toISOString(),
+  };
+
+  const submitBtn = document.querySelector("#edit-item-modal .btn-save");
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Saving...";
+
+  try {
+    if (itemId) {
+      const success = await updateMenuItemInFirebase(itemId, updatedItem);
+      if (!success) {
+        showToast("❌ Failed to update item", "error");
+        return;
+      }
+    }
+
+    vendorDashboardData.menuItems[index] = {
+      ...vendorDashboardData.menuItems[index],
+      ...updatedItem,
+    };
+    renderVendorMenuTab(vendorDashboardData);
+    closeEditItemModal();
+    showToast(`✅ ${name} updated!`, "success");
+  } catch (error) {
+    showToast("❌ An error occurred", "error");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Save";
+  }
+}
