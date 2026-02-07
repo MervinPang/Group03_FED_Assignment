@@ -585,4 +585,53 @@ function renderVendorHistoryTab(data) {
 
     displayOrderHistory(filteredOrders);
   }
+  function displayOrderHistory(orders) {
+    if (orders.length === 0) {
+      historyList.innerHTML = createEmptyState(
+        "📋",
+        "No Orders Found",
+        "Try adjusting your filters",
+      );
+    } else {
+      let historyHTML = "";
+      orders.forEach(function (order) {
+        historyHTML += `
+          <article class="vendor-order-item" role="listitem">
+            <div class="vendor-order-info">
+              <h4>#${order.id}</h4>
+              <p>${order.customer}</p>
+              <p><time datetime="${order.date}">${order.date}</time></p>
+            </div>
+            <div class="vendor-order-summary">
+              <span class="vendor-order-status vendor-status-${order.status}" role="status">
+                ${capitalizeFirst(order.status)}
+              </span>
+              <data class="vendor-order-amount" value="${order.amount}">$${order.amount.toFixed(2)}</data>
+              <p class="vendor-order-items">${order.items} item${order.items !== 1 ? "s" : ""}</p>
+            </div>
+          </article>`;
+      });
+      historyList.innerHTML = historyHTML;
+    }
+  }
+  //Initial display
+  applyFilters();
+  //Event Listeners for filters
+  if (searchInput) {
+    searchInput.removeEventListener("input", applyFilters);
+    searchInput.addEventListener("input", applyFilters);
+  }
+  if (statusFilter) {
+    statusFilter.removeEventListener("change", applyFilters);
+    statusFilter.addEventListener("change", applyFilters);
+  }
+  if (timeFilter) {
+    timeFilter.removeEventListener("change", applyFilters);
+    timeFilter.addEventListener("change", applyFilters);
+  }
+  console.log("History tab rendered successfully");
+  function parseOrderDate(dateStr) {
+    const datePart = dateStr.substring(0, dateStr.lastIndexOf(" "));
+    return new Date(datePart);
+  }
 }
