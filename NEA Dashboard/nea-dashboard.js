@@ -407,15 +407,14 @@ function renderNEAStallsTab(data) {
     console.error("Stalls list element not found!");
     return;
   }
-  //Get search value
   const searchInput = document.getElementById("nea-stalls-search");
   let filteredStalls = [...data.stalls];
   if (searchInput && searchInput.value) {
-    const quey = searchInput.value.toLowerCase();
+    const query = searchInput.value.toLowerCase();
     filteredStalls = filteredStalls.filter(
       (s) =>
-        s.name.toLowerCase().includes(quey) ||
-        s.stallId.toLowerCase().includes(quey),
+        s.name.toLowerCase().includes(query) ||
+        s.stallId.toLowerCase().includes(query),
     );
   }
   if (filteredStalls.length === 0) {
@@ -424,9 +423,11 @@ function renderNEAStallsTab(data) {
   }
   let html = "";
   filteredStalls.forEach((stall) => {
-    html += ` <article class="nea-stall-row">
+    const grade = stall.grade || "D";
+    html += `
+      <article class="nea-stall-row">
         <div class="nea-stall-badge-container">
-          ${createGradeBadge(stall.grade)}
+          ${createGradeBadge(grade)}
         </div>
         <div class="nea-stall-info">
           <p class="nea-stall-name">${stall.name}</p>
@@ -442,12 +443,20 @@ function renderNEAStallsTab(data) {
   stallsList.innerHTML = html;
 }
 function createGradeBadge(grade) {
+  const gradeUpper = (grade || "D").toUpperCase();
+  const colors = {
+    A: "#10b981",
+    B: "#84cc16",
+    C: "#f59e0b",
+    D: "#ef4444",
+  };
+  const bgColor = colors[gradeUpper] || "#ef4444";
   return `
     <div class="hygiene-grade-badge">
-      <div class="nea-grade-circle ${grade.toUpperCase()}">${grade}</div>
+      <div class="nea-grade-circle grade-${gradeUpper.toLowerCase()}" style="background: ${bgColor};">${gradeUpper}</div>
     </div>`;
 }
-//zns Tab
+//Inspections Tab
 function renderNEAInspectionsTab(data) {
   console.log("Rendering NEA Inspections tab...");
   const inspectionsList = document.getElementById("nea-inspections-list");
