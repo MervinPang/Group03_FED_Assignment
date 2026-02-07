@@ -735,3 +735,9 @@ function initializeEventListeners() {
 function navigateHome() {
   window.location.href = "index.html";
 }
+//global functions
+window.openInspectionModal = openInspectionModal;
+window.closeInspectionModal = closeInspectionModal;
+window.submitInspectionForm = submitInspectionForm;
+window.resolveComplaint = resolveComplaint;
+window.navigateHome = navigateHome;
