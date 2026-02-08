@@ -12,13 +12,14 @@ const firebaseConfig = {
 // initialising firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+// seed data functions - run once to populate firestore
 // officer document
 function writeOfficerData() {
   const docData = {
     name: "Rayne Tok",
   };
   db.collection("neaDashboard").doc("officer").set(docData);
-  console.log("Officer data written");
+  console.log("✅ Officer data written");
 }
 // stats document
 function writeStatsData() {
@@ -29,7 +30,7 @@ function writeStatsData() {
     gradeAStalls: 1,
   };
   db.collection("neaDashboard").doc("stats").set(docData);
-  console.log("Stats data written");
+  console.log("✅ Stats data written");
 }
 // grade distribution document
 function writeGradeDistributionData() {
@@ -40,87 +41,112 @@ function writeGradeDistributionData() {
     D: 4,
   };
   db.collection("neaDashboard").doc("gradeDistribution").set(docData);
-  console.log("Grade distribution data written");
+  console.log("✅ Grade distribution data written");
 }
-// stalls collection
+// stalls collection - using subcollection under a document
 function writeStall1() {
   const docData = {
     name: "Tian Tian Hainanese Chicken Rice",
     stallId: "#01-45",
     grade: "D",
   };
-  db.collection("neaDashboard").collection("stalls").doc("S1").set(docData);
-  console.log("Stall 1 written");
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("stalls")
+    .doc("S1")
+    .set(docData);
+  console.log("✅ Stall 1 written");
 }
-
 function writeStall2() {
   const docData = {
     name: "Zhen Zhen Porridge",
     stallId: "#01-52",
     grade: "B",
   };
-  db.collection("neaDashboard").collection("stalls").doc("S2").set(docData);
-  console.log("Stall 2 written");
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("stalls")
+    .doc("S2")
+    .set(docData);
+  console.log("✅ Stall 2 written");
 }
-
 function writeStall3() {
   const docData = {
     name: "Ah Heng Curry Chicken Bee Hoon",
     stallId: "#02-18",
     grade: "A",
   };
-  db.collection("neaDashboard").collection("stalls").doc("S3").set(docData);
-  console.log("Stall 3 written");
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("stalls")
+    .doc("S3")
+    .set(docData);
+  console.log("✅ Stall 3 written");
 }
-
 function writeStall4() {
   const docData = {
     name: "Happy Duck Rice",
     stallId: "#01-11",
     grade: "C",
   };
-  db.collection("neaDashboard").collection("stalls").doc("S4").set(docData);
-  console.log("Stall 4 written");
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("stalls")
+    .doc("S4")
+    .set(docData);
+  console.log("✅ Stall 4 written");
 }
-
 function writeStall5() {
   const docData = {
     name: "Chong Pang Nasi Lemak",
     stallId: "#02-34",
     grade: "B",
   };
-  db.collection("neaDashboard").collection("stalls").doc("S5").set(docData);
-  console.log("Stall 5 written");
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("stalls")
+    .doc("S5")
+    .set(docData);
+  console.log("✅ Stall 5 written");
 }
-
 function writeStall6() {
   const docData = {
     name: "Lau Pa Sat Satay",
     stallId: "#01-29",
     grade: "D",
   };
-  db.collection("neaDashboard").collection("stalls").doc("S6").set(docData);
-  console.log("Stall 6 written");
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("stalls")
+    .doc("S6")
+    .set(docData);
+  console.log("✅ Stall 6 written");
 }
-
 function writeStall7() {
   const docData = {
     name: "Fishball Story Soup",
     stallId: "#02-07",
     grade: "D",
   };
-  db.collection("neaDashboard").collection("stalls").doc("S7").set(docData);
-  console.log("Stall 7 written");
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("stalls")
+    .doc("S7")
+    .set(docData);
+  console.log("✅ Stall 7 written");
 }
-
 function writeStall8() {
   const docData = {
     name: "Nameless Rice Stall",
     stallId: "#01-19",
     grade: "D",
   };
-  db.collection("neaDashboard").collection("stalls").doc("S8").set(docData);
-  console.log("Stall 8 written");
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("stalls")
+    .doc("S8")
+    .set(docData);
+  console.log("✅ Stall 8 written");
 }
 // inspections collection
 function writeInspection1() {
@@ -136,12 +162,12 @@ function writeInspection1() {
     grade: "A",
   };
   db.collection("neaDashboard")
+    .doc("data")
     .collection("inspections")
     .doc("I1")
     .set(docData);
-  console.log("Inspection 1 written");
+  console.log("✅ Inspection 1 written");
 }
-
 function writeInspection2() {
   const docData = {
     stall: "Zhen Zhen Porridge",
@@ -155,12 +181,12 @@ function writeInspection2() {
     grade: "B",
   };
   db.collection("neaDashboard")
+    .doc("data")
     .collection("inspections")
     .doc("I2")
     .set(docData);
-  console.log("Inspection 2 written");
+  console.log("✅ Inspection 2 written");
 }
-
 function writeInspection3() {
   const docData = {
     stall: "Ah Heng Curry Chicken Bee Hoon",
@@ -174,10 +200,11 @@ function writeInspection3() {
     grade: "A",
   };
   db.collection("neaDashboard")
+    .doc("data")
     .collection("inspections")
     .doc("I3")
     .set(docData);
-  console.log("Inspection 3 written");
+  console.log("✅ Inspection 3 written");
 }
 // complaints collection
 function writeComplaint1() {
@@ -189,7 +216,11 @@ function writeComplaint1() {
     status: "Pending",
     submittedBy: "Customer",
   };
-  db.collection("neaDashboard").collection("complaints").doc("C1").set(docData);
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("complaints")
+    .doc("C1")
+    .set(docData);
   console.log("Complaint 1 written");
 }
 function writeComplaint2() {
@@ -198,11 +229,15 @@ function writeComplaint2() {
     stallId: "#02-18",
     date: "Jan 10, 2026",
     description:
-      "Dirty hygiene practices observed, flies around food, unclean utensils",
+      "Unhygeinic food handling observed. Lack of hygiene practices.",
     status: "Pending",
     submittedBy: "Customer",
   };
-  db.collection("neaDashboard").collection("complaints").doc("C2").set(docData);
+  db.collection("neaDashboard")
+    .doc("data")
+    .collection("complaints")
+    .doc("C2")
+    .set(docData);
   console.log("Complaint 2 written");
 }
 // seed all data function
@@ -228,12 +263,8 @@ function seedAllNEAData() {
   // write complaints
   writeComplaint1();
   writeComplaint2();
-  console.log("All NEA Dashboard data written to Firestore.");
+  console.log("All NEA Dashboard data written to Firestore!");
 }
-// uncomment the lines below to seed data (run once, then comment out again)
-// console.log("Hello there, Firestore!");
-// seedAllNEAData();
-
 // global variables to hold NEA data
 let neaDashboardData = null;
 // initialisation on DOM load
@@ -248,6 +279,7 @@ async function loadNEADataFromFirebase() {
 
   try {
     const neaRef = db.collection("neaDashboard");
+    const dataRef = neaRef.doc("data");
 
     const [
       officerDoc,
@@ -260,9 +292,9 @@ async function loadNEADataFromFirebase() {
       neaRef.doc("officer").get(),
       neaRef.doc("stats").get(),
       neaRef.doc("gradeDistribution").get(),
-      neaRef.collection("stalls").get(),
-      neaRef.collection("inspections").get(),
-      neaRef.collection("complaints").get(),
+      dataRef.collection("stalls").get(),
+      dataRef.collection("inspections").get(),
+      dataRef.collection("complaints").get(),
     ]);
     // process stalls
     const stalls = [];
@@ -418,8 +450,11 @@ function loadFallbackData() {
 // firebase saving functions
 async function saveInspectionToFirebase(inspection) {
   try {
-    const neaRef = db.collection("neaDashboard");
-    const docRef = await neaRef.collection("inspections").add(inspection);
+    const docRef = await db
+      .collection("neaDashboard")
+      .doc("data")
+      .collection("inspections")
+      .add(inspection);
     console.log("Inspection saved:", docRef.id);
     return docRef.id;
   } catch (error) {
@@ -429,8 +464,12 @@ async function saveInspectionToFirebase(inspection) {
 }
 async function updateStallGradeInFirebase(stallId, grade) {
   try {
-    const neaRef = db.collection("neaDashboard");
-    await neaRef.collection("stalls").doc(stallId).update({ grade: grade });
+    await db
+      .collection("neaDashboard")
+      .doc("data")
+      .collection("stalls")
+      .doc(stallId)
+      .update({ grade: grade });
     console.log("Stall grade updated");
     return true;
   } catch (error) {
@@ -438,11 +477,13 @@ async function updateStallGradeInFirebase(stallId, grade) {
     return false;
   }
 }
-
 async function saveComplaintToFirebase(complaint) {
   try {
-    const neaRef = db.collection("neaDashboard");
-    const docRef = await neaRef.collection("complaints").add(complaint);
+    const docRef = await db
+      .collection("neaDashboard")
+      .doc("data")
+      .collection("complaints")
+      .add(complaint);
     console.log("Complaint saved:", docRef.id);
     return docRef.id;
   } catch (error) {
@@ -452,8 +493,9 @@ async function saveComplaintToFirebase(complaint) {
 }
 async function updateComplaintStatusInFirebase(complaintId, status) {
   try {
-    const neaRef = db.collection("neaDashboard");
-    await neaRef
+    await db
+      .collection("neaDashboard")
+      .doc("data")
       .collection("complaints")
       .doc(complaintId)
       .update({ status: status });
@@ -466,8 +508,7 @@ async function updateComplaintStatusInFirebase(complaintId, status) {
 }
 async function updateStatsInFirebase(stats) {
   try {
-    const neaRef = db.collection("neaDashboard");
-    await neaRef.doc("stats").update(stats);
+    await db.collection("neaDashboard").doc("stats").update(stats);
     console.log("Stats updated");
     return true;
   } catch (error) {
@@ -477,8 +518,10 @@ async function updateStatsInFirebase(stats) {
 }
 async function updateGradeDistributionInFirebase(distribution) {
   try {
-    const neaRef = db.collection("neaDashboard");
-    await neaRef.doc("gradeDistribution").update(distribution);
+    await db
+      .collection("neaDashboard")
+      .doc("gradeDistribution")
+      .update(distribution);
     console.log("Grade distribution updated");
     return true;
   } catch (error) {
@@ -489,9 +532,9 @@ async function updateGradeDistributionInFirebase(distribution) {
 // real time listeners
 function setupRealtimeListeners() {
   console.log("Setting up real-time listeners...");
-  const neaRef = db.collection("neaDashboard");
+  const dataRef = db.collection("neaDashboard").doc("data");
   // listener for stalls collection
-  neaRef.collection("stalls").onSnapshot((snapshot) => {
+  dataRef.collection("stalls").onSnapshot((snapshot) => {
     console.log("Stalls updated!");
     const stalls = [];
     snapshot.forEach((doc) => stalls.push({ id: doc.id, ...doc.data() }));
@@ -504,7 +547,7 @@ function setupRealtimeListeners() {
     }
   });
   // listener for inspections collection
-  neaRef.collection("inspections").onSnapshot((snapshot) => {
+  dataRef.collection("inspections").onSnapshot((snapshot) => {
     console.log("Inspections updated!");
     const inspections = [];
     snapshot.forEach((doc) => inspections.push({ id: doc.id, ...doc.data() }));
@@ -519,7 +562,7 @@ function setupRealtimeListeners() {
     }
   });
   // listener for complaints collection
-  neaRef.collection("complaints").onSnapshot((snapshot) => {
+  dataRef.collection("complaints").onSnapshot((snapshot) => {
     console.log("Complaints updated!");
     const complaints = [];
     snapshot.forEach((doc) => complaints.push({ id: doc.id, ...doc.data() }));
@@ -538,7 +581,6 @@ function setupRealtimeListeners() {
   });
   console.log("Real-time listeners set up.");
 }
-
 function updateGradeDistributionFromStalls() {
   const distribution = { A: 0, B: 0, C: 0, D: 0 };
   neaDashboardData.stalls.forEach((stall) => {
@@ -791,11 +833,11 @@ async function resolveComplaint(complaintId) {
       neaDashboardData.complaints[index].status = "Resolved";
       renderNEAComplaintsTab(neaDashboardData);
       renderNEADashboard();
-      showToast("Complaint marked as resolved", "success");
+      showToast("✅ Complaint marked as resolved", "success");
     }
   } catch (error) {
     console.error("Error resolving complaint:", error);
-    showToast("Failed to mark complaint as resolved", "error");
+    showToast("❌ Failed to mark complaint as resolved", "error");
   }
 }
 // inspection modal
@@ -816,14 +858,12 @@ function openInspectionModal(stallId, stallName, stallUnitId) {
     modal.classList.add("active");
   }
 }
-
 function closeInspectionModal() {
   const modal = document.getElementById("nea-inspection-modal");
   if (modal) {
     modal.classList.remove("active");
   }
 }
-
 async function submitInspectionForm() {
   const stallId = document.getElementById("inspection-stall-id").value;
   const stallName = document.getElementById("inspection-stall-name").value;
@@ -894,13 +934,13 @@ async function submitInspectionForm() {
       updateGradeDistributionFromStalls();
       closeInspectionModal();
       renderNEADashboard();
-      showToast(`Inspection submitted! Grade: ${grade}`, "success");
+      showToast(`✅ Inspection submitted! Grade: ${grade}`, "success");
     } else {
-      showToast("Failed to save inspection", "error");
+      showToast("❌ Failed to save inspection", "error");
     }
   } catch (error) {
     console.error("Error submitting inspection:", error);
-    showToast("An error occurred", "error");
+    showToast("❌ An error occurred", "error");
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;
