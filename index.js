@@ -67,7 +67,7 @@ function showStalls() {
 
     // go to order page
     card.onclick = function () {
-      window.location.href = "order.html.html";
+      window.location.href = "order.html";
     };
 
     card.innerHTML =
