@@ -1,0 +1,1203 @@
+/* Root Variables */
+:root {
+  --primary-blue: #1e40af;
+  --accent-blue: #2563eb;
+  --light-blue: #dbeafe;
+  --green-a: #10b981;
+  --green-b: #84cc16;
+  --orange-c: #f59e0b;
+  --red-d: #ef4444;
+  --light-bg: #f7f9fb;
+  --white: #ffffff;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --border-light: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 12px rgba(30, 64, 175, 0.12);
+} /*targets the highest-level parent element in the document*/
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: var(--light-bg);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-size: 16px;
+}
+/* Dashboard Container */
+.nea-dashboard-container {
+  margin: 2.5rem auto;
+  background: var(--white);
+  border-radius: 18px;
+  box-shadow:
+    0 2px 16px rgba(30, 64, 175, 0.08),
+    0 0.5px 1.5px rgba(0, 0, 0, 0.04);
+  padding: 2rem 2.5rem;
+}
+
+/* Dashboard Header */
+.nea-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, var(--green-a) 0%, #059669 100%);
+  padding: 1.5rem 2rem;
+  color: var(--white);
+  border-radius: 14px;
+  margin-bottom: 2.5rem;
+  gap: 1.5rem;
+}
+
+.nea-header-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1;
+}
+
+.nea-header-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  margin: 0;
+}
+
+.nea-header-text h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.nea-header-text p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 0.95rem;
+}
+/* Home Button */
+.nea-btn-home {
+  background: linear-gradient(
+    135deg,
+    var(--accent-blue) 0%,
+    var(--primary-blue) 100%
+  );
+  border: none;
+  outline: none;
+  color: var(--white);
+  border-radius: 10px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nea-btn-home:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+}
+
+.nea-btn-home:active {
+  transform: translateY(0);
+}
+
+.nea-btn-icon {
+  font-size: 1.25rem;
+}
+
+.nea-btn-text {
+  font-weight: 600;
+}
+/* Stats Row */
+.nea-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  list-style: none;
+}
+
+.nea-stat-card {
+  background: var(--white);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border: 1px solid var(--border-light);
+  transition: all 0.3s;
+}
+
+.nea-stat-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.nea-stat-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--white);
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.nea-stat-icon.blue {
+  background: var(--accent-blue);
+}
+
+.nea-stat-icon.green {
+  background: var(--green-a);
+}
+
+.nea-stat-icon.yellow {
+  background: var(--orange-c);
+}
+
+.nea-stat-content {
+  flex: 1;
+}
+
+.nea-stat-label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.nea-stat-card h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+/* Grade Distribution */
+.nea-grade-distribution {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--border-light);
+}
+
+.nea-grade-distribution h2 {
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.nea-grade-circles-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.nea-grade-circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nea-grade-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.nea-grade-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.nea-grade-circle.grade-a {
+  background: var(--green-a);
+}
+
+.nea-grade-circle.grade-b {
+  background: var(--green-b);
+}
+
+.nea-grade-circle.grade-c {
+  background: var(--orange-c);
+}
+
+.nea-grade-circle.grade-d {
+  background: var(--red-d);
+}
+
+.nea-circle-count {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.nea-circle-label {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin: 0;
+  font-weight: 500;
+}
+/* Tabs */
+.nea-tabs {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid var(--border-light);
+  margin-bottom: 2rem;
+  overflow-x: auto;
+}
+
+.nea-tab-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.nea-tab-btn:hover {
+  color: var(--green-a);
+}
+
+.nea-tab-btn.active {
+  color: var(--green-a);
+  border-bottom-color: var(--green-a);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.nea-tab-icon {
+  font-size: 1.1rem;
+}
+
+/* Tab Content */
+.nea-tabs-content {
+  margin-top: 1.5rem;
+}
+
+.nea-tab-pane {
+  display: none;
+}
+
+.nea-tab-pane.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Stalls Tab */
+.nea-stalls-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+  gap: 1rem;
+}
+
+.nea-stalls-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.nea-stalls-search {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: 8px;
+  outline: none;
+  min-width: 220px;
+  transition: all 0.3s;
+}
+
+.nea-stalls-search:focus {
+  border-color: var(--green-a);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.nea-stalls-list {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.nea-stall-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.3s;
+}
+
+.nea-stall-row:last-child {
+  border-bottom: none;
+}
+
+.nea-stall-row:hover {
+  background: #f9fafb;
+}
+
+.nea-stall-badge-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nea-stall-info {
+  flex: 1;
+}
+
+.nea-stall-name {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+}
+
+.nea-stall-id {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.nea-stall-actions {
+  margin-left: auto;
+}
+
+.nea-inspect-btn {
+  background: var(--accent-blue);
+  border: none;
+  color: var(--white);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.4rem;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.2);
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.nea-inspect-btn:hover {
+  background: var(--primary-blue);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+  transform: translateY(-2px);
+}
+/* Inspections Tab */
+.nea-inspections-list {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+  padding: 1.5rem;
+}
+
+.nea-inspection-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s;
+}
+
+.nea-inspection-card:last-child {
+  margin-bottom: 0;
+}
+
+.nea-inspection-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.nea-inspection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.nea-inspection-left h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.05rem;
+  color: var(--green-a);
+  font-weight: 600;
+}
+
+.nea-inspection-left p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: var(--text-light);
+}
+
+.nea-inspection-score {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: right;
+}
+
+.nea-inspection-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.nea-breakdown-item {
+  text-align: center;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.nea-breakdown-item label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.nea-breakdown-item span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+}
+
+.nea-inspection-badge-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+}
+/* Complaints Tab */
+.nea-complaints-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.nea-complaint-card {
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.nea-complaint-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.nea-complaint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+}
+
+.nea-complaint-info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.25rem 0;
+}
+
+.nea-complaint-info p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.nea-complaint-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: #fbbf24;
+  color: #78350f;
+}
+
+.nea-complaint-status::before {
+  content: "⚠️";
+  font-size: 0.7rem;
+}
+
+.nea-complaint-body {
+  padding: 1.25rem;
+}
+
+.nea-complaint-body p {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 0;
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #f59e0b;
+}
+
+.nea-complaint-actions {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.nea-complaint-actions .nea-inspect-btn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.nea-complaint-actions .nea-inspect-btn:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+/* empty state for complaints */
+.nea-complaints-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-radius: 14px;
+  border: 2px dashed #10b981;
+}
+
+.nea-complaint-empty {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.nea-complaint-empty-text {
+  font-size: 1.1rem;
+  color: #065f46;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Hygiene Grade Badge Component */
+.hygiene-grade-badge {
+  position: relative;
+}
+
+.hygiene-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: #1f2937;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+/* ============================================
+   MODAL STYLES
+   ============================================ */
+
+.nea-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0;
+}
+
+.nea-modal.active {
+  display: flex;
+}
+
+.nea-modal-content {
+  background: var(--white);
+  border-radius: 14px;
+  width: 90%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nea-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.nea-modal-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.nea-modal-close {
+  background: none;
+  border: 1px solid var(--border-light);
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--text-light);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.nea-modal-close:hover {
+  background: var(--light-bg);
+  color: var(--text-dark);
+}
+
+.nea-modal-body {
+  padding: 1.5rem;
+}
+
+.nea-modal-body fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nea-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Stall Display in Modal */
+.nea-stall-display {
+  background: linear-gradient(135deg, var(--green-a) 0%, #059669 100%);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.nea-stall-display h4 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.nea-stall-display p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+/* Form Styles */
+.nea-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.nea-form-group:last-child {
+  margin-bottom: 0;
+}
+
+.nea-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.nea-form-group input,
+.nea-form-group textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s;
+  background: var(--white);
+}
+
+.nea-form-group input:focus,
+.nea-form-group textarea:focus {
+  outline: none;
+  border-color: var(--green-a);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.nea-form-group input::placeholder,
+.nea-form-group textarea::placeholder {
+  color: #9ca3af;
+}
+
+.nea-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Modal Buttons */
+.nea-btn-cancel {
+  background: var(--white);
+  color: var(--text-dark);
+  border: 1px solid var(--border-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.nea-btn-cancel:hover {
+  background: var(--light-bg);
+}
+.nea-btn-save {
+  background: var(--green-a);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+.nea-btn-save:hover {
+  background: #059669;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+.nea-btn-save:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* Toast Notifications */
+.nea-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  z-index: 9999;
+  animation: slideIn 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.nea-toast-success {
+  background: linear-gradient(135deg, var(--green-a) 0%, #059669 100%);
+}
+.nea-toast-error {
+  background: linear-gradient(135deg, var(--red-d) 0%, #dc2626 100%);
+}
+.nea-toast.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+/*loading Overlay*/
+#nea-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.loading-content {
+  text-align: center;
+}
+.loading-content p {
+  margin-top: 1rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+.nea-loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--border-light);
+  border-radius: 50%;
+  border-top-color: var(--green-a);
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*Empty State*/
+.nea-empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-light);
+}
+
+.nea-empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.nea-empty-state-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.nea-empty-state-text {
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/*grade badge colors*/
+
+.nea-grade-circle.grade-a {
+  background: var(--green-a);
+}
+
+.nea-grade-circle.grade-b {
+  background: var(--green-b);
+}
+
+.nea-grade-circle.grade-c {
+  background: var(--orange-c);
+}
+
+.nea-grade-circle.grade-d {
+  background: var(--red-d);
+}
+
+/* Small grade badge for stall rows */
+.nea-stall-row .nea-grade-circle {
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+}
+/* Responsive */
+@media (max-width: 1024px) {
+  .nea-dashboard-container {
+    padding: 1.5rem;
+  }
+
+  .nea-dashboard-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nea-header-col {
+    justify-content: center;
+  }
+
+  .nea-stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nea-grade-circles-container {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nea-dashboard-container {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .nea-dashboard-header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nea-header-col {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nea-stats-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .nea-stalls-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nea-stalls-search {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .nea-tabs {
+    gap: 0.5rem;
+  }
+
+  .nea-tab-btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .nea-stall-row {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .nea-stall-badge-container {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    justify-content: flex-start;
+  }
+
+  .nea-stall-info {
+    width: 100%;
+  }
+
+  .nea-stall-actions {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0.75rem;
+  }
+
+  .nea-inspect-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nea-inspection-header {
+    flex-direction: column;
+  }
+
+  .nea-inspection-score {
+    text-align: left;
+  }
+
+  .nea-inspection-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .nea-grade-circles-container {
+    gap: 2rem;
+  }
+  .nea-complaints-list {
+    grid-template-columns: 1fr;
+  }
+
+  .nea-complaint-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nea-complaint-status {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .nea-dashboard-container {
+    padding: 0.75rem;
+    margin: 0.5rem;
+  }
+
+  .nea-header-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .nea-stats-row {
+    gap: 0.8rem;
+  }
+
+  .nea-stat-card {
+    padding: 1rem;
+  }
+
+  .nea-stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .nea-stat-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .nea-grade-circles-container {
+    gap: 1.5rem;
+  }
+
+  .nea-grade-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .nea-circle-count {
+    font-size: 1.1rem;
+  }
+
+  .nea-circle-label {
+    font-size: 0.75rem;
+  }
+
+  .nea-tab-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .nea-btn-home {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .nea-stalls-header {
+    flex-direction: column;
+  }
+
+  .nea-stalls-search {
+    min-width: auto;
+  }
+}

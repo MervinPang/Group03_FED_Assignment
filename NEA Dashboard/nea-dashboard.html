@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEA Inspection Dashboard</title>
+    <link rel="stylesheet" href="nea-dashboard.css" />
+  </head>
+  <body>
+    <section class="nea-dashboard-container">
+      <!-- Header Section -->
+      <header class="nea-dashboard-header">
+        <hgroup class="nea-header-col">
+          <figure class="nea-header-icon">
+            <svg
+              width="28"
+              height="28"
+              fill="none"
+              stroke="#fff"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 1v6m6.708-2.708l-4.242 4.242M21 12h-6m2.708 6.708l-4.242-4.242M12 23v-6m-6.708 2.708l4.242-4.242M3 12h6M5.292 5.292l4.242 4.242"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </figure>
+          <article class="nea-header-text">
+            <h1>NEA Inspection Dashboard</h1>
+            <p>Welcome, <span id="nea-officer-name">Rayne Tok</span></p>
+          </article>
+        </hgroup>
+        <button class="nea-btn-home" onclick="navigateHome()">
+          <span class="nea-btn-icon">🏠</span>
+          <span class="nea-btn-text">Home</span>
+        </button>
+      </header>
+      <!-- Stats Cards Section -->
+      <ul class="nea-stats-row">
+        <li class="nea-stat-card">
+          <figure class="nea-stat-icon blue">📊</figure>
+          <article class="nea-stat-content">
+            <p class="nea-stat-label">Total Stalls</p>
+            <h2 id="nea-total-stalls">8</h2>
+          </article>
+        </li>
+        <li class="nea-stat-card">
+          <figure class="nea-stat-icon green">✅</figure>
+          <article class="nea-stat-content">
+            <p class="nea-stat-label">This Month</p>
+            <h2 id="nea-this-month">4</h2>
+          </article>
+        </li>
+        <li class="nea-stat-card">
+          <figure class="nea-stat-icon yellow">⚠️</figure>
+          <article class="nea-stat-content">
+            <p class="nea-stat-label">Pending Complaints</p>
+            <h2 id="nea-pending-complaints">0</h2>
+          </article>
+        </li>
+        <li class="nea-stat-card">
+          <figure class="nea-stat-icon green">🛡️</figure>
+          <article class="nea-stat-content">
+            <p class="nea-stat-label">Grade A Stalls</p>
+            <h2 id="nea-grade-a-stalls">1</h2>
+          </article>
+        </li>
+      </ul>
+      <!-- Hygiene Grade Distribution -->
+      <section class="nea-grade-distribution">
+        <h2>Hygiene Grade Distribution</h2>
+        <ul class="nea-grade-circles-container">
+          <li class="nea-grade-circle-item">
+            <span class="nea-grade-circle grade-a">A</span>
+            <p class="nea-circle-count" id="nea-count-a">0</p>
+            <p class="nea-circle-label">stalls</p>
+          </li>
+          <li class="nea-grade-circle-item">
+            <span class="nea-grade-circle grade-b">B</span>
+            <p class="nea-circle-count" id="nea-count-b">0</p>
+            <p class="nea-circle-label">stalls</p>
+          </li>
+          <li class="nea-grade-circle-item">
+            <span class="nea-grade-circle grade-c">C</span>
+            <p class="nea-circle-count" id="nea-count-c">0</p>
+            <p class="nea-circle-label">stalls</p>
+          </li>
+          <li class="nea-grade-circle-item">
+            <span class="nea-grade-circle grade-d">D</span>
+            <p class="nea-circle-count" id="nea-count-d">4</p>
+            <p class="nea-circle-label">stalls</p>
+          </li>
+        </ul>
+      </section>
+      <!-- Tab Navigation -->
+      <nav class="nea-tabs">
+        <button class="nea-tab-btn active" data-nea-tab="stalls">
+          <span class="nea-tab-icon">📊</span>
+          <span>Stalls</span>
+        </button>
+        <button class="nea-tab-btn" data-nea-tab="inspections">
+          <span class="nea-tab-icon">📋</span>
+          <span>Inspections</span>
+        </button>
+        <button class="nea-tab-btn" data-nea-tab="complaints">
+          <span class="nea-tab-icon">⚠️</span>
+          <span>Complaints</span>
+        </button>
+      </nav>
+
+      <!-- Tab Content -->
+      <main class="nea-tabs-content">
+        <!-- Stalls Tab -->
+        <section id="nea-stalls-tab" class="nea-tab-pane active">
+          <header class="nea-stalls-header">
+            <h3>All Food Stalls</h3>
+            <input
+              type="text"
+              id="nea-stalls-search"
+              placeholder="🔍 Search stalls..."
+              class="nea-stalls-search"
+            />
+          </header>
+          <div class="nea-stalls-list" id="nea-stalls-list">
+            <!-- Stalls populated here -->
+          </div>
+        </section>
+
+        <!-- Inspections Tab -->
+        <section id="nea-inspections-tab" class="nea-tab-pane">
+          <div class="nea-tab-header">
+            <h3>Inspection History</h3>
+          </div>
+          <div class="nea-inspections-list" id="nea-inspections-list">
+            <!-- Inspections populated here -->
+          </div>
+        </section>
+
+        <!-- Complaints Tab -->
+        <section id="nea-complaints-tab" class="nea-tab-pane">
+          <div class="nea-tab-header">
+            <h3>Pending Complaints</h3>
+          </div>
+          <div id="nea-complaints-list" class="nea-complaints-list">
+            <!-- Complaints populated here -->
+          </div>
+        </section>
+      </main>
+    </section>
+    <!--Inspection Modal-->
+    <dialog id="nea-inspection-modal" class="nea-modal">
+      <article class="nea-modal-content">
+        <header class="nea-modal-header">
+          <h2>New Inspection</h2>
+          <button class="nea-modal-close" onclick="closeInspectionModal()">
+            &times;
+          </button>
+        </header>
+        <main class="nea-modal-body">
+          <form id="inspection-form">
+            <fieldset>
+              <!-- Hidden fields -->
+              <input type="hidden" id="inspection-stall-id" />
+              <input type="hidden" id="inspection-stall-name" />
+              <input type="hidden" id="inspection-stall-unit-id" />
+              <!-- Stall Display -->
+              <div class="nea-stall-display">
+                <h4 id="inspection-stall-display">Stall Name</h4>
+                <p id="inspection-stall-unit-display">#00-00</p>
+              </div>
+              <!-- Cleanliness Score -->
+              <div class="nea-form-group">
+                <label for="inspection-cleanliness"
+                  >Cleanliness Score (0-100)</label
+                >
+                <input
+                  type="number"
+                  id="inspection-cleanliness"
+                  min="0"
+                  max="100"
+                  placeholder="Enter score..."
+                  required
+                />
+              </div>
+              <!-- Food Handling Score -->
+              <div class="nea-form-group">
+                <label for="inspection-food-handling"
+                  >Food Handling Score (0-100)</label
+                >
+                <input
+                  type="number"
+                  id="inspection-food-handling"
+                  min="0"
+                  max="100"
+                  placeholder="Enter score..."
+                  required
+                />
+              </div>
+              <!-- Equipment Score -->
+              <div class="nea-form-group">
+                <label for="inspection-equipment"
+                  >Equipment Score (0-100)</label
+                >
+                <input
+                  type="number"
+                  id="inspection-equipment"
+                  min="0"
+                  max="100"
+                  placeholder="Enter score..."
+                  required
+                />
+              </div>
+              <!-- Notes -->
+              <div class="nea-form-group">
+                <label for="inspection-notes">Notes (Optional)</label>
+                <textarea
+                  id="inspection-notes"
+                  rows="3"
+                  placeholder="Any additional notes..."
+                ></textarea>
+              </div>
+            </fieldset>
+          </form>
+        </main>
+        <footer class="nea-modal-footer">
+          <button class="nea-btn-cancel" onclick="closeInspectionModal()">
+            Cancel
+          </button>
+          <button class="nea-btn-save" onclick="submitInspectionForm()">
+            Submit
+          </button>
+        </footer>
+      </article>
+    </dialog>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
+
+    <script src="nea-dashboard.js"></script>
+  </body>
+</html>
