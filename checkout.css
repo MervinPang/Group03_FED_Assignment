@@ -202,3 +202,31 @@ textarea {
     background-color: #9CA3AF;
     cursor: not-allowed;
 }
+
+@media (max-width: 768px) {
+
+    /* Stack checkout sections vertically */
+    .checkout-layout {
+        flex-direction: column;
+    }
+
+    /* Full width sections */
+    .summary,
+    .details,
+    .payment-container {
+        width: 100%;
+    }
+
+    /* Bigger, easier to tap pay button */
+    .pay-button {
+        width: 100%;
+        font-size: 18px;
+        padding: 18px;
+    }
+
+    /* Improve input usability on mobile */
+    input,
+    textarea {
+        font-size: 16px;
+    }
+}

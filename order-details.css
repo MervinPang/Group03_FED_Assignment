@@ -228,3 +228,23 @@
 .purchase-button:hover {
     background-color: #059669;
 }
+
+@media (max-width: 768px) {
+
+    /* Stack summary rows neatly */
+    .summary-row {
+        font-size: 16px;
+    }
+
+    /* Improve timeline spacing */
+    .timeline {
+        margin-top: 24px;
+    }
+
+    /* Make purchase button full width */
+    .primary-button {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+    }
+}

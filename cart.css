@@ -284,3 +284,24 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+@media (max-width: 768px) {
+
+    /* Reduce side padding */
+    .cart-container {
+        padding: 16px;
+    }
+
+    /* Make quantity buttons easier to tap */
+    .qty button {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* Stack order type buttons if needed */
+    .order-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
