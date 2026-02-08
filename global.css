@@ -64,6 +64,7 @@ body {
 .button {
     text-decoration: none;
     color: #000000;
+    font-weight: bold;
     padding: 10px 16px;
     border-radius: 20px;
 }
