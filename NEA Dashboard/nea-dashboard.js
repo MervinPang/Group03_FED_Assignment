@@ -795,6 +795,7 @@ function renderNEAComplaintsTab(data) {
       <div class="nea-complaints-empty">
         <p class="nea-complaint-empty">✅</p>
         <p class="nea-complaint-empty-text">No pending complaints</p>
+        <p style="color: #059669; margin-top: 0.5rem; font-size: 0.9rem;">All complaints have been resolved!</p>
       </div>`;
     return;
   }
@@ -805,7 +806,7 @@ function renderNEAComplaintsTab(data) {
         <header class="nea-complaint-header">
           <div class="nea-complaint-info">
             <h4>${complaint.stall}</h4>
-            <p>${complaint.date}</p>
+            <p>📍 ${complaint.stallId || "N/A"} • 📅 ${complaint.date}</p>
           </div>
           <span class="nea-complaint-status">${complaint.status}</span>
         </header>
@@ -814,7 +815,7 @@ function renderNEAComplaintsTab(data) {
         </div>
         <footer class="nea-complaint-actions">
           <button class="nea-inspect-btn" onclick="resolveComplaint('${complaint.id}')">
-            Resolve
+            ✓ Mark as Resolved
           </button>
         </footer>
       </article>`;
