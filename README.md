@@ -1,6 +1,11 @@
 # Group03_FED_Assignment
 
+<img src="images/HawkerHubSG Logo.png" alt="HawkerHubSG Logo">
+
 Frontend Development group project for a hawker centre ordering system using HTML, CSS, and JavaScript. (Louis, Mervin, &amp; Rayne)
+
+**HawkerHubSG** is a web-based food ordering platform designed to enhance the hawker centre dining experience in Singapore.  
+The platform allows users to browse stall menus, add food items to a cart, place orders, make payments, and track their order status seamlessly.
 
 S10268761B - Louis Ng Bo Lin
 
@@ -151,6 +156,151 @@ Technologies Used
 - Firebase Authentication
 - Firebase Firestore
 
+S10275479D - Pang Wy Zen Mervin
+
+1. Menu Page (menu.html)
+Contributor/Author: Pang Wy Zen Mervin
+
+The Menu page displays detailed information about a hawker stall, including stall description, operating hours, food categories, and menu items. Users can browse food items and add them to their cart.
+
+Key Features
+- Dynamic menu item display with images, descriptions, and prices
+- "Add to Cart" functionality
+- Persistent cart bar showing total item count
+- Fully responsive layout for desktop and mobile
+
+Cart Handling (localStorage)
+When a user clicks the Add button, the selected item is stored in localStorage under the cart key. Items are grouped by stall, and quantities are automatically incremented if the same item is added multiple times.
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+The cart bar dynamically updates based on the total quantity of items stored.
+
+2. Cart & Checkout Flow
+Contributor/Author: Pang Wy Zen Mervin
+
+The cart system persists user selections across pages using localStorage, allowing users to proceed from menu selection to checkout without losing data.
+
+Key Behaviours
+- Cart data persists even after page refresh
+- Item quantities are tracked per stall
+- Cart bar only appears when items exist
+
+3. Payment Page (payment.html)
+Contributor/Author: Pang Wy Zen Mervin
+
+The Payment page simulates a PayNow QR payment experience.
+
+Features
+- Display of QR code for payment
+- Manual confirmation button
+- Automatic redirection after a short delay
+
+setTimeout(() => {
+  window.location.href = "confirmation.html";
+}, 5000);
+
+This ensures a smooth transition even if the user does not manually confirm payment.
+
+4. Order Access Page (order.html)
+Contributor/Author: Pang Wy Zen Mervin
+
+The Order Access page acts as a gatekeeper for viewing order history.
+
+Guest vs Member Logic
+- Members: Automatically redirected to Order History using Firebase Authentication
+- Guests: Required to enable cookies (localStorage) before proceeding
+
+localStorage.setItem("cookiesEnabled", "true");
+
+This ensures guest users explicitly consent to client-side storage.
+
+5. Order History (order-history.html)
+Contributor/Author: Pang Wy Zen Mervin
+
+The Order History page displays all user orders, separated into Active and Past Orders using a tab-based interface.
+
+Features
+- Tab switching between Active and Past orders
+- Dynamic order count updates
+- Empty state messaging
+- Clickable order cards that redirect to order details
+
+Data Sources
+- Guests: Orders retrieved from localStorage (guestOrders)
+- Members: Orders retrieved from Firebase Firestore
+
+The router script dynamically decides which data source to use based on authentication state.
+
+6. Member Order History (Firebase Integration)
+Contributor/Author: Pang Wy Zen Mervin
+
+For logged-in members, orders are fetched securely from Firestore under the structure:
+
+users/{uid}/orders/{orderDoc}
+
+Orders are passed to a shared rendering function to ensure consistent UI behaviour between guest and member flows.
+
+7. Order Details Page (order-details.html)
+Contributor/Author: Pang Wy Zen Mervin
+
+The Order Details page provides a detailed breakdown of a selected order.
+
+Features
+- Order number and preparation time
+- Visual order status timeline (Pending → Completed)
+- Itemised list with quantities and prices
+- Subtotal, takeaway fee, and total
+- "Make Another Purchase" call-to-action
+
+Order data is retrieved from localStorage (selectedOrder) to maintain continuity between pages.
+
+8. Design & Responsiveness
+Contributor/Author: Pang Wy Zen Mervin
+
+All pages are styled using a consistent design system:
+- Rounded cards and buttons
+- Soft green colour palette aligned with hawker branding
+- Mobile-first responsive layouts using media queries
+
+The UI is optimised for both desktop and mobile devices.
+
+9. Shared Assets & Reusable Components
+Contributor/Author: Pang Wy Zen Mervin
+
+To ensure consistency across the entire application and reduce code duplication, shared assets were created for common UI components and global styling. These files were designed for reuse by all team members across different pages.
+
+Global Stylesheet (global.css)
+The global.css file defines the base styling and layout system used throughout HawkerHubSG. This includes:
+- Global font settings and colour scheme
+- Reusable layout containers (.container)
+- Standardised navigation bar styling
+- Shared footer layout and typography
+
+By centralising these styles, all pages maintain a consistent visual identity, and any design changes can be applied globally by updating a single file.
+
+Reusable UI Components (components.html)
+The components.html file serves as a reference and shared template for common interface components, including:
+- Navigation bar (logo, site name, and navigation links)
+- Social media bar
+- Footer layout with services, useful links, and contact information
+
+This file was created to allow team members to copy and reuse the same HTML structure across different pages, ensuring uniformity in layout and reducing inconsistencies caused by manual duplication.
+
+10. Technologies Used
+- HTML5 – Page structure and semantics
+- CSS3 – Layout, styling, and responsiveness
+- JavaScript (ES6) – Client-side logic and DOM manipulation
+- Firebase Authentication – Member login detection
+- Firestore – Persistent member order storage
+- localStorage – Guest cart and order persistence
+
+11. Summary
+HawkerHubSG demonstrates a complete frontend food ordering flow with clear separation between guest and member experiences. The project emphasises usability, clean UI design, and proper client-side data handling while remaining within the scope of frontend web development.
+
+This implementation showcases practical skills in state management, authentication-based routing, and user-centric interface design, making it suitable for an academic FED project submission.
+
+S10275479D - Rayne Tok (Zhuo Qihong)
 **Hawker Hub** is a web-based platform designed for managing hawker centre operations in Singapore. The platform features a **Vendor Dashboard** for hawker stall owners to manage their menu, orders, and reviews, as well as an **NEA Inspection Dashboard** for NEA officers to conduct hygiene inspections, track stall grades, and manage complaints efficiently.
 
 This repository contains the source code for the Hawker Hub platform. It is designed to demonstrate web development concepts such as **Firebase Firestore integration, real-time data updates, and responsive UI design**.
