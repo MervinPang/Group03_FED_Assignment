@@ -79,8 +79,19 @@ function showStalls() {
     // Add to trending if needed
     if (isTrending) {
       var trendingCard = card.cloneNode(true);
+
+      // go to order page
+      trendingCard.onclick = function () {
+        window.location.href = "menu.html";
+      };
+
       trendingRow.appendChild(trendingCard);
     }
+
+    // go to order page
+    card.onclick = function () {
+      window.location.href = "menu.html";
+    };
 
     // Add to all stalls
     allRow.appendChild(card);
