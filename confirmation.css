@@ -83,3 +83,38 @@
 .browse-button:hover {
     background-color: #059669;
 }
+
+@media (max-width: 768px) {
+
+    /* Reduce vertical padding on small screens */
+    .confirm-layout {
+        padding: 24px 0 48px;
+    }
+
+    /* Slightly reduce card padding */
+    .confirm {
+        padding: 36px 20px;
+    }
+
+    /* Scale down large order number for mobile */
+    .order-number {
+        font-size: 42px;
+    }
+
+    /* Easier to see */
+    .title {
+        font-size: 22px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    /* Browsing button full width and touch friendly */
+    .browse-button {
+        display: block;
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+    }
+}
