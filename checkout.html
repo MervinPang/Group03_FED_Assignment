@@ -22,7 +22,7 @@
 
             <div class="navigation-link">
                 <a class="button" href="index.html">Home</a>
-                <a class="button active" href="order.html">Orders</a>
+                <a class="button" href="order.html">Orders</a>
                 <a class="button" href="profile.html">Profile</a>
             </div>
         </nav>
@@ -30,37 +30,21 @@
     <div class="container checkout-layout">
         <section class="summary">
             <h2>Order Summary</h2>
-            <div class="item">
-                <div class="summary-left">
-                    <img class="image" src="images/Roasted Chicken Rice.jpg" alt="Chicken rice (roasted)">
 
-                    <div class="text">
-                        <p class="food-name">Chicken Rice (Roasted)</p>
-                        <p class="quantity">Quantity: 1</p>
-                    </div>
-                </div>
-                <p class="price">$4.50</p>
-            </div>
-            <hr>
-            <div class="item">
-                <div class="summary-left">
-                    <img class="image" src="images/Steamed Chicken Rice.jpg" alt="Chicken rice (steamed)">
-
-                    <div class="text">
-                        <p class="food-name">Chicken Rice (Steamed)</p>
-                        <p class="quantity">Quantity: 1</p>
-                    </div>
-                </div>
-                <p class="price">$4.50</p>
-            </div>
+            <div id="orderSummaryItems"></div>
             <div class="summary-row">
                 <p class="summary-name">Subtotal</p>
-                <p class="summary-value">$9.00</p>
+                <p id="subtotalValue" class="summary-value">$0.00</p>
+            </div>
+            <hr>
+            <div class="summary-row">
+                <p class="summary-name">Takeaway Fee</p>
+                <p id="takeawayFeeValue" class="summary-value">$0.00</p>
             </div>
             <hr>
             <div class="summary-row total">
                 <p class="summary-name">Total</p>
-                <p class="summary-value">$9.00</p>
+                <p id="totalValue" class="summary-value">$0.00</p>
             </div>
         </section>
         <section class="details">
@@ -97,7 +81,7 @@
                 </button>
             </div>
         </section>
-        <button id="payBtn" class="pay-button" type="button">Pay $9.00</button>
+        <button id="payBtn" class="pay-button" type="button">Pay $0.00</button>
     </div>
     <script src="checkout.js"></script>
 </body>

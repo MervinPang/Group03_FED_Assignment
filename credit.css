@@ -1,0 +1,26 @@
+.credit-section {
+    margin-bottom: 32px;
+}
+
+.credit-section h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.credit-section ul {
+    padding-left: 20px;
+}
+
+.credit-section li {
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.credit-section a {
+    color: #10B981;
+    text-decoration: none;
+}
+
+.credit-section a:hover {
+    text-decoration: underline;
+}

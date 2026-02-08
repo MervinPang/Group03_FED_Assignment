@@ -73,7 +73,7 @@
 /* Continue browsing button */
 .browse-button {
     text-decoration: none;
-    background-color: #059669;
+    background-color: #10B981;
     color: #FFFFFF;
     padding: 14px 18px;
     border-radius: 12px;
@@ -81,5 +81,5 @@
 }
 
 .browse-button:hover {
-    background-color: #10B981;
+    background-color: #059669;
 }
