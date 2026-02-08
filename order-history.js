@@ -161,8 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Render active and past orders
-    function renderOrders() {
-        var orders = getOrdersFromStorage();
+    function renderOrdersFromData(orders) {
 
         var activeOrders = [];
         var pastOrders = [];
@@ -209,6 +208,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function renderOrders() {
+        var orders = getOrdersFromStorage();
+        renderOrdersFromData(orders);
+    }
+
     // Tab event handler
     if (activeTab) {
         activeTab.addEventListener("click", function () {
@@ -227,4 +231,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Render orders when page loads
     renderOrders();
+
+    window.renderOrdersFromData = renderOrdersFromData;
 });
