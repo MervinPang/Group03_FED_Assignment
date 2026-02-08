@@ -31,15 +31,20 @@
         <section class="summary">
             <h2>Order Summary</h2>
 
-            <div id="summaryItems"></div>
+            <div id="orderSummaryItems"></div>
             <div class="summary-row">
                 <p class="summary-name">Subtotal</p>
-                <p id="summarySubtotal" class="summary-value">$0.00</p>
+                <p id="subtotalValue" class="summary-value">$0.00</p>
+            </div>
+            <hr>
+            <div class="summary-row">
+                <p class="summary-name">Takeaway Fee</p>
+                <p id="takeawayFeeValue" class="summary-value">$0.00</p>
             </div>
             <hr>
             <div class="summary-row total">
                 <p class="summary-name">Total</p>
-                <p id="summaryTotal" class="summary-value">$0.00</p>
+                <p id="totalValue" class="summary-value">$0.00</p>
             </div>
         </section>
         <section class="details">
@@ -76,7 +81,7 @@
                 </button>
             </div>
         </section>
-        <button id="payBtn" class="pay-button" type="button">Pay</button>
+        <button id="payBtn" class="pay-button" type="button">Pay $0.00</button>
     </div>
     <script src="checkout.js"></script>
 </body>

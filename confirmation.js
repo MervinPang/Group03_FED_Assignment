@@ -5,6 +5,9 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // Allow order history to be viewed
+    localStorage.setItem("cookiesEnabled", "true");
+
     // Reference to the order number element on the page
     var orderNumberEl = document.getElementById("orderNumber");
 
@@ -66,11 +69,16 @@ document.addEventListener("DOMContentLoaded", function () {
         var subtotal = 0;
         var itemsCount = 0;
         var items = [];
+        var takeawayFee = 0;
 
         // Loop through each shop in cart
         for (var i = 0; i < cart.length; i++) {
             var shop = cart[i];
-            
+
+            if (shop.packaging === "takeaway") {
+                takeawayFee += 0.50;
+            }
+
             // Loop through items in each shop
             for (var j = 0; j < shop.items.length; j++) {
                 var it = shop.items[j];
@@ -90,29 +98,23 @@ document.addEventListener("DOMContentLoaded", function () {
             items: items,
             itemsCount: itemsCount,
             subtotal: subtotal,
-            total: subtotal
+            takeawayFee: takeawayFee,
+            total: subtotal + takeawayFee
         };
     }
 
-    // Generate order number once
-    // Prevents change on page refresh
-    var savedOrderNo = localStorage.getItem("latestOrderNumber");
-
-    if (!savedOrderNo) {
-        // Generate 2-digit order number (10–99)
-        savedOrderNo = String(Math.floor(Math.random() * 90) + 10);
-        localStorage.setItem("latestOrderNumber", savedOrderNo);
+    // If cart is empty, do nothing (prevents duplicates on refresh)
+    var cart = getCart();
+    if (cart.length === 0) {
+        return;
     }
+
+    // Generate 2-digit order number (10–99) every successful checkout
+    var savedOrderNo = String(Math.floor(Math.random() * 90) + 10);
 
     // Display order number on page
     if (orderNumberEl) {
         orderNumberEl.textContent = savedOrderNo;
-    }
-
-    // Prevent duplicate order save on refresh
-    var lastSaved = localStorage.getItem("lastSavedOrderNumber");
-    if (lastSaved === savedOrderNo) {
-        return; // Order already saved
     }
 
     // Build new order from cart data
@@ -134,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
         itemsCount: totals.itemsCount,
         items: totals.items,
         subtotal: totals.subtotal,
+        takeawayFee: totals.takeawayFee,
         total: totals.total,
         customerName: checkoutInfo ? checkoutInfo.name : ""
     };
@@ -147,5 +150,5 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("lastSavedOrderNumber", savedOrderNo);
 
     // Clear cart after successful order
-    localStorage.removeItem("cart");
+    localStorage.setItem("cart", JSON.stringify([]));
 });

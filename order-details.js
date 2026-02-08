@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var itemsListEl = document.getElementById("itemsList");
     var subtotalEl = document.getElementById("subtotal");
+    var takeawayFeeEl = document.getElementById("takeawayFee");
     var totalEl = document.getElementById("total");
 
     // Timeline elements
@@ -88,6 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (subtotalEl) {
         var sub = (order.subtotal !== undefined) ? Number(order.subtotal) : 0;
         subtotalEl.textContent = "$" + sub.toFixed(2);
+    }
+
+    if (takeawayFeeEl) {
+        var fee = (order.takeawayFee !== undefined) ? Number(order.takeawayFee) : 0;
+        takeawayFeeEl.textContent = "$" + fee.toFixed(2);
     }
 
     if (totalEl) {

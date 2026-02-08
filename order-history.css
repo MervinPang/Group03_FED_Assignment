@@ -109,11 +109,13 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 12px;
+    font-size: 20px;
+    font-weight: 900;
 }
 
 /* Total amount text */
 .amount {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 900;
 }
 

@@ -293,7 +293,7 @@ function createEmptyState() {
     p.style.margin = "18px 0";
 
     var a = document.createElement("a");
-    a.href = "order.html";
+    a.href = "menu.html";
     a.textContent = "Back to Menu";
     a.className = "cart-button";
 

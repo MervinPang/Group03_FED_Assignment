@@ -19,9 +19,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var instructions = document.getElementById("instructions");
 
     // Order summary elements (from checkout.html)
-    var summaryItemsEl = document.getElementById("summaryItems");
-    var summarySubtotalEl = document.getElementById("summarySubtotal");
-    var summaryTotalEl = document.getElementById("summaryTotal");
+    var takeawayFeeEl = document.getElementById("takeawayFeeValue");
+    var summaryItemsEl = document.getElementById("orderSummaryItems");
+    var summarySubtotalEl = document.getElementById("subtotalValue");
+    var summaryTotalEl = document.getElementById("totalValue");
 
     // PayNow or Credit Card
     var selectedMethod = "";
@@ -106,8 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function renderOneItem(item) {
-        // item expected to have: name, price, qty, img (img optional)
-
         var row = document.createElement("div");
         row.className = "item";
 
@@ -176,18 +175,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
         var takeawayFee = 0;
 
-        // Change this key to match YOUR project
-        // Example keys you might already be using: "orderType", "takeaway", "isTakeaway"
-        var orderType = localStorage.getItem("orderType"); // expected "takeaway" or "dinein"
-
-        if (orderType === "takeaway") {
-            takeawayFee = 0.50;
+        // Any shop in the cart is takeaway, apply fee
+        for (var k = 0; k < cart.length; k++) {
+            if (cart[k].packaging === "takeaway") {
+                takeawayFee = 0.50;
+                break;
+            }
         }
 
         currentTotal = subtotal + takeawayFee;
 
         // Update subtotal + total
         if (summarySubtotalEl) summarySubtotalEl.textContent = "$" + subtotal.toFixed(2);
+        if (takeawayFeeEl) takeawayFeeEl.textContent = "$" + takeawayFee.toFixed(2);
         if (summaryTotalEl) summaryTotalEl.textContent = "$" + currentTotal.toFixed(2);
 
         // Update Pay button text
