@@ -10,15 +10,6 @@ var activeCount, pastCount;
 // Only allow guests to view order history if cookies are enabled (localStorage)
 
 function initOrderHistory() {
-  // Retrieve cookie consent status from localStorage
-  var cookiesEnabled = localStorage.getItem("cookiesEnabled");
-
-  // If cookies are not enabled, redirect user back to access page
-  if (cookiesEnabled !== "true") {
-    window.location.href = "order.html";
-    return;
-  }
-
   // Get DOM elements
   activeTab = document.getElementById("activeTab");
   pastTab = document.getElementById("pastTab");
