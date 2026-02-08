@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Get all saved orders
     function getOrders() {
-        var raw = localStorage.getItem("orders");
+        var raw = localStorage.getItem("guestOrders");
         if (!raw) return [];
         try {
             var parsed = JSON.parse(raw);
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Save updated orders array back to localStorage
     function saveOrders(orders) {
-        localStorage.setItem("orders", JSON.stringify(orders));
+        localStorage.setItem("guestOrders", JSON.stringify(orders));
     }
 
     // Format date as dd/mm/yyyy
