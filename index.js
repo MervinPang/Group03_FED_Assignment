@@ -61,9 +61,14 @@ function showStalls() {
       continue;
     }
 
-    // Build card
+    // build card
     var card = document.createElement("div");
     card.className = "card";
+
+    // go to order page
+    card.onclick = function () {
+      window.location.href = "order.html.html";
+    };
 
     card.innerHTML =
       '<img class="card-img" src="' + stallImg + '" alt="' + (stall.name || "Stall") + '">' +
