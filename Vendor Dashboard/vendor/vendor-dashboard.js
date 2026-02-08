@@ -1,36 +1,348 @@
+// Firebase configuration
 const firebaseConfig = {
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "your-sender-id",
-  appId: "your-app-id",
+  apiKey: "AIzaSyAxVXYDE_RW3uEkT2dDtlUIcBIDp8a_NHg",
+  authDomain: "dummy-data-fed-dashboard.firebaseapp.com",
+  databaseURL:
+    "https://dummy-data-fed-dashboard-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "dummy-data-fed-dashboard",
+  storageBucket: "dummy-data-fed-dashboard.firebasestorage.app",
+  messagingSenderId: "1054998085997",
+  appId: "1:1054998085997:web:9ede1811e32116ee375a64",
+  measurementId: "G-WQPPKPZRYJ",
 };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
-// Initialize Firestore
 const db = firebase.firestore();
+//stall document
+function writeStallData() {
+  const docData = {
+    name: "Jian Bo Shui Kueh",
+    stallId: "02-18",
+    owner: "Mr. Lim",
+  };
+  db.collection("vendorDashboard").doc("stall").set(docData);
+  console.log("✅ Stall data written");
+}
+//stats document
+function writeStatsData() {
+  const docData = {
+    todaysOrders: 0,
+    todaysRevenue: 0.0,
+    activeOrders: 0,
+    avgRating: 5.0,
+  };
+  db.collection("vendorDashboard").doc("stats").set(docData);
+  console.log("Stats data written");
+}
+//recent activity collection
+function writeRecentActivity1() {
+  const docData = {
+    orderId: "HK41752284",
+    customer: "Rayne Tok",
+    status: "ready",
+    timestamp: "9:22 AM",
+  };
+  db.collection("vendorDashboard")
+    .doc("recentActivity")
+    .collection("items")
+    .doc("activity1")
+    .set(docData);
+  console.log("Recent activity 1 written");
+}
+
+function writeRecentActivity2() {
+  const docData = {
+    orderId: "HK41063894",
+    customer: "Rayne Tok",
+    status: "ready",
+    timestamp: "9:11 AM",
+  };
+  db.collection("vendorDashboard")
+    .doc("recentActivity")
+    .collection("items")
+    .doc("activity2")
+    .set(docData);
+  console.log("Recent activity 2 written");
+}
+
+function writeRecentActivity3() {
+  const docData = {
+    orderId: "HK80873979",
+    customer: "lou lou",
+    status: "cancelled",
+    timestamp: "8:54 AM",
+  };
+  db.collection("vendorDashboard")
+    .doc("recentActivity")
+    .collection("items")
+    .doc("activity3")
+    .set(docData);
+  console.log("Recent activity 3 written");
+}
+//top items collection
+function writeTopItem1() {
+  const docData = {
+    rank: 1,
+    name: "Shui Kueh (5 pcs)",
+    likes: 456,
+    price: 2.0,
+  };
+  db.collection("vendorDashboard")
+    .doc("topItems")
+    .collection("items")
+    .doc("item1")
+    .set(docData);
+  console.log("Top item 1 written");
+}
+
+function writeTopItem2() {
+  const docData = {
+    rank: 2,
+    name: "Oyster Omelette",
+    likes: 234,
+    price: 3.5,
+  };
+  db.collection("vendorDashboard")
+    .doc("topItems")
+    .collection("items")
+    .doc("item2")
+    .set(docData);
+  console.log("Top item 2 written");
+}
+
+function writeTopItem3() {
+  const docData = {
+    rank: 3,
+    name: "Popiah",
+    likes: 189,
+    price: 2.5,
+  };
+  db.collection("vendorDashboard")
+    .doc("topItems")
+    .collection("items")
+    .doc("item3")
+    .set(docData);
+  console.log("Top item 3 written");
+}
+//menu items collection
+function writeMenuItem1() {
+  const docData = {
+    name: "Shui Kueh (5 pcs)",
+    category: "Signature",
+    description: "Traditional steamed rice cake with turnip",
+    price: 2.0,
+    available: true,
+  };
+  db.collection("vendorDashboard")
+    .doc("menuItems")
+    .collection("items")
+    .doc("menuItem1")
+    .set(docData);
+  console.log("Menu item 1 written");
+}
+
+function writeMenuItem2() {
+  const docData = {
+    name: "Oyster Omelette",
+    category: "Seafood",
+    description: "Crispy omelette with fresh oysters",
+    price: 3.5,
+    available: true,
+  };
+  db.collection("vendorDashboard")
+    .doc("menuItems")
+    .collection("items")
+    .doc("menuItem2")
+    .set(docData);
+  console.log("Menu item 2 written");
+}
+
+function writeMenuItem3() {
+  const docData = {
+    name: "Popiah",
+    category: "Snack",
+    description: "Fresh spring rolls with peanut sauce",
+    price: 2.5,
+    available: true,
+  };
+  db.collection("vendorDashboard")
+    .doc("menuItems")
+    .collection("items")
+    .doc("menuItem3")
+    .set(docData);
+  console.log("Menu item 3 written");
+}
+//reviews collection
+function writeReview1() {
+  const docData = {
+    customer: "Rayne Tok",
+    rating: 5,
+    comment: "Amazing shui kueh! Highly recommend.",
+    date: "Jan 20, 2026",
+  };
+  db.collection("vendorDashboard")
+    .doc("reviews")
+    .collection("items")
+    .doc("review1")
+    .set(docData);
+  console.log("Review 1 written");
+}
+
+function writeReview2() {
+  const docData = {
+    customer: "Ali Mohamed",
+    rating: 4,
+    comment: "Good taste but a bit slow service.",
+    date: "Jan 19, 2026",
+  };
+  db.collection("vendorDashboard")
+    .doc("reviews")
+    .collection("items")
+    .doc("review2")
+    .set(docData);
+  console.log("Review 2 written");
+}
+
+function writeReview3() {
+  const docData = {
+    customer: "Sarah Lim",
+    rating: 5,
+    comment: "Fresh and delicious. Great value for money!",
+    date: "Jan 18, 2026",
+  };
+  db.collection("vendorDashboard")
+    .doc("reviews")
+    .collection("items")
+    .doc("review3")
+    .set(docData);
+  console.log("Review 3 written");
+}
+//order historuy collection
+function writeOrderHistory1() {
+  const docData = {
+    orderId: "HK41752284",
+    customer: "Rayne Tok",
+    date: "Jan 17, 2026 9:22 AM",
+    status: "ready",
+    amount: 2.0,
+    items: 1,
+  };
+  db.collection("vendorDashboard")
+    .doc("orderHistory")
+    .collection("items")
+    .doc("order1")
+    .set(docData);
+  console.log("Order history 1 written");
+}
+
+function writeOrderHistory2() {
+  const docData = {
+    orderId: "HK41063894",
+    customer: "Rayne Tok",
+    date: "Jan 17, 2026 9:11 AM",
+    status: "ready",
+    amount: 2.0,
+    items: 1,
+  };
+  db.collection("vendorDashboard")
+    .doc("orderHistory")
+    .collection("items")
+    .doc("order2")
+    .set(docData);
+  console.log("Order history 2 written");
+}
+
+function writeOrderHistory3() {
+  const docData = {
+    orderId: "HK80873979",
+    customer: "lou lou",
+    date: "Jan 14, 2026 8:54 AM",
+    status: "cancelled",
+    amount: 2.0,
+    items: 1,
+  };
+  db.collection("vendorDashboard")
+    .doc("orderHistory")
+    .collection("items")
+    .doc("order3")
+    .set(docData);
+  console.log("Order history 3 written");
+}
+//rental agreements collection
+function writeRental1() {
+  const docData = {
+    period: "Jan 1, 2024 - Dec 31, 2024",
+    status: "Active",
+    monthlyRent: 1200.0,
+    renewalDue: "Dec 2024",
+  };
+  db.collection("vendorDashboard")
+    .doc("rentalAgreements")
+    .collection("items")
+    .doc("rental1")
+    .set(docData);
+  console.log("Rental 1 written");
+}
+
+function writeRental2() {
+  const docData = {
+    period: "Jan 1, 2023 - Dec 31, 2023",
+    status: "Expired",
+    monthlyRent: 1200.0,
+    renewalDue: "Renewed",
+  };
+  db.collection("vendorDashboard")
+    .doc("rentalAgreements")
+    .collection("items")
+    .doc("rental2")
+    .set(docData);
+  console.log(" Rental 2 written");
+}
+//run all seed functions
+function seedAllData() {
+  console.log(" Starting to seed Vendor Dashboard data...");
+  // Write Stall & Stats
+  writeStallData();
+  writeStatsData();
+  // Write Recent Activity
+  writeRecentActivity1();
+  writeRecentActivity2();
+  writeRecentActivity3();
+  // Write Top Items
+  writeTopItem1();
+  writeTopItem2();
+  writeTopItem3();
+  // Write Menu Items
+  writeMenuItem1();
+  writeMenuItem2();
+  writeMenuItem3();
+  // Write Reviews
+  writeReview1();
+  writeReview2();
+  writeReview3();
+  // Write Order History
+  writeOrderHistory1();
+  writeOrderHistory2();
+  writeOrderHistory3();
+  // Write Rental Agreements
+  writeRental1();
+  writeRental2();
+  console.log(" All Vendor Dashboard data written to Firestore!");
+}
+
+// Run the seed function
+console.log("Hello there, Firestore!");
+seedAllData();
 
 // Vendor ID - Change based on logged in vendor
 const VENDOR_ID = "02-18";
-// global variables
-let vendorDashboardData = null;
-// initialisation
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Vendor Dashboard initializing...");
-  loadVendorDataFromFirebase();
-});
-// firebase data loading
+// Change loadVendorDataFromFirebase function:
 async function loadVendorDataFromFirebase() {
   console.log("Fetching data from Firebase...");
   showLoadingState();
-
   try {
-    const vendorRef = db.collection("Vendors").doc(VENDOR_ID);
-
-    // Fetch all data concurrently for better performance
+    // Read from vendorDashboard
+    const vendorRef = db.collection("vendorDashboard");
     const [
       stallDoc,
       statsDoc,
@@ -39,18 +351,16 @@ async function loadVendorDataFromFirebase() {
       ordersSnapshot,
       rentalSnapshot,
       activitySnapshot,
-      topItemsDoc,
-      activeOrdersSnapshot,
+      topItemsSnapshot,
     ] = await Promise.all([
-      vendorRef.collection("stall").doc("info").get(),
-      vendorRef.collection("stats").doc("current").get(),
-      vendorRef.collection("menuItems").get(),
-      vendorRef.collection("reviews").get(),
-      vendorRef.collection("orderHistory").get(),
-      vendorRef.collection("rentalAgreements").get(),
-      vendorRef.collection("recentActivity").get(),
-      vendorRef.collection("topItems").doc("list").get(),
-      vendorRef.collection("activeOrders").get(),
+      vendorRef.doc("stall").get(),
+      vendorRef.doc("stats").get(),
+      vendorRef.doc("menuItems").collection("items").get(),
+      vendorRef.doc("reviews").collection("items").get(),
+      vendorRef.doc("orderHistory").collection("items").get(),
+      vendorRef.doc("rentalAgreements").collection("items").get(),
+      vendorRef.doc("recentActivity").collection("items").get(),
+      vendorRef.doc("topItems").collection("items").get(),
     ]);
 
     // Process menu items
@@ -58,37 +368,31 @@ async function loadVendorDataFromFirebase() {
     menuSnapshot.forEach(function (doc) {
       menuItems.push({ id: doc.id, ...doc.data() });
     });
-
     // Process reviews
     const reviews = [];
     reviewsSnapshot.forEach(function (doc) {
       reviews.push({ id: doc.id, ...doc.data() });
     });
-
     // Process order history
     const orderHistory = [];
     ordersSnapshot.forEach(function (doc) {
       orderHistory.push({ id: doc.id, ...doc.data() });
     });
-
-    // Process rental agreements
+    // process rental agreements
     const rentalAgreements = [];
     rentalSnapshot.forEach(function (doc) {
       rentalAgreements.push({ id: doc.id, ...doc.data() });
     });
-
     // Process recent activity
     const recentActivity = [];
     activitySnapshot.forEach(function (doc) {
       recentActivity.push({ id: doc.id, ...doc.data() });
     });
-
-    // Process active orders
-    const activeOrders = [];
-    activeOrdersSnapshot.forEach(function (doc) {
-      activeOrders.push({ id: doc.id, ...doc.data() });
+    // Process top items
+    const topItems = [];
+    topItemsSnapshot.forEach(function (doc) {
+      topItems.push({ id: doc.id, ...doc.data() });
     });
-
     // Build data object
     vendorDashboardData = {
       stall: stallDoc.exists
@@ -111,11 +415,10 @@ async function loadVendorDataFromFirebase() {
       orderHistory: orderHistory,
       rentalAgreements: rentalAgreements,
       recentActivity: recentActivity,
-      topItems: topItemsDoc.exists ? topItemsDoc.data().items || [] : [],
-      activeOrders: activeOrders,
+      topItems: topItems,
+      activeOrders: [],
     };
-
-    console.log("✅ Data loaded from Firebase:", vendorDashboardData);
+    console.log("Data loaded from Firebase:", vendorDashboardData);
 
     hideLoadingState();
     renderVendorDashboard();
@@ -123,11 +426,13 @@ async function loadVendorDataFromFirebase() {
     initializeEventListeners();
     setupRealtimeListeners();
   } catch (error) {
-    console.error("❌ Error loading data from Firebase:", error);
+    console.error("Error loading data from Firebase:", error);
     hideLoadingState();
     loadFallbackData();
   }
 }
+// Initial load
+loadVendorDataFromFirebase();
 // Loading State
 function showLoadingState() {
   const loadingDiv = document.createElement("div");
@@ -155,7 +460,6 @@ function showLoadingState() {
   `;
   document.body.appendChild(loadingDiv);
 }
-
 function hideLoadingState() {
   const loadingOverlay = document.getElementById("vendor-loading-overlay");
   if (loadingOverlay) {
@@ -298,8 +602,12 @@ function loadFallbackData() {
 // firebase save functions
 async function saveMenuItemToFirebase(item) {
   try {
-    const vendorRef = db.collection("Vendors").doc(VENDOR_ID);
-    const docRef = await vendorRef.collection("menuItems").add(item);
+    // save to vendor dashboard menuitems collection
+    const docRef = await db
+      .collection("vendorDashboard")
+      .doc("menuItems")
+      .collection("items")
+      .add(item);
     console.log("✅ Menu item saved with ID:", docRef.id);
     return docRef.id;
   } catch (error) {
@@ -307,11 +615,15 @@ async function saveMenuItemToFirebase(item) {
     return null;
   }
 }
-
 async function updateMenuItemInFirebase(itemId, updatedData) {
   try {
-    const vendorRef = db.collection("Vendors").doc(VENDOR_ID);
-    await vendorRef.collection("menuItems").doc(itemId).update(updatedData);
+    // update in vendor dashboard menuitems collection
+    await db
+      .collection("vendorDashboard")
+      .doc("menuItems")
+      .collection("items")
+      .doc(itemId)
+      .update(updatedData);
     console.log("✅ Menu item updated");
     return true;
   } catch (error) {
@@ -319,11 +631,14 @@ async function updateMenuItemInFirebase(itemId, updatedData) {
     return false;
   }
 }
-
 async function deleteMenuItemFromFirebase(itemId) {
   try {
-    const vendorRef = db.collection("Vendors").doc(VENDOR_ID);
-    await vendorRef.collection("menuItems").doc(itemId).delete();
+    await db
+      .collection("vendorDashboard")
+      .doc("menuItems")
+      .collection("items")
+      .doc(itemId)
+      .delete();
     console.log("✅ Menu item deleted");
     return true;
   } catch (error) {
@@ -331,12 +646,12 @@ async function deleteMenuItemFromFirebase(itemId) {
     return false;
   }
 }
-
 async function updateOrderStatusInFirebase(orderId, status) {
   try {
-    const vendorRef = db.collection("Vendors").doc(VENDOR_ID);
-    await vendorRef
-      .collection("orderHistory")
+    await db
+      .collection("vendorDashboard")
+      .doc("orderHistory")
+      .collection("items")
       .doc(orderId)
       .update({ status: status });
     console.log("✅ Order status updated");
@@ -349,81 +664,66 @@ async function updateOrderStatusInFirebase(orderId, status) {
 // real-time listeners
 function setupRealtimeListeners() {
   console.log("Setting up real-time listeners...");
-
-  const vendorRef = db.collection("Vendors").doc(VENDOR_ID);
-
-  // Listen for active orders
-  vendorRef.collection("activeOrders").onSnapshot(function (snapshot) {
-    console.log("🔄 Active orders updated!");
-
-    const activeOrders = [];
-    snapshot.forEach(function (doc) {
-      activeOrders.push({ id: doc.id, ...doc.data() });
-    });
-
-    vendorDashboardData.activeOrders = activeOrders;
-
-    // Update stats display
-    const activeOrdersEl = document.getElementById("vendor-active-orders");
-    if (activeOrdersEl) {
-      activeOrdersEl.textContent = activeOrders.length;
-      activeOrdersEl.setAttribute("value", activeOrders.length);
-    }
-
-    // Re-render if on orders tab
-    const ordersTab = document.getElementById("vendor-orders-tab");
-    if (ordersTab && !ordersTab.hasAttribute("hidden")) {
-      renderVendorOrdersTab(vendorDashboardData);
-    }
-  });
-
-  // Listen for reviews
-  vendorRef.collection("reviews").onSnapshot(function (snapshot) {
-    console.log("🔄 Reviews updated!");
-
-    const reviews = [];
-    snapshot.forEach(function (doc) {
-      reviews.push({ id: doc.id, ...doc.data() });
-    });
-
-    vendorDashboardData.reviews = reviews;
-
-    // Update average rating
-    if (reviews.length > 0) {
-      const totalRating = reviews.reduce(function (sum, review) {
-        return sum + review.rating;
-      }, 0);
-      vendorDashboardData.stats.avgRating = (
-        totalRating / reviews.length
-      ).toFixed(1);
-
-      const ratingEl = document.getElementById("vendor-avg-rating");
-      if (ratingEl) {
-        ratingEl.textContent = vendorDashboardData.stats.avgRating;
-        ratingEl.setAttribute("value", vendorDashboardData.stats.avgRating);
-      }
-    }
-  });
-
+  const vendorRef = db.collection("vendorDashboard");
   // Listen for menu items
-  vendorRef.collection("menuItems").onSnapshot(function (snapshot) {
-    console.log("🔄 Menu items updated!");
-
-    const menuItems = [];
-    snapshot.forEach(function (doc) {
-      menuItems.push({ id: doc.id, ...doc.data() });
+  vendorRef
+    .doc("menuItems")
+    .collection("items")
+    .onSnapshot(function (snapshot) {
+      console.log("🔄 Menu items updated!");
+      const menuItems = [];
+      snapshot.forEach(function (doc) {
+        menuItems.push({ id: doc.id, ...doc.data() });
+      });
+      vendorDashboardData.menuItems = menuItems;
+      // Re-render if on menu tab
+      const menuTab = document.getElementById("vendor-menu-tab");
+      if (menuTab && !menuTab.hasAttribute("hidden")) {
+        renderVendorMenuTab(vendorDashboardData);
+      }
     });
+  // Listen for reviews
+  vendorRef
+    .doc("reviews")
+    .collection("items")
+    .onSnapshot(function (snapshot) {
+      console.log("🔄 Reviews updated!");
 
-    vendorDashboardData.menuItems = menuItems;
+      const reviews = [];
+      snapshot.forEach(function (doc) {
+        reviews.push({ id: doc.id, ...doc.data() });
+      });
+      vendorDashboardData.reviews = reviews;
+      // Update average rating
+      if (reviews.length > 0) {
+        const totalRating = reviews.reduce(function (sum, review) {
+          return sum + review.rating;
+        }, 0);
+        vendorDashboardData.stats.avgRating = (
+          totalRating / reviews.length
+        ).toFixed(1);
 
-    // Re-render if on menu tab
-    const menuTab = document.getElementById("vendor-menu-tab");
-    if (menuTab && !menuTab.hasAttribute("hidden")) {
-      renderVendorMenuTab(vendorDashboardData);
-    }
-  });
+        const ratingEl = document.getElementById("vendor-avg-rating");
+        if (ratingEl) {
+          ratingEl.textContent = vendorDashboardData.stats.avgRating;
+        }
+      }
+    });
+  // Listen for recent activity
+  vendorRef
+    .doc("recentActivity")
+    .collection("items")
+    .onSnapshot(function (snapshot) {
+      console.log("🔄 Recent activity updated!");
 
-  console.log("✅ Real-time listeners set up");
+      const recentActivity = [];
+      snapshot.forEach(function (doc) {
+        recentActivity.push({ id: doc.id, ...doc.data() });
+      });
+
+      vendorDashboardData.recentActivity = recentActivity;
+    });
+  console.log("Real-time listeners set up");
 }
 // render dashboard
 function renderVendorDashboard() {
