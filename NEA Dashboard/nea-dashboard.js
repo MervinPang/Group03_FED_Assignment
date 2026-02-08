@@ -265,6 +265,7 @@ function seedAllNEAData() {
   writeComplaint2();
   console.log("All NEA Dashboard data written to Firestore!");
 }
+seedAllNEAData();
 // global variables to hold NEA data
 let neaDashboardData = null;
 // initialisation on DOM load
