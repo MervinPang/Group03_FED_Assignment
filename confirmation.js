@@ -3,10 +3,23 @@
 // Save a new order into localStorage("orders")
 // Clear cart after saving (so it doesn't duplicate)
 
-document.addEventListener("DOMContentLoaded", function () {
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    // Allow order history to be viewed
-    localStorage.setItem("cookiesEnabled", "true");
+const firebaseConfig = {
+    apiKey: "AIzaSyD_9_syOgIBbLWKCrl7-rk3dCnHdHaz8JY",
+    authDomain: "dummy-data-fed-grp03.firebaseapp.com",
+    projectId: "dummy-data-fed-grp03",
+    appId: "1:76383593814:web:b5cae68d8f44416a7562f7"
+};
+
+// Initialize Firebase + DB
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+document.addEventListener("DOMContentLoaded", function () {
 
     // Reference to the order number element on the page
     var orderNumberEl = document.getElementById("orderNumber");
@@ -51,6 +64,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function saveOrderToFirestore(uid, order) {
+        // Saves to (users/{uid}/orders) (subcollection)
+        return addDoc(collection(db, "users", uid, "orders"), order);
+    }
+
     // Save updated orders array back to localStorage
     function saveOrders(orders) {
         localStorage.setItem("orders", JSON.stringify(orders));
@@ -64,20 +82,25 @@ document.addEventListener("DOMContentLoaded", function () {
         return dd + "/" + mm + "/" + yyyy;
     }
 
+    function calculateTakeawayFee(cart) {
+        var fee = 0;
+        for (var i = 0; i < cart.length; i++) {
+            if (cart[i].packaging === "takeaway") {
+                fee += 0.50;
+            }
+        }
+        return fee;
+    }
+
     // Calculate subtotal, total and item count
     function calcTotalsAndItems(cart) {
         var subtotal = 0;
         var itemsCount = 0;
         var items = [];
-        var takeawayFee = 0;
 
         // Loop through each shop in cart
         for (var i = 0; i < cart.length; i++) {
             var shop = cart[i];
-
-            if (shop.packaging === "takeaway") {
-                takeawayFee += 0.50;
-            }
 
             // Loop through items in each shop
             for (var j = 0; j < shop.items.length; j++) {
@@ -94,6 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
+        var takeawayFee = calculateTakeawayFee(cart);
+
         return {
             items: items,
             itemsCount: itemsCount,
@@ -109,16 +134,24 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Generate 2-digit order number (10–99) every successful checkout
-    var savedOrderNo = String(Math.floor(Math.random() * 90) + 10);
+    // Generate order number once (prevents change on refresh)
+    var savedOrderNo = localStorage.getItem("latestOrderNumber");
 
-    // Display order number on page
+    if (!savedOrderNo) {
+        savedOrderNo = String(Math.floor(Math.random() * 90) + 10);
+        localStorage.setItem("latestOrderNumber", savedOrderNo);
+    }
+
+    // Display order number
     if (orderNumberEl) {
         orderNumberEl.textContent = savedOrderNo;
     }
 
-    // Build new order from cart data
-    var cart = getCart();
+    // Prevent duplicate save on refresh
+    var lastSaved = localStorage.getItem("lastSavedOrderNumber");
+    if (lastSaved === savedOrderNo) {
+        return;
+    }
 
     // If cart is empty, do nothing
     if (cart.length === 0) {
@@ -146,8 +179,22 @@ document.addEventListener("DOMContentLoaded", function () {
     orders.unshift(newOrder); // Latest order appears first
     saveOrders(orders);
 
+    // Also save to firestore (if logged in)
+    onAuthStateChanged(auth, function (user) {
+        if (!user) return; // Guest does nothing
+
+        saveOrderToFirestore(user.uid, newOrder)
+            .then(function () {
+                console.log("Order saved to Firestore");
+            })
+            .catch(function (error) {
+                console.log("Firestore save failed:", error);
+            });
+    });
+
     // Mark this order as saved
     localStorage.setItem("lastSavedOrderNumber", savedOrderNo);
+    localStorage.removeItem("latestOrderNumber");
 
     // Clear cart after successful order
     localStorage.setItem("cart", JSON.stringify([]));
