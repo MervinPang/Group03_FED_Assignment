@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check authentication state (member vs guest)
     onAuthStateChanged(auth, async function (user) {
         if (!user) {
-            // Not logged in → fallback to guest page
+            // Not logged in will fallback to guest page
             window.location.href = "order.html";
             return;
         }

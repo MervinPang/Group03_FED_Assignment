@@ -16,13 +16,15 @@ const auth = getAuth(app);
 document.addEventListener("DOMContentLoaded", function () {
     onAuthStateChanged(auth, function (user) {
         if (user) {
+            // Clear guest orders so they won't show under member
+            localStorage.removeItem("guestOrders");
             // Member → Firestore
             import("./order-history.js").then(function () {
                 import("./member-order-history.js");
             });
         } else {
             // Guest → localStorage
-            import("order-history.js");
+            import("./order-history.js");
         }
     });
 });

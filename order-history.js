@@ -5,8 +5,7 @@
 // Handle tab switching
 // Store selected order and redirect to order-details page
 
-document.addEventListener("DOMContentLoaded", function () {
-
+function initOrderHistory() {
     // Retrieve cookie consent status from localStorage
     var cookiesEnabled = localStorage.getItem("cookiesEnabled");
 
@@ -35,202 +34,209 @@ document.addEventListener("DOMContentLoaded", function () {
     // Order count displays
     var activeCount = document.getElementById("activeCount");
     var pastCount = document.getElementById("pastCount");
+}
 
-    // Read orders from localStorage
-    function getOrdersFromStorage() {
 
-        // Get data from localStorage
-        var raw = localStorage.getItem("orders");
+// Read orders from localStorage
+function getOrdersFromStorage() {
 
-        // If no orders exist, return empty array
-        if (!raw) {
-            return [];
-        }
+    // Get data from localStorage
+    var raw = localStorage.getItem("guestOrders");
 
-        // Parse JSON
-        try {
-            var parsed = JSON.parse(raw);
-
-            // Ensure parsed data is an array
-            if (Array.isArray(parsed)) {
-                return parsed;
-            }
-            return [];
-        } catch (e) {
-
-            // Return empty array if JSON parsing fails
-            return [];
-        }
+    // If no orders exist, return empty array
+    if (!raw) {
+        return [];
     }
 
-    // Clear all order cards inside a container
-    function clearList(container) {
-        if (container) {
-            container.innerHTML = "";
+    // Parse JSON
+    try {
+        var parsed = JSON.parse(raw);
+
+        // Ensure parsed data is an array
+        if (Array.isArray(parsed)) {
+            return parsed;
         }
+        return [];
+    } catch (e) {
+
+        // Return empty array if JSON parsing fails
+        return [];
+    }
+}
+
+// Clear all order cards inside a container
+function clearList(container) {
+    if (container) {
+        container.innerHTML = "";
+    }
+}
+
+// Switch between Active and Past tabs
+function setTab(isActiveTab) {
+    // Show or hide sections
+    if (activeOrdersSection) activeOrdersSection.hidden = !isActiveTab;
+    if (pastOrdersSection) pastOrdersSection.hidden = isActiveTab;
+
+    // Toggle active class on tabs
+    if (activeTab) activeTab.classList.toggle("active", isActiveTab);
+    if (pastTab) pastTab.classList.toggle("active", !isActiveTab);
+}
+
+// Format order date
+function formatDate(dateStr) {
+    if (!dateStr) return "-";
+
+    return dateStr;
+}
+
+// Create order card
+function createOrderCard(order) {
+
+    // Create clickable order card
+    var card = document.createElement("a");
+    card.className = "order-card";
+    card.href = "order-details.html";
+
+    // Determine order status text and style
+    var statusText = order.status ? String(order.status) : "Active";
+    var statusLower = statusText.toLowerCase();
+
+    var statusClass = "active";
+    if (statusLower === "completed" || statusLower === "past") {
+        statusClass = "completed";
     }
 
-    // Switch between Active and Past tabs
-    function setTab(isActiveTab) {
-        // Show or hide sections
-        if (activeOrdersSection) activeOrdersSection.hidden = !isActiveTab;
-        if (pastOrdersSection) pastOrdersSection.hidden = isActiveTab;
+    // Top row (Order Number and Status)
+    var top = document.createElement("div");
+    top.className = "order-top";
 
-        // Toggle active class on tabs
-        if (activeTab) activeTab.classList.toggle("active", isActiveTab);
-        if (pastTab) pastTab.classList.toggle("active", !isActiveTab);
-    }
+    var idEl = document.createElement("p");
+    idEl.className = "order-id";
+    idEl.textContent = "Order #" + (order.orderId !== undefined ? order.orderId : "-");
 
-    // Format order date
-    function formatDate(dateStr) {
-        if (!dateStr) return "-";
+    var statusEl = document.createElement("span");
+    statusEl.className = "order-status " + statusClass;
+    statusEl.textContent = statusText;
 
-        return dateStr;
-    }
+    top.appendChild(idEl);
+    top.appendChild(statusEl);
 
-    // Create order card
-    function createOrderCard(order) {
+    // Order info (date and quantity)
+    var info = document.createElement("div");
+    info.className = "order-info";
 
-        // Create clickable order card
-        var card = document.createElement("a");
-        card.className = "order-card";
-        card.href = "order-details.html";
+    var dateEl = document.createElement("p");
+    dateEl.textContent = "Date: " + formatDate(order.date);
 
-        // Determine order status text and style
-        var statusText = order.status ? String(order.status) : "Active";
-        var statusLower = statusText.toLowerCase();
+    var itemsEl = document.createElement("p");
+    itemsEl.textContent = "Items: " + (order.itemsCount !== undefined ? order.itemsCount : "-");
 
-        var statusClass = "active";
-        if (statusLower === "completed" || statusLower === "past") {
-            statusClass = "completed";
-        }
+    info.appendChild(dateEl);
+    info.appendChild(itemsEl);
 
-        // Top row (Order Number and Status)
-        var top = document.createElement("div");
-        top.className = "order-top";
+    // Order total row
+    var totalRow = document.createElement("div");
+    totalRow.className = "order-total";
 
-        var idEl = document.createElement("p");
-        idEl.className = "order-id";
-        idEl.textContent = "Order #" + (order.orderId !== undefined ? order.orderId : "-");
+    var totalLabel = document.createElement("p");
+    totalLabel.textContent = "Total";
 
-        var statusEl = document.createElement("span");
-        statusEl.className = "order-status " + statusClass;
-        statusEl.textContent = statusText;
+    var amount = document.createElement("p");
+    amount.className = "amount";
+    amount.textContent = order.total !== undefined ? ("$" + Number(order.total).toFixed(2)) : "-";
 
-        top.appendChild(idEl);
-        top.appendChild(statusEl);
+    totalRow.appendChild(totalLabel);
+    totalRow.appendChild(amount);
 
-        // Order info (date and quantity)
-        var info = document.createElement("div");
-        info.className = "order-info";
+    // Order card
+    card.appendChild(top);
+    card.appendChild(info);
+    card.appendChild(totalRow);
 
-        var dateEl = document.createElement("p");
-        dateEl.textContent = "Date: " + formatDate(order.date);
+    // Store selected order before redirecting
+    card.addEventListener("click", function () {
+        localStorage.setItem("selectedOrder", JSON.stringify(order));
+    });
 
-        var itemsEl = document.createElement("p");
-        itemsEl.textContent = "Items: " + (order.itemsCount !== undefined ? order.itemsCount : "-");
+    return card;
+}
 
-        info.appendChild(dateEl);
-        info.appendChild(itemsEl);
+// Render active and past orders
+function renderOrdersFromData(orders) {
 
-        // Order total row
-        var totalRow = document.createElement("div");
-        totalRow.className = "order-total";
+    var activeOrders = [];
+    var pastOrders = [];
 
-        var totalLabel = document.createElement("p");
-        totalLabel.textContent = "Total";
+    // Separate orders by status
+    for (var i = 0; i < orders.length; i++) {
+        var status = orders[i].status ? String(orders[i].status).toLowerCase() : "active";
 
-        var amount = document.createElement("p");
-        amount.className = "amount";
-        amount.textContent = order.total !== undefined ? ("$" + Number(order.total).toFixed(2)) : "-";
-
-        totalRow.appendChild(totalLabel);
-        totalRow.appendChild(amount);
-
-        // Order card
-        card.appendChild(top);
-        card.appendChild(info);
-        card.appendChild(totalRow);
-
-        // Store selected order before redirecting
-        card.addEventListener("click", function () {
-            localStorage.setItem("selectedOrder", JSON.stringify(order));
-        });
-
-        return card;
-    }
-
-    // Render active and past orders
-    function renderOrdersFromData(orders) {
-
-        var activeOrders = [];
-        var pastOrders = [];
-
-        // Separate orders by status
-        for (var i = 0; i < orders.length; i++) {
-            var status = orders[i].status ? String(orders[i].status).toLowerCase() : "active";
-
-            if (status === "completed" || status === "past") {
-                pastOrders.push(orders[i]);
-            } else {
-                activeOrders.push(orders[i]);
-            }
-        }
-
-        // Update tab count
-        if (activeCount) activeCount.textContent = activeOrders.length;
-        if (pastCount) pastCount.textContent = pastOrders.length;
-
-        // Clear existing order cards
-        clearList(activeOrderList);
-        clearList(pastOrderList);
-
-        // Render active orders
-        if (activeOrders.length === 0) {
-            if (activeEmptyMessage) activeEmptyMessage.hidden = false;
+        if (status === "completed" || status === "past") {
+            pastOrders.push(orders[i]);
         } else {
-            if (activeEmptyMessage) activeEmptyMessage.hidden = true;
-
-            for (var a = 0; a < activeOrders.length; a++) {
-                activeOrderList.appendChild(createOrderCard(activeOrders[a]));
-            }
-        }
-
-        // Render Past orders
-        if (pastOrders.length === 0) {
-            if (pastEmptyMessage) pastEmptyMessage.hidden = false;
-        } else {
-            if (pastEmptyMessage) pastEmptyMessage.hidden = true;
-
-            for (var p = 0; p < pastOrders.length; p++) {
-                pastOrderList.appendChild(createOrderCard(pastOrders[p]));
-            }
+            activeOrders.push(orders[i]);
         }
     }
 
-    function renderOrders() {
-        var orders = getOrdersFromStorage();
-        renderOrdersFromData(orders);
+    // Update tab count
+    if (activeCount) activeCount.textContent = activeOrders.length;
+    if (pastCount) pastCount.textContent = pastOrders.length;
+
+    // Clear existing order cards
+    clearList(activeOrderList);
+    clearList(pastOrderList);
+
+    // Render active orders
+    if (activeOrders.length === 0) {
+        if (activeEmptyMessage) activeEmptyMessage.hidden = false;
+    } else {
+        if (activeEmptyMessage) activeEmptyMessage.hidden = true;
+
+        for (var a = 0; a < activeOrders.length; a++) {
+            activeOrderList.appendChild(createOrderCard(activeOrders[a]));
+        }
     }
 
-    // Tab event handler
-    if (activeTab) {
-        activeTab.addEventListener("click", function () {
-            setTab(true);
-        });
+    // Render Past orders
+    if (pastOrders.length === 0) {
+        if (pastEmptyMessage) pastEmptyMessage.hidden = false;
+    } else {
+        if (pastEmptyMessage) pastEmptyMessage.hidden = true;
+
+        for (var p = 0; p < pastOrders.length; p++) {
+            pastOrderList.appendChild(createOrderCard(pastOrders[p]));
+        }
     }
+}
 
-    if (pastTab) {
-        pastTab.addEventListener("click", function () {
-            setTab(false);
-        });
-    }
+function renderOrders() {
+    var orders = getOrdersFromStorage();
+    renderOrdersFromData(orders);
+}
 
-    // Default to Active tab on load
-    setTab(true);
+// Tab event handler
+if (activeTab) {
+    activeTab.addEventListener("click", function () {
+        setTab(true);
+    });
+}
 
-    // Render orders when page loads
-    renderOrders();
+if (pastTab) {
+    pastTab.addEventListener("click", function () {
+        setTab(false);
+    });
+}
 
-    window.renderOrdersFromData = renderOrdersFromData;
-});
+// Default to Active tab on load
+setTab(true);
+
+// Render orders when page loads
+renderOrders();
+
+window.renderOrdersFromData = renderOrdersFromData;
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initOrderHistory);
+} else {
+    initOrderHistory(); // runs even if imported after page load
+}
