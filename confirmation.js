@@ -128,12 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    // If cart is empty, do nothing (prevents duplicates on refresh)
-    var cart = getCart();
-    if (cart.length === 0) {
-        return;
-    }
-
     // Generate order number once (prevents change on refresh)
     var savedOrderNo = localStorage.getItem("latestOrderNumber");
 
@@ -143,8 +137,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Display order number
+    var lastConfirmed = localStorage.getItem("lastConfirmedOrderNumber");
     if (orderNumberEl) {
         orderNumberEl.textContent = savedOrderNo;
+    }
+
+    // Refresh would not affect it
+    localStorage.setItem("lastConfirmedOrderNumber", savedOrderNo);
+
+    // If cart is empty, stop here (prevents duplicate saving)
+    var cart = getCart();
+    if (cart.length === 0) {
+        return;
     }
 
     // Prevent duplicate save on refresh
@@ -191,10 +195,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("Firestore save failed:", error);
             });
     });
-
-    // Mark this order as saved
-    localStorage.setItem("lastSavedOrderNumber", savedOrderNo);
-    localStorage.removeItem("latestOrderNumber");
 
     // Clear cart after successful order
     localStorage.setItem("cart", JSON.stringify([]));
