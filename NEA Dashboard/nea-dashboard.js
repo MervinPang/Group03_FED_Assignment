@@ -12,6 +12,228 @@ const firebaseConfig = {
 // initialising firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+// officer document
+function writeOfficerData() {
+  const docData = {
+    name: "Rayne Tok",
+  };
+  db.collection("neaDashboard").doc("officer").set(docData);
+  console.log("Officer data written");
+}
+// stats document
+function writeStatsData() {
+  const docData = {
+    totalStalls: 8,
+    thisMonth: 4,
+    pendingComplaints: 0,
+    gradeAStalls: 1,
+  };
+  db.collection("neaDashboard").doc("stats").set(docData);
+  console.log("Stats data written");
+}
+// grade distribution document
+function writeGradeDistributionData() {
+  const docData = {
+    A: 1,
+    B: 2,
+    C: 1,
+    D: 4,
+  };
+  db.collection("neaDashboard").doc("gradeDistribution").set(docData);
+  console.log("Grade distribution data written");
+}
+// stalls collection
+function writeStall1() {
+  const docData = {
+    name: "Tian Tian Hainanese Chicken Rice",
+    stallId: "#01-45",
+    grade: "D",
+  };
+  db.collection("neaDashboard").collection("stalls").doc("S1").set(docData);
+  console.log("Stall 1 written");
+}
+
+function writeStall2() {
+  const docData = {
+    name: "Zhen Zhen Porridge",
+    stallId: "#01-52",
+    grade: "B",
+  };
+  db.collection("neaDashboard").collection("stalls").doc("S2").set(docData);
+  console.log("Stall 2 written");
+}
+
+function writeStall3() {
+  const docData = {
+    name: "Ah Heng Curry Chicken Bee Hoon",
+    stallId: "#02-18",
+    grade: "A",
+  };
+  db.collection("neaDashboard").collection("stalls").doc("S3").set(docData);
+  console.log("Stall 3 written");
+}
+
+function writeStall4() {
+  const docData = {
+    name: "Happy Duck Rice",
+    stallId: "#01-11",
+    grade: "C",
+  };
+  db.collection("neaDashboard").collection("stalls").doc("S4").set(docData);
+  console.log("Stall 4 written");
+}
+
+function writeStall5() {
+  const docData = {
+    name: "Chong Pang Nasi Lemak",
+    stallId: "#02-34",
+    grade: "B",
+  };
+  db.collection("neaDashboard").collection("stalls").doc("S5").set(docData);
+  console.log("Stall 5 written");
+}
+
+function writeStall6() {
+  const docData = {
+    name: "Lau Pa Sat Satay",
+    stallId: "#01-29",
+    grade: "D",
+  };
+  db.collection("neaDashboard").collection("stalls").doc("S6").set(docData);
+  console.log("Stall 6 written");
+}
+
+function writeStall7() {
+  const docData = {
+    name: "Fishball Story Soup",
+    stallId: "#02-07",
+    grade: "D",
+  };
+  db.collection("neaDashboard").collection("stalls").doc("S7").set(docData);
+  console.log("Stall 7 written");
+}
+
+function writeStall8() {
+  const docData = {
+    name: "Nameless Rice Stall",
+    stallId: "#01-19",
+    grade: "D",
+  };
+  db.collection("neaDashboard").collection("stalls").doc("S8").set(docData);
+  console.log("Stall 8 written");
+}
+// inspections collection
+function writeInspection1() {
+  const docData = {
+    stall: "Tian Tian Hainanese Chicken Rice",
+    stallId: "#01-45",
+    date: "Jan 13, 2026",
+    officer: "Rayne Tok",
+    cleanliness: 92,
+    foodHandling: 87,
+    equipment: 95,
+    overall: 91,
+    grade: "A",
+  };
+  db.collection("neaDashboard")
+    .collection("inspections")
+    .doc("I1")
+    .set(docData);
+  console.log("Inspection 1 written");
+}
+
+function writeInspection2() {
+  const docData = {
+    stall: "Zhen Zhen Porridge",
+    stallId: "#01-52",
+    date: "Jan 12, 2026",
+    officer: "Rayne Tok",
+    cleanliness: 80,
+    foodHandling: 82,
+    equipment: 79,
+    overall: 80,
+    grade: "B",
+  };
+  db.collection("neaDashboard")
+    .collection("inspections")
+    .doc("I2")
+    .set(docData);
+  console.log("Inspection 2 written");
+}
+
+function writeInspection3() {
+  const docData = {
+    stall: "Ah Heng Curry Chicken Bee Hoon",
+    stallId: "#02-18",
+    date: "Jan 11, 2026",
+    officer: "Rayne Tok",
+    cleanliness: 98,
+    foodHandling: 96,
+    equipment: 97,
+    overall: 97,
+    grade: "A",
+  };
+  db.collection("neaDashboard")
+    .collection("inspections")
+    .doc("I3")
+    .set(docData);
+  console.log("Inspection 3 written");
+}
+// complaints collection
+function writeComplaint1() {
+  const docData = {
+    stall: "Lau Pa Sat Satay",
+    stallId: "#01-29",
+    date: "Jan 15, 2026",
+    description: "Found cockroach near food preparation area",
+    status: "Pending",
+    submittedBy: "Customer",
+  };
+  db.collection("neaDashboard").collection("complaints").doc("C1").set(docData);
+  console.log("Complaint 1 written");
+}
+function writeComplaint2() {
+  const docData = {
+    stall: "Jian Bo Shui Kueh",
+    stallId: "#02-18",
+    date: "Jan 10, 2026",
+    description:
+      "Dirty hygiene practices observed, flies around food, unclean utensils",
+    status: "Pending",
+    submittedBy: "Customer",
+  };
+  db.collection("neaDashboard").collection("complaints").doc("C2").set(docData);
+  console.log("Complaint 2 written");
+}
+// seed all data function
+function seedAllNEAData() {
+  console.log("🌱 Starting to seed NEA Dashboard data...");
+  // write officer & stats & grade distribution
+  writeOfficerData();
+  writeStatsData();
+  writeGradeDistributionData();
+  // write stalls
+  writeStall1();
+  writeStall2();
+  writeStall3();
+  writeStall4();
+  writeStall5();
+  writeStall6();
+  writeStall7();
+  writeStall8();
+  // write inspections
+  writeInspection1();
+  writeInspection2();
+  writeInspection3();
+  // write complaints
+  writeComplaint1();
+  writeComplaint2();
+  console.log("All NEA Dashboard data written to Firestore.");
+}
+// uncomment the lines below to seed data (run once, then comment out again)
+// console.log("Hello there, Firestore!");
+// seedAllNEAData();
+
 // global variables to hold NEA data
 let neaDashboardData = null;
 // initialisation on DOM load
@@ -42,24 +264,20 @@ async function loadNEADataFromFirebase() {
       neaRef.collection("inspections").get(),
       neaRef.collection("complaints").get(),
     ]);
-
-    // Process stalls
+    // process stalls
     const stalls = [];
     stallsSnapshot.forEach((doc) => stalls.push({ id: doc.id, ...doc.data() }));
-
-    // Process inspections
+    // process inspections
     const inspections = [];
     inspectionsSnapshot.forEach((doc) =>
       inspections.push({ id: doc.id, ...doc.data() }),
     );
-
-    // Process complaints
+    // process complaints
     const complaints = [];
     complaintsSnapshot.forEach((doc) =>
       complaints.push({ id: doc.id, ...doc.data() }),
     );
-
-    // Build data object
+    // build data object
     neaDashboardData = {
       officer: officerDoc.exists ? officerDoc.data() : { name: "NEA Officer" },
       stats: statsDoc.exists
@@ -77,7 +295,6 @@ async function loadNEADataFromFirebase() {
       inspections: inspections,
       complaints: complaints,
     };
-
     console.log("NEA Data loaded:", neaDashboardData);
 
     hideLoadingState();
@@ -103,12 +320,11 @@ function showLoadingState() {
   `;
   document.body.appendChild(loadingDiv);
 }
-
 function hideLoadingState() {
   const overlay = document.getElementById("nea-loading-overlay");
   if (overlay) overlay.remove();
 }
-// fallback data in case of Firebase failure
+// fallback data in case of firebase failure
 function loadFallbackData() {
   console.log("Loading fallback data...");
 
@@ -157,32 +373,38 @@ function loadFallbackData() {
       {
         id: "I1",
         stall: "Tian Tian Hainanese Chicken Rice",
+        stallId: "#01-45",
         date: "Jan 13, 2026",
         officer: "Rayne Tok",
         cleanliness: 92,
         foodHandling: 87,
         equipment: 95,
         overall: 91,
+        grade: "A",
       },
       {
         id: "I2",
         stall: "Zhen Zhen Porridge",
+        stallId: "#01-52",
         date: "Jan 12, 2026",
         officer: "Rayne Tok",
         cleanliness: 80,
         foodHandling: 82,
         equipment: 79,
         overall: 80,
+        grade: "B",
       },
       {
         id: "I3",
         stall: "Ah Heng Curry Chicken Bee Hoon",
+        stallId: "#02-18",
         date: "Jan 11, 2026",
         officer: "Rayne Tok",
         cleanliness: 98,
         foodHandling: 96,
         equipment: 97,
         overall: 97,
+        grade: "A",
       },
     ],
     complaints: [],
@@ -193,7 +415,7 @@ function loadFallbackData() {
   initializeNEATabs();
   initializeEventListeners();
 }
-//Firebase saving functions
+// firebase saving functions
 async function saveInspectionToFirebase(inspection) {
   try {
     const neaRef = db.collection("neaDashboard");
@@ -221,14 +443,13 @@ async function saveComplaintToFirebase(complaint) {
   try {
     const neaRef = db.collection("neaDashboard");
     const docRef = await neaRef.collection("complaints").add(complaint);
-    console.log("✅ Complaint saved:", docRef.id);
+    console.log("Complaint saved:", docRef.id);
     return docRef.id;
   } catch (error) {
-    console.error("❌ Error saving complaint:", error);
+    console.error("Error saving complaint:", error);
     return null;
   }
 }
-
 async function updateComplaintStatusInFirebase(complaintId, status) {
   try {
     const neaRef = db.collection("neaDashboard");
@@ -243,7 +464,6 @@ async function updateComplaintStatusInFirebase(complaintId, status) {
     return false;
   }
 }
-
 async function updateStatsInFirebase(stats) {
   try {
     const neaRef = db.collection("neaDashboard");
@@ -255,7 +475,6 @@ async function updateStatsInFirebase(stats) {
     return false;
   }
 }
-
 async function updateGradeDistributionInFirebase(distribution) {
   try {
     const neaRef = db.collection("neaDashboard");
@@ -267,11 +486,11 @@ async function updateGradeDistributionInFirebase(distribution) {
     return false;
   }
 }
-//Real time listeners
+// real time listeners
 function setupRealtimeListeners() {
   console.log("Setting up real-time listeners...");
   const neaRef = db.collection("neaDashboard");
-  //Listener for stalls collection
+  // listener for stalls collection
   neaRef.collection("stalls").onSnapshot((snapshot) => {
     console.log("Stalls updated!");
     const stalls = [];
@@ -284,33 +503,34 @@ function setupRealtimeListeners() {
       renderNEAStallsTab(neaDashboardData);
     }
   });
-  //Listener for inspections collection
+  // listener for inspections collection
   neaRef.collection("inspections").onSnapshot((snapshot) => {
     console.log("Inspections updated!");
     const inspections = [];
     snapshot.forEach((doc) => inspections.push({ id: doc.id, ...doc.data() }));
     neaDashboardData.inspections = inspections;
-    renderNEAInspectionsTab(neaDashboardData);
 
-    const statsEl = document.getElementById("nea-inspections-count");
+    const statsEl = document.getElementById("nea-this-month");
     if (statsEl) statsEl.textContent = inspections.length;
+
     const inspectionsTab = document.getElementById("nea-inspections-tab");
     if (inspectionsTab && inspectionsTab.classList.contains("active")) {
       renderNEAInspectionsTab(neaDashboardData);
     }
   });
-  //Listener for complaints collection
+  // listener for complaints collection
   neaRef.collection("complaints").onSnapshot((snapshot) => {
-    console.log("🔄 Complaints updated!");
+    console.log("Complaints updated!");
     const complaints = [];
     snapshot.forEach((doc) => complaints.push({ id: doc.id, ...doc.data() }));
     neaDashboardData.complaints = complaints;
-    renderNEAComplaintsTab(neaDashboardData);
+
     const pendingCount = complaints.filter(
       (c) => c.status === "Pending",
     ).length;
-    const pendingEl = document.getElementById("nea-pending-count");
+    const pendingEl = document.getElementById("nea-pending-complaints");
     if (pendingEl) pendingEl.textContent = pendingCount;
+
     const complaintsTab = document.getElementById("nea-complaints-tab");
     if (complaintsTab && complaintsTab.classList.contains("active")) {
       renderNEAComplaintsTab(neaDashboardData);
@@ -318,6 +538,7 @@ function setupRealtimeListeners() {
   });
   console.log("Real-time listeners set up.");
 }
+
 function updateGradeDistributionFromStalls() {
   const distribution = { A: 0, B: 0, C: 0, D: 0 };
   neaDashboardData.stalls.forEach((stall) => {
@@ -327,40 +548,46 @@ function updateGradeDistributionFromStalls() {
   });
   neaDashboardData.gradeDistribution = distribution;
   renderGradeDistribution(distribution);
+
+  // update grade A stalls count
+  const gradeAEl = document.getElementById("nea-grade-a-stalls");
+  if (gradeAEl) gradeAEl.textContent = distribution.A;
 }
-//Render Dashboard
+// render dashboard
 function renderNEADashboard() {
   console.log("Rendering NEA Dashboard...");
   const data = neaDashboardData;
-  //Update the header
+  // update the header
   const officerNameEl = document.getElementById("nea-officer-name");
   if (officerNameEl) officerNameEl.textContent = data.officer.name;
-  //Update stats
+  // update stats
   const totalStallsEl = document.getElementById("nea-total-stalls");
-  const inspectionsCountEl = document.getElementById("nea-inspections-count");
-  const pendingEl = document.getElementById("nea-pending-count");
+  const thisMonthEl = document.getElementById("nea-this-month");
+  const pendingEl = document.getElementById("nea-pending-complaints");
+  const gradeAEl = document.getElementById("nea-grade-a-stalls");
+
   if (totalStallsEl) totalStallsEl.textContent = data.stats.totalStalls;
-  if (inspectionsCountEl)
-    inspectionsCountEl.textContent = data.inspections.length;
+  if (thisMonthEl) thisMonthEl.textContent = data.inspections.length;
   if (pendingEl)
     pendingEl.textContent = data.complaints.filter(
-      (c) => c.status === "pending",
+      (c) => c.status === "Pending",
     ).length;
-  //Render grade distribution chart
+  if (gradeAEl) gradeAEl.textContent = data.gradeDistribution.A;
+  // render grade distribution chart
   renderGradeDistribution(data.gradeDistribution);
   console.log("NEA Dashboard rendered.");
 }
 function renderGradeDistribution(distribution) {
-  const gradeAEl = document.getElementById("nea-grade-a-count");
-  const gradeBEl = document.getElementById("nea-grade-b-count");
-  const gradeCEl = document.getElementById("nea-grade-c-count");
-  const gradeDEl = document.getElementById("nea-grade-d-count");
-  if (gradeAEl) gradeAEl.textContent = distribution.A;
-  if (gradeBEl) gradeBEl.textContent = distribution.B;
-  if (gradeCEl) gradeCEl.textContent = distribution.C;
-  if (gradeDEl) gradeDEl.textContent = distribution.D;
+  const countAEl = document.getElementById("nea-count-a");
+  const countBEl = document.getElementById("nea-count-b");
+  const countCEl = document.getElementById("nea-count-c");
+  const countDEl = document.getElementById("nea-count-d");
+  if (countAEl) countAEl.textContent = distribution.A;
+  if (countBEl) countBEl.textContent = distribution.B;
+  if (countCEl) countCEl.textContent = distribution.C;
+  if (countDEl) countDEl.textContent = distribution.D;
 }
-//Tab Navigation
+// tab navigation
 function initializeNEATabs() {
   console.log("Initializing NEA Dashboard tabs...");
   const tabBtns = document.querySelectorAll(".nea-tab-btn");
@@ -373,10 +600,10 @@ function initializeNEATabs() {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       const tabName = btn.getAttribute("data-nea-tab");
-      //update buttons
+      // update buttons
       tabBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      //update panes
+      // update panes
       tabPanes.forEach((p) => p.classList.remove("active"));
       const tabPane = document.getElementById(`nea-${tabName}-tab`);
       if (tabPane) {
@@ -385,7 +612,7 @@ function initializeNEATabs() {
       }
     });
   });
-  //Render Initial tab
+  // render initial tab
   renderNEATabContent("stalls");
 }
 function renderNEATabContent(tabName) {
@@ -399,7 +626,7 @@ function renderNEATabContent(tabName) {
     renderNEAComplaintsTab(data);
   }
 }
-//Stalls Tab
+// stalls tab
 function renderNEAStallsTab(data) {
   console.log("Rendering NEA Stalls tab...");
   const stallsList = document.getElementById("nea-stalls-list");
@@ -456,7 +683,7 @@ function createGradeBadge(grade) {
       <div class="nea-grade-circle grade-${gradeUpper.toLowerCase()}" style="background: ${bgColor};">${gradeUpper}</div>
     </div>`;
 }
-//Inspections Tab
+// inspections tab
 function renderNEAInspectionsTab(data) {
   console.log("Rendering NEA Inspections tab...");
   const inspectionsList = document.getElementById("nea-inspections-list");
@@ -466,47 +693,50 @@ function renderNEAInspectionsTab(data) {
   }
   if (data.inspections.length === 0) {
     inspectionsList.innerHTML = createEmptyState(
+      "📋",
       "No Inspections",
       "Inspections will appear here",
     );
+    return;
   }
-  //sort by date
+  // sort by date
   const sortedInspections = [...data.inspections].sort((a, b) => {
     return new Date(b.date) - new Date(a.date);
   });
   let html = "";
   sortedInspections.forEach((insp) => {
     const grade = insp.grade || getGradeFromScore(insp.overall);
-    html += ` <article class="nea-inspection-card">
-    <header class="nea-inspection-header">
-      <div class="nea-inspection-left">
-        <h4>${insp.stall}</h4>
-        <p>${insp.stallId || ""} • ${insp.date}</p>
-      </div>
-      <div class="nea-inspection-score">${insp.overall}%</div>
-    </header>
-    <div class="nea-inspection-breakdown">
-      <div class="nea-breakdown-item">
-        <label>Cleanliness</label>
-        <span>${insp.cleanliness}%</span>
-      </div>
-      <div class="nea-breakdown-item">
-        <label>Food Handling</label>
-        <span>${insp.foodHandling}%</span>
-      </div>
-      <div class="nea-breakdown-item">
-        <label>Equipment</label>
-        <span>${insp.equipment}%</span>
-      </div>
-    </div>
-    <div class="nea-inspection-badge-container">
-      ${createGradeBadge(grade)}
-    </div>
-  </article>`;
+    html += `
+      <article class="nea-inspection-card">
+        <header class="nea-inspection-header">
+          <div class="nea-inspection-left">
+            <h4>${insp.stall}</h4>
+            <p>${insp.stallId || ""} • ${insp.date}</p>
+          </div>
+          <div class="nea-inspection-score">${insp.overall}%</div>
+        </header>
+        <div class="nea-inspection-breakdown">
+          <div class="nea-breakdown-item">
+            <label>Cleanliness</label>
+            <span>${insp.cleanliness}%</span>
+          </div>
+          <div class="nea-breakdown-item">
+            <label>Food Handling</label>
+            <span>${insp.foodHandling}%</span>
+          </div>
+          <div class="nea-breakdown-item">
+            <label>Equipment</label>
+            <span>${insp.equipment}%</span>
+          </div>
+        </div>
+        <div class="nea-inspection-badge-container">
+          ${createGradeBadge(grade)}
+        </div>
+      </article>`;
   });
   inspectionsList.innerHTML = html;
 }
-//Complaints Tab
+// complaints tab
 function renderNEAComplaintsTab(data) {
   console.log("Rendering NEA Complaints tab...");
   const complaintsList = document.getElementById("nea-complaints-list");
@@ -518,7 +748,8 @@ function renderNEAComplaintsTab(data) {
     (c) => c.status === "Pending",
   );
   if (pendingComplaints.length === 0) {
-    complaintsList.innerHTML = `<div class="nea-complaints-empty">
+    complaintsList.innerHTML = `
+      <div class="nea-complaints-empty">
         <p class="nea-complaint-empty">✅</p>
         <p class="nea-complaint-empty-text">No pending complaints</p>
       </div>`;
@@ -526,7 +757,8 @@ function renderNEAComplaintsTab(data) {
   }
   let html = "";
   pendingComplaints.forEach((complaint) => {
-    html += ` <article class="nea-complaint-card">
+    html += `
+      <article class="nea-complaint-card">
         <header class="nea-complaint-header">
           <div class="nea-complaint-info">
             <h4>${complaint.stall}</h4>
@@ -559,14 +791,14 @@ async function resolveComplaint(complaintId) {
       neaDashboardData.complaints[index].status = "Resolved";
       renderNEAComplaintsTab(neaDashboardData);
       renderNEADashboard();
-      showToast("✅ Complaint marked as resolved", "success");
+      showToast("Complaint marked as resolved", "success");
     }
   } catch (error) {
     console.error("Error resolving complaint:", error);
-    showToast("❌ Failed to mark complaint as resolved", "error");
+    showToast("Failed to mark complaint as resolved", "error");
   }
 }
-//Inspection modal
+// inspection modal
 function openInspectionModal(stallId, stallName, stallUnitId) {
   const modal = document.getElementById("nea-inspection-modal");
   if (modal) {
@@ -576,7 +808,7 @@ function openInspectionModal(stallId, stallName, stallUnitId) {
     document.getElementById("inspection-stall-display").textContent = stallName;
     document.getElementById("inspection-stall-unit-display").textContent =
       stallUnitId;
-    // Reset form fields
+    // reset form fields
     document.getElementById("inspection-cleanliness").value = "";
     document.getElementById("inspection-food-handling").value = "";
     document.getElementById("inspection-equipment").value = "";
@@ -584,12 +816,14 @@ function openInspectionModal(stallId, stallName, stallUnitId) {
     modal.classList.add("active");
   }
 }
+
 function closeInspectionModal() {
   const modal = document.getElementById("nea-inspection-modal");
   if (modal) {
     modal.classList.remove("active");
   }
 }
+
 async function submitInspectionForm() {
   const stallId = document.getElementById("inspection-stall-id").value;
   const stallName = document.getElementById("inspection-stall-name").value;
@@ -604,7 +838,7 @@ async function submitInspectionForm() {
     document.getElementById("inspection-equipment").value,
   );
   const notes = document.getElementById("inspection-notes").value;
-  //validation
+  // validation
   if (isNaN(cleanliness) || cleanliness < 0 || cleanliness > 100) {
     showToast("Cleanliness score must be 0-100", "error");
     return;
@@ -617,7 +851,7 @@ async function submitInspectionForm() {
     showToast("Equipment score must be 0-100", "error");
     return;
   }
-  //calculate overall score
+  // calculate overall score
   const overall = Math.round((cleanliness + foodHandling + equipment) / 3);
   const grade = getGradeFromScore(overall);
   const inspection = {
@@ -649,8 +883,7 @@ async function submitInspectionForm() {
     if (docId) {
       inspection.id = docId;
       neaDashboardData.inspections.unshift(inspection);
-
-      // Update stall grade
+      // update stall grade
       await updateStallGradeInFirebase(stallId, grade);
       const stallIndex = neaDashboardData.stalls.findIndex(
         (s) => s.id === stallId,
@@ -658,17 +891,16 @@ async function submitInspectionForm() {
       if (stallIndex !== -1) {
         neaDashboardData.stalls[stallIndex].grade = grade;
       }
-
       updateGradeDistributionFromStalls();
       closeInspectionModal();
       renderNEADashboard();
-      showToast(`✅ Inspection submitted! Grade: ${grade}`, "success");
+      showToast(`Inspection submitted! Grade: ${grade}`, "success");
     } else {
-      showToast("❌ Failed to save inspection", "error");
+      showToast("Failed to save inspection", "error");
     }
   } catch (error) {
     console.error("Error submitting inspection:", error);
-    showToast("❌ An error occurred", "error");
+    showToast("An error occurred", "error");
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;
@@ -676,7 +908,7 @@ async function submitInspectionForm() {
     }
   }
 }
-//helper function
+// helper functions
 function createEmptyState(icon, title, text) {
   return `
     <div class="nea-empty-state">
@@ -685,14 +917,13 @@ function createEmptyState(icon, title, text) {
       <p class="nea-empty-state-text">${text}</p>
     </div>`;
 }
-
 function getGradeFromScore(score) {
   if (score >= 90) return "A";
   if (score >= 75) return "B";
   if (score >= 60) return "C";
   return "D";
 }
-//Toast notfication
+// toast notification
 function showToast(message, type = "success") {
   const existing = document.querySelector(".nea-toast");
   if (existing) existing.remove();
@@ -707,17 +938,17 @@ function showToast(message, type = "success") {
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
-//Event listeners
+// event listeners
 function initializeEventListeners() {
   console.log("Initializing event listeners...");
-  //Stalls search
+  // stalls search
   const stallSearch = document.getElementById("nea-stalls-search");
   if (stallSearch) {
     stallSearch.addEventListener("input", () =>
       renderNEAStallsTab(neaDashboardData),
     );
   }
-  //Inspection modal submit on click
+  // inspection modal submit on click
   const inspectionSubmitBtn = document.querySelector(
     "#nea-inspection-modal .nea-btn-save",
   );
@@ -727,18 +958,27 @@ function initializeEventListeners() {
       submitInspectionForm();
     });
   }
-  //Inspection modal close on escape
+  // inspection modal close on escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeInspectionModal();
   });
+  // close modal when clicking outside
+  const modal = document.getElementById("nea-inspection-modal");
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeInspectionModal();
+    });
+  }
   console.log("Event listeners initialized");
 }
+// navigation
 function navigateHome() {
   window.location.href = "index.html";
 }
-//global functions
+// global functions
 window.openInspectionModal = openInspectionModal;
 window.closeInspectionModal = closeInspectionModal;
 window.submitInspectionForm = submitInspectionForm;
 window.resolveComplaint = resolveComplaint;
 window.navigateHome = navigateHome;
+window.seedAllNEAData = seedAllNEAData;
