@@ -1,0 +1,421 @@
+/* ================
+   Stall Banner
+   ================ */
+
+/* Stall Banner */
+.banner {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(55%);
+}
+
+/* Stall Info */
+.info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #FFFFFF;
+    margin-left: 110px;
+}
+
+.info p {
+    margin-top: 15px;
+}
+
+#star-icon {
+    color: #FACC15;
+    font-size: 18px;
+}
+
+/* ========================
+   Stall Information Card
+   ======================== */
+
+/* Stall Information Card */
+.stall-card {
+    margin-top: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+/* Stall Tags */
+.stall-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.tag {
+    background-color: #D1FAE5;
+    color: #059669;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Description text */
+.stall-description {
+    margin-bottom: 15px;
+    padding: 5px;
+    color: #374151;
+}
+
+/* Stall Operating Hours */
+.stall-hours {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #6B7280;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+/* Clock Icon */
+.clock-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.tabs {
+    display: flex;
+    margin-top: 15px;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* Tab button */
+.tab {
+    flex: 1;
+    padding: 14px;
+    border-style: none;
+    background-color: #FFFFFF;
+    font-weight: bold;
+}
+
+/* Active tab */
+.tab.active {
+    background: #D1FAE5;
+}
+
+/* Restaurant Icon */
+#restaurant-icon {
+    width: 25px;
+    height: 12px;
+}
+
+/* Chatbox Icon */
+#chatbox-icon {
+    width: 25px;
+    height: 12px;
+}
+
+/* ========================
+   Menu Items
+   ======================== */
+
+/* Spacing above and below the Menu heading */
+.menu {
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+/* Menu item list */
+.menu-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    /* Stack menu cards vertically */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 250px;
+}
+
+/* ========================
+   Individual Menu Card
+   ======================== */
+
+.menu-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+
+    /* Inner spacing and layout */
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Food image */
+.image {
+    width: 140px;
+    height: 100px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    /* Prevent image from shrinking */
+    flex-shrink: 0;
+}
+
+.menu-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-title {
+    /* Position relative for signature label */
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.signature {
+    /* Position near the menu title */
+    position: absolute;
+    top: 10px;
+    left: -150px;
+    background-color: #F59E0B;
+    color: #FFFFFF;
+    font-size: 12px;
+    padding: 4px 6px;
+    border-radius: 8px;
+}
+
+.menu-text {
+    flex: 1;
+}
+
+.menu-text h3 {
+    margin: 0;
+}
+
+.menu-text p {
+    margin: 5px 0;
+    color: #6B7280;
+}
+
+.price {
+    font-weight: bold;
+    color: #000000;
+}
+
+.add-button {
+    /* Make button to the right */
+    margin-left: auto;
+    margin-top: 35px;
+    padding: 10px 14px;
+    border-style: none;
+    border-radius: 10px;
+    background-color: #10B981;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #059669;
+}
+
+/* ========================
+   Cart Bar
+   ======================== */
+
+.cart-bar {
+    display: flex;
+
+    /* Fix the cart bar to the bottom of the screen */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F0FDF9;
+    border-top: 1px solid #E5E7EB;
+    padding: 12px 20px;
+}
+
+.cart-bar[hidden] {
+    display: none;
+}
+
+/* Cart item count text */
+.cart-items {
+    margin: 0;
+    color: #000000;
+}
+
+.cart-button {
+    text-decoration: none;
+    background-color: #10B981;
+    color: #FFFFFF;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cart-button:hover {
+    background-color: #059669;
+}
+
+/* ========================
+   Top Social Media Bar
+   ======================== */
+
+.socials {
+    background-color: #10B981;
+    color: #FFFFFF;
+    padding: 14px 0;
+}
+
+/* Layout for text and icons in the top bar */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Text on the top bar */
+.footer-top-text {
+    margin: 8px;
+    font-size: 14px;
+}
+
+/* Container for icons */
+.footer-icon {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.linkedin-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.instagram-icon {
+    width: 25px;
+    height: 25px;
+    padding-top: 4px;
+}
+
+.twitter-icon {
+    width: 28px;
+    height: 28px;
+    padding-top: 5px;
+}
+
+/* ========================
+   Main Footer Area
+   ======================== */
+
+.footer {
+    background-color: #36465D;
+    color: #FFFFFF;
+    padding: 50px;
+}
+
+/* Layout for columns */
+.layout {
+    display: flex;
+    gap: 120px;
+    margin-bottom: 20px;
+}
+
+/* ========================
+   Footer Section Titles
+   ======================== */
+
+.title {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding-top: 21px;
+}
+
+/* Green underline under heading*/
+.line {
+    width: 50px;
+    height: 3px;
+    background: #10B981;
+    margin: 18px 0;
+}
+
+/* Footer HawkerHubSG Logo */
+.footer-logo {
+    width: 140px;
+}
+
+/* Footer links */
+.link {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+
+.link:hover {
+    color: #059669;
+}
+
+/* ========================
+   Contact Information Rows
+   ======================== */
+
+.contact {
+    /* Align icon and text on the same row */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 25px 0;
+    font-size: 16px;
+}
+
+.contact a {
+    text-decoration: none;
+    color: #FFFFFF
+}
+
+.contact a:hover {
+    color: #10B981;
+}
+
+.location-icon {
+    width: 25px;
+    height: 20px;
+}
+
+.mail-icon {
+    width: 25px;
+    height: 20px;
+}
+
+.phone-icon {
+    width: 25px;
+    height: 20px;
+}
+
+/* ========================
+   Bottom Footer Strip
+   ======================== */
+
+.footer-bottom {
+    background-color: #1F2A3A;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 13px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 60px;
+}

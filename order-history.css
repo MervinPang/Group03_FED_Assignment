@@ -1,0 +1,145 @@
+/* Layout for the Order history page */
+.order-history-layout {
+    padding: 40px 0 80px;
+}
+
+/* Page title */
+.page-title {
+    margin-bottom: 18px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+/* =========================
+   Active / Past Tabs
+   ========================= */
+
+/* Tabs container */
+.tabs {
+    display: flex;
+    border: 2px solid #10B981;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background-color: #F0FDF9;
+}
+
+/* Individual tab button */
+.tab {
+    flex: 1;
+    padding: 12px 10px;
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+    cursor: pointer;
+    color: #059669;
+}
+
+.tab.active {
+    background-color: #10B981;
+    color: #FFFFFF;
+}
+
+/* Container holding all order cards */
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Individual order card */
+.order-card {
+    background-color: #FFFFFF;
+    border: 1px solid #D1FAE5;
+    border-radius: 16px;
+    padding: 18px;
+    text-decoration: none;
+    color: #111827;
+}
+
+.order-card:hover {
+    background-color: #F0FDF9;
+    border-color: #10B981;
+}
+
+/* Top row (Order Number and Status) */
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Order number text */
+.order-id {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 0;
+}
+
+/* Order Status Tag */
+.order-status {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+/* Active / In Progress Order */
+.order-status.active {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+/* Completed Order */
+.order-status.completed {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+/* Order date and item count */
+.order-info {
+    margin-top: 14px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+/* Total price row */
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/* Total amount text */
+.amount {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/* Message shown when no orders are available */
+.empty-message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #6B7280;
+}
+
+/* Make another purchase button */
+.purchase-button {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #10B981;
+    color: #FFFFFF;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: 700;
+}
+
+.purchase-button:hover {
+    background-color: #059669;
+}

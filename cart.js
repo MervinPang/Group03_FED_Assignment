@@ -41,8 +41,8 @@ function clearContainer(el) {
 
 // Return image based on item ID
 function getItemImage(itemId) {
-    if (itemId === "tt01") return "images/Roasted Chicken Rice.jpg";
-    if (itemId === "tt02") return "images/Steamed Chicken Rice.jpg";
+    if (itemId === "cr_roasted") return "images/Roasted Chicken Rice.jpg";
+    if (itemId === "cr_steamed") return "images/Steamed Chicken Rice.jpg";
     return "images/Roasted Chicken Rice.jpg";
 }
 
@@ -293,7 +293,7 @@ function createEmptyState() {
     p.style.margin = "18px 0";
 
     var a = document.createElement("a");
-    a.href = "order.html";
+    a.href = "menu.html";
     a.textContent = "Back to Menu";
     a.className = "cart-button";
 

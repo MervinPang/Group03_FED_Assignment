@@ -1,155 +1,31 @@
-// Key name used to store cart data in localStorage
-var CART_KEY = "cart";
+// Record guest cookie consent using localStorage
+// Redirect guest to the guest order history page
 
-// All "Add" buttons for menu items
-var addButtons = document.querySelectorAll(".add-button");
+document.addEventListener("DOMContentLoaded", function () {
+    var enableCookiesBtn = document.getElementById("enableCookiesBtn");
+    var successMessage = document.getElementById("successMessage");
 
-// Cart bar section at the bottom of the page
-var cartBar = document.querySelector(".cart-bar");
-
-// Text that displays number of items in cart
-var cartItemsText = document.querySelector(".cart-items");
-
-// Retrieve cart data from localStorage
-// If no cart exists, return an empty array
-function getCart() {
-    var cartString = localStorage.getItem(CART_KEY);
-
-    if (cartString === null) {
-        return [];
+    // Hide success message on page load
+    if (successMessage) {
+        successMessage.hidden = true;
     }
 
-    // Convert JSON string back into JavaScript object
-    // If parsing fails, return an empty cart
-    try {
-        return JSON.parse(cartString);
-    } catch (e) {
-        return [];
-    }
-}
+    // Enable cookies button click
+    if (enableCookiesBtn) {
+        enableCookiesBtn.addEventListener("click", function () {
 
-// Save the cart array into localStorage
-function saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
-}
+            // Save cookie consent
+            localStorage.setItem("cookiesEnabled", "true");
 
-// Calculate total quantity of all items in the cart
-function getTotalItemCount(cart) {
-    var total = 0;
+            // Show success message
+            if (successMessage) {
+                successMessage.hidden = false;
+            }
 
-    // Loop through each shop in the cart
-    for (var i = 0; i < cart.length; i++) {
-        var shop = cart[i];
-
-        // Loop through each item in the shop
-        for (var j = 0; j < shop.items.length; j++) {
-            total += shop.items[j].qty;
-        }
-    }
-
-    return total;
-}
-
-// Show or hide cart bar and update item count text
-function updateCartBar() {
-    var cart = getCart();
-    var itemCount = getTotalItemCount(cart);
-
-    if (itemCount > 0) {
-        // Show cart bar when items exist
-        cartBar.hidden = false;
-        // Display correct singular or plural text
-        cartItemsText.textContent = itemCount + (itemCount === 1 ? " item" : " items");
-    } else {
-        // Hide cart bar if cart is empty
-        cartBar.hidden = true;
-        cartItemsText.textContent = "0 items";
-    }
-}
-
-// Add a selected menu item into the cart
-function addItemToCart(shopId, shopName, itemId, itemName, price) {
-    var cart = getCart();
-
-    // Check if shop already exists in cart
-    var shopIndex = -1;
-    for (var i = 0; i < cart.length; i++) {
-        if (cart[i].shopId === shopId) {
-            shopIndex = i;
-            break;
-        }
-    }
-
-    // If shop does not exist, create a new shop entry
-    if (shopIndex === -1) {
-        cart.push({
-            shopId: shopId,
-            shopName: shopName,
-            packaging: "dinein", // Default packaging option
-            items: []
-        });
-        shopIndex = cart.length - 1;
-    }
-
-    // Check if item already exists in this shop
-    var itemIndex = -1;
-    for (var j = 0; j < cart[shopIndex].items.length; j++) {
-        if (cart[shopIndex].items[j].id === itemId) {
-            itemIndex = j;
-            break;
-        }
-    }
-
-    // If item does not exist, add it with quantity 1
-    if (itemIndex === -1) {
-        cart[shopIndex].items.push({
-            id: itemId,
-            name: itemName,
-            price: price,
-            qty: 1
-        });
-    } else {
-        // If item exists, increase quantity
-        cart[shopIndex].items[itemIndex].qty += 1;
-    }
-
-    // Save updated cart and refresh cart bar display
-    saveCart(cart);
-    updateCartBar();
-}
-
-// Attach click events to all Add buttons
-function setupAddButtons() {
-    for (var i = 0; i < addButtons.length; i++) {
-        addButtons[i].addEventListener("click", function () {
-
-            // Retrieve data from button attributes
-            var shopId = this.dataset.shopId;
-            var shopName = this.dataset.shopName;
-            var itemId = this.dataset.itemId;
-            var itemName = this.dataset.itemName;
-            var price = parseFloat(this.dataset.price);
-
-            // Feedback for user
-            var button = this;
-            var originalText = button.textContent;
-
-            button.textContent = "Added!";
-            button.disabled = true;
-
+            // Redirect after a short delay
             setTimeout(function () {
-                button.textContent = originalText;
-                button.disabled = false;
-            }, 500);
-
-            // Add selected item to cart
-            addItemToCart(shopId, shopName, itemId, itemName, price);
+                window.location.href = "order-history.html";
+            }, 1500);
         });
     }
-}
-
-// Set up button click events
-setupAddButtons();
-
-// Update cart bar on page load
-updateCartBar();
+});
